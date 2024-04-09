@@ -12,5 +12,7 @@ namespace School_Management
         public string Name;
         public string Description;
         public string Courses;
+        public string Students;
+        public string Lecturers;
     }
 }
