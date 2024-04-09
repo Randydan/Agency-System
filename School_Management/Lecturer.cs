@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Bus_Agency
+namespace School_Management
 {
     internal class Lecturer
     {

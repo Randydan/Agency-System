@@ -12,6 +12,7 @@ namespace School_Management
         public string Name;
         public int Age;
         public string Email;
+        public string Nationality;
         public int Phone;
         public char Gender;
         public string Department;

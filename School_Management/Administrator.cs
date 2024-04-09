@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Bus_Agency
+namespace School_Management
 {
-    internal class Administration
+    internal class Administrator
     {
         public int ID;
         public string Name;
