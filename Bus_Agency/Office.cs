@@ -8,7 +8,10 @@ namespace Bus_Agency
 {
     internal class Office
     {
-        public string Office_Branch;
-        public int Receipt_Number;
+        public int Office_ID;
+        public string Office_Name;
+        public string Office_Department;
+        public string Office_Description;
+        public string Office_Address;
     }
 }
