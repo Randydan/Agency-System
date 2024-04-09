@@ -8,9 +8,9 @@ namespace Bus_Agency
 {
     internal class Classroom
     {
-        public int Classroom_Id;
-        public string Classroom_Name;
-        public string classroom_Description;
-        public string Classroom_Location;
+        public int ID;
+        public string Name;
+        public string Description;
+        public string Location;
     }
 }

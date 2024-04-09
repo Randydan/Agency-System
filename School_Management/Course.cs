@@ -8,10 +8,10 @@ namespace Bus_Agency
 {
     internal class Course
     {
-        public int Course_ID;
-        public string Course_Name;
-        public string Course_Description;
-        public string Course_Code;
-        public string Course_Department;
+        public int ID;
+        public string Name;
+        public string Description;
+        public string Code;
+        public string Department;
     }
 }
