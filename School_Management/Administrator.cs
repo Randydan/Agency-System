@@ -6,18 +6,11 @@ using System.Threading.Tasks;
 
 namespace School_Management
 {
-    internal class Administrator
+    internal class Administrator : Info
     {
         public int ID;
-        public string Name;
-        public string Email;
-        public int Phone;
-        public int Age;
-        public string Address;
-        public char Gender;
         public int Salary;
         public string Department;
         public string Post;
-        public string Status;
     }
 }

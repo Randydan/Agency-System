@@ -6,17 +6,10 @@ using System.Threading.Tasks;
 
 namespace School_Management
 {
-    internal class Lecturer
+    internal class Lecturer : Personal_Info
     {
         public int ID;
-        public string Name;
-        public string Age;
         public string Course;
-        public string Address;
-        public string Email;
-        public int Phone
-        public string Status;
-        public char Gender;
         public int Salary;
 
     }

@@ -9,7 +9,6 @@ namespace School_Management
     internal class Office
     {
         public int ID;
-        public string Name;
         public string Department;
         public string Description;
         public string Address;

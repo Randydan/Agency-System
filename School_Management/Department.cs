@@ -9,10 +9,9 @@ namespace School_Management
     internal class Department
     {
         public int ID;
-        public string Name;
         public string Description;
         public string Courses;
-        public string Students;
-        public string Lecturers;
+        public string[] Students;
+        public string[] Lecturers;
     }
 }

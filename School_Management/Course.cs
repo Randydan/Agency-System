@@ -9,7 +9,6 @@ namespace School_Management
     internal class Course
     {
         public int ID;
-        public string Name;
         public string Description;
         public string Code;
         public string Department;

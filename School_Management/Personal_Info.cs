@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace School_Management
 {
-    internal class Personal_Info
+    internal class Info
     {
         public int ID;
         public string Name;
