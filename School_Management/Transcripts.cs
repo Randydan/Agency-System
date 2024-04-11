@@ -14,7 +14,6 @@ namespace School_Management
         public string Courses;
         public int Grades;
         public string Description;
-        public int Grades;
         public double GPA;
     }
 }
