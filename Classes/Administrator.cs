@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace School_Management
+namespace Classes
 {
-    internal class Lecturer : Personal_Info
+    internal class Administrator : Info
     {
         public int ID;
-        public string Course;
         public int Salary;
-        public string Department_ID;
+        public string Department;
+        public string Post;
     }
 }

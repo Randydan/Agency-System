@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace School_Management
+namespace Classes
 {
-    internal class Lecturer : Personal_Info
+    internal class Lecturer : Info
     {
         public int ID;
         public string Course;

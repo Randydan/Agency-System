@@ -4,14 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace School_Management
+namespace Classes
 {
-    internal class Course
+    internal class Department
     {
         public int ID;
         public string Description;
-        public string Code;
-        public string Department;
-        public int Grade;
+        public string Courses;
+        public string[] Students;
+        public string[] Lecturers;
     }
 }

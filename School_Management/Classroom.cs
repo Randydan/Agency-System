@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace School_Management
 {
-    internal class Classroom
+    internal class Classroom : Info
     {
         public int ID;
-        public string Name;
         public string Description;
         public string Location;
     }
