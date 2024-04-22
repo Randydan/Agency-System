@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace School_Management
 {
-    internal class Office
+    internal class Office : Info
     {
         public int ID;
         public string Department;
         public string Description;
-        public string Address;
     }
 }

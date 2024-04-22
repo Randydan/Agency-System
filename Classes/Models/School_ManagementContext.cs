@@ -7,13 +7,9 @@ namespace Classes.Models
 {
     public partial class School_ManagementContext : DbContext
     {
-        public School_ManagementContext()
+        public School_ManagementContext(DbContextOptions<School_ManagementContext> options) : base(options)
         {
-        }
 
-        public School_ManagementContext(DbContextOptions<School_ManagementContext> options)
-            : base(options)
-        {
         }
 
         public virtual DbSet<Administrator> Administrators { get; set; } = null!;
