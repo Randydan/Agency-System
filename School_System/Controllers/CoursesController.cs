@@ -28,39 +28,5 @@ namespace School_System.Controllers
 
             return Ok(courses);
         }
-
-        [HttpGet("{Code}")]
-        [ProducesResponseType(200, Type = typeof(Course))]
-        [ProducesResponseType(400)]
-
-        public IActionResult GetCourse(String Code)
-        {
-            if (!_courseInterface.CourseExists(Code))
-                return NotFound();
-
-            var courses = _courseInterface.GetCourses();
-
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
-
-            return Ok(courses);
-        }
-
-        [HttpGet("{Name}")]
-        [ProducesResponseType(200, Type = typeof(Course))]
-        [ProducesResponseType(400)]
-
-        public IActionResult GetCourses(string Name)
-        {
-            if (!_courseInterface.CourseExists(Name))
-                return NotFound();
-
-            var courses = _courseInterface.GetCourses();
-
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
-
-            return Ok(courses);
-        }
     }
 }

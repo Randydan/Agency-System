@@ -3,8 +3,9 @@
     "",
     "\\School_Management",
     "\\School_System",
+    "\\School_System\\Controllers",
     "\\School_System\\Repository"
   ],
-  "SelectedNode": "\\School_System\\Repository\\AdministratorRepository.cs",
+  "SelectedNode": "\\School_System\\Controllers\\OfficeController.cs",
   "PreviewInSolutionExplorer": false
 }

@@ -13,7 +13,7 @@ namespace Classes.Models
 
         public int Id { get; set; }
         public string? Description { get; set; }
-        public string CoursCode { get; set; } = null!;
+        public string Course_Code { get; set; } = null!;
 
         public virtual ICollection<Lecturer> Lecturers { get; set; }
         public virtual ICollection<Student> Students { get; set; }

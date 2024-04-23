@@ -15,7 +15,7 @@ namespace Classes.Models
         public string Status { get; set; } = null!;
         public string Course { get; set; } = null!;
         public int Salary { get; set; }
-        public int DepartmentId { get; set; }
+        public int DepartmentDescription { get; set; }
 
         public virtual Department Department { get; set; } = null!;
     }

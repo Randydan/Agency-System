@@ -29,39 +29,5 @@ namespace School_System.Controllers
             return Ok(offices);
         }
 
-        [HttpGet("{ID}")]
-        [ProducesResponseType(200, Type = typeof(Office))]
-        [ProducesResponseType(400)]
-
-        public IActionResult GetOffice(int ID)
-        {
-            if (!_officesInterface.OfficeExists(ID))
-                return NotFound();
-
-            var offices = _officesInterface.GetOffices();
-
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
-
-            return Ok(offices);
-        }
-
-        [HttpGet("{Name}")]
-        [ProducesResponseType(200, Type = typeof(Office))]
-        [ProducesResponseType(400)]
-
-        public IActionResult GetOffice(string Name)
-        {
-            if (!_officesInterface.OfficeExists(Name))
-                return NotFound();
-
-            var offices = _officesInterface.GetOffices();
-
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
-
-            return Ok(offices);
-        }
-
     }
 }

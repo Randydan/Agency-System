@@ -41,5 +41,18 @@ namespace School_System.Repository
         {
             return _context.Administrators.Any(p => p.Name == Name);
         }
+
+        public bool createAdministrators(Administrator administrator)
+        {
+            _context.Add(administrator);
+
+            return Save();
+        }
+
+        public bool Save()
+        {
+            var saved = _context.SaveChanges();
+            return saved > 0 ? true : false;
+        }
     }
 }

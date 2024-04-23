@@ -28,39 +28,5 @@ namespace School_System.Controllers
             return Ok(classrooms);
         }
 
-        [HttpGet("{ID}")]
-        [ProducesResponseType(200, Type = typeof(Classroom))]
-        [ProducesResponseType(400)]
-
-        public IActionResult GetClassroom(int ID)
-        {
-            if (!_classroomInterface.ClassroomExists(ID))
-                return NotFound();
-
-            var classrooms = _classroomInterface.GetClassrooms();
-
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
-
-            return Ok(classrooms);
-        }
-
-        [HttpGet("{Location}")]
-        [ProducesResponseType(200, Type = typeof(Classroom))]
-        [ProducesResponseType(400)]
-
-        public IActionResult GetClassroom(string description)
-        {
-            if (!_classroomInterface.ClassroomExists(description))
-                return NotFound();
-
-            var classrooms = _classroomInterface.GetClassrooms();
-
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
-
-            return Ok(classrooms);
-        }
-
     }
 }

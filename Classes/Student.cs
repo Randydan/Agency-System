@@ -10,9 +10,7 @@ namespace Classes
     {
         public int ID;
         public string Nationality;
-        public string Department_ID;
-        public string Matricle;
-        public string Course_Code;
-        public int Classroom_ID;
+        public string Department_Description;
+        public string Matricule;
     }
 }

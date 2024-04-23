@@ -13,12 +13,9 @@ namespace Classes.Models
         public int Phone { get; set; }
         public string Status { get; set; } = null!;
         public string Nationality { get; set; } = null!;
-        public string CourseCode { get; set; } = null!;
-        public int ClassroomId { get; set; }
-        public int DepartmentId { get; set; }
+        public int DepartmentDescription { get; set; }
         public string Matricule { get; set; } = null!;
 
-        public virtual Course CourseCodeNavigation { get; set; } = null!;
         public virtual Department Department { get; set; } = null!;
     }
 }

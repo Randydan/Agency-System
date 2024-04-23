@@ -7,10 +7,10 @@ namespace School_System.Interfaces
         ICollection<Course> GetCourses();
 
         Course GetCourse(string Code);
-        Course GetName(string Name);
+        Course GetName(string description);
 
         bool CourseExists(string Code);
-        bool CourseExist(string Name);
+        bool CourseExist(string description);
 
     }
 }

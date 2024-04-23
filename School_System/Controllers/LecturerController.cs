@@ -29,39 +29,5 @@ namespace School_System.Controllers
             return Ok(lecturers);
         }
 
-        [HttpGet("{ID}")]
-        [ProducesResponseType(200, Type = typeof(Lecturer))]
-        [ProducesResponseType(400)]
-
-        public IActionResult GetLecturer(int ID)
-        {
-            if (!_lecturersInterface.LecturerExists(ID))
-                return NotFound();
-
-            var lecturers = _lecturersInterface.GetLecturers();
-
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
-
-            return Ok(lecturers);
-        }
-
-        [HttpGet("{Name}")]
-        [ProducesResponseType(200, Type = typeof(Lecturer))]
-        [ProducesResponseType(400)]
-
-        public IActionResult GetLecturers(string Name)
-        {
-            if (!_lecturersInterface.LecturerExists(Name))
-                return NotFound();
-
-            var lecturers = _lecturersInterface.GetLecturers();
-
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
-
-            return Ok(lecturers);
-        }
-
     }
 }

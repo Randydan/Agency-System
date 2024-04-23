@@ -29,39 +29,35 @@ namespace School_System.Controllers
             return Ok(administrators);
         }
 
-        [HttpGet("{ID}")]
-        [ProducesResponseType(200, Type = typeof(Administrator))]
+        [HttpPost]
+        [ProducesResponseType(204)]
         [ProducesResponseType(400)]
 
-        public IActionResult GetAdministrator(int ID)
+        public IActionResult CreateAdministrator([FromBody] Administrator administratorCreate)
         {
-            if (!_administratorsInterface.AdministratorExists(ID))
-                return NotFound();
+            if (administratorCreate == null)
+                return BadRequest(ModelState);
+            var administrator = _administratorsInterface.GetAdministrators()
+                .Where(c => c.Name.Trim().ToUpper() == administratorCreate.Name.TrimEnd().ToUpper())
+                .FirstOrDefault();
 
-            var administrators = _administratorsInterface.GetAdministrators();
+            if (administrator != null)
+            {
+                ModelState.AddModelError("", "Administrator already exists");
+                return StatusCode(422, ModelState);
+            }
 
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            return Ok(administrators);
+
+            if (!_administratorsInterface.createAdministrators(administratorCreate))
+            {
+                ModelState.AddModelError("", "Something went wrong while saving");
+                return StatusCode(500, ModelState);
+            }
+
+            return Ok("Successfully Created");
         }
-
-        [HttpGet("{Name}")]
-        [ProducesResponseType(200, Type = typeof(Administrator))]
-        [ProducesResponseType(400)]
-
-        public IActionResult GetAdminiistrator(string Name)
-        {
-            if (!_administratorsInterface.AdministratorExists(Name))
-                return NotFound();
-
-            var administrators = _administratorsInterface.GetAdministrators();
-
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
-
-            return Ok(administrators);
-        }
-
     }
 }

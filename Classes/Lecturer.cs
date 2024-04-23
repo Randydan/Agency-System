@@ -11,6 +11,6 @@ namespace Classes
         public int ID;
         public string Course;
         public int Salary;
-        public string Department_ID;
+        public string Department_Description;
     }
 }

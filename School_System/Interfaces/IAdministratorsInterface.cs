@@ -13,5 +13,8 @@ namespace School_System.Interfaces
         bool AdministratorExists(int  ID);
 
         bool AdministratorExists(string Name);
+
+        bool createAdministrators(Administrator administrator);
+        bool Save();
     }
 }

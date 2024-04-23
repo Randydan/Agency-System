@@ -123,10 +123,10 @@ namespace Classes.Models
                     .ValueGeneratedNever()
                     .HasColumnName("ID");
 
-                entity.Property(e => e.CoursCode)
+                entity.Property(e => e.Course_Code)
                     .HasMaxLength(50)
                     .IsUnicode(false)
-                    .HasColumnName("Cours_Code");
+                    .HasColumnName("Course_Code");
 
                 entity.Property(e => e.Description)
                     .HasMaxLength(50)
@@ -149,7 +149,7 @@ namespace Classes.Models
                     .HasMaxLength(50)
                     .IsUnicode(false);
 
-                entity.Property(e => e.DepartmentId).HasColumnName("Department_ID");
+                entity.Property(e => e.DepartmentDescription).HasColumnName("Department_Description");
 
                 entity.Property(e => e.Dob)
                     .HasColumnType("date")
@@ -173,7 +173,7 @@ namespace Classes.Models
 
                 entity.HasOne(d => d.Department)
                     .WithMany(p => p.Lecturers)
-                    .HasForeignKey(d => d.DepartmentId)
+                    .HasForeignKey(d => d.DepartmentDescription)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Lecturer_Department");
             });
@@ -213,14 +213,7 @@ namespace Classes.Models
                     .HasMaxLength(10)
                     .IsUnicode(false);
 
-                entity.Property(e => e.ClassroomId).HasColumnName("Classroom_ID");
-
-                entity.Property(e => e.CourseCode)
-                    .HasMaxLength(10)
-                    .IsUnicode(false)
-                    .HasColumnName("Course_Code");
-
-                entity.Property(e => e.DepartmentId).HasColumnName("Department_ID");
+                entity.Property(e => e.DepartmentDescription).HasColumnName("Department_Description");
 
                 entity.Property(e => e.Dob)
                     .HasColumnType("date")
@@ -246,15 +239,10 @@ namespace Classes.Models
                     .HasMaxLength(10)
                     .IsUnicode(false);
 
-                entity.HasOne(d => d.CourseCodeNavigation)
-                    .WithMany(p => p.Students)
-                    .HasForeignKey(d => d.CourseCode)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_Student_Course");
 
                 entity.HasOne(d => d.Department)
                     .WithMany(p => p.Students)
-                    .HasForeignKey(d => d.DepartmentId)
+                    .HasForeignKey(d => d.DepartmentDescription)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Student_Department");
             });
