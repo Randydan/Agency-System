@@ -13,5 +13,8 @@ namespace School_System.Interfaces
         bool DepartmentExists(int id);
 
         bool DepartmentExists(string description);
+
+        bool createDepartment(Department department);
+        bool Save();
     }
 }

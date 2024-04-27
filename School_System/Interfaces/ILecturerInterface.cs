@@ -10,5 +10,8 @@ namespace School_System.Interfaces
         Lecturer GetLecturer(string Name);
         bool LecturerExists(int id);
         bool LecturerExists(string Name);
+
+        bool createLecturer(Lecturer lecturer);
+        bool Save();
     }
 }

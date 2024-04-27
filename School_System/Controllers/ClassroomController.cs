@@ -1,6 +1,8 @@
-﻿using Classes.Models;
+﻿using AutoMapper;
+using Classes.Models;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Mvc;
+using School_System.DTO;
 using School_System.Interfaces;
 using RouteAttribute = Microsoft.AspNetCore.Mvc.RouteAttribute;
 
@@ -11,9 +13,12 @@ namespace School_System.Controllers
     public class ClassroomsController : Controller
     {
         private readonly IClassroomInterface _classroomInterface;
-        public ClassroomsController(IClassroomInterface classroomRepository)
+        private readonly IMapper _mapper;
+        public ClassroomsController(IClassroomInterface classroomRepository, IMapper mapper)
         {
             _classroomInterface = classroomRepository;
+
+            _mapper = mapper;
         }
 
         [HttpGet]
@@ -26,6 +31,38 @@ namespace School_System.Controllers
                 return BadRequest(ModelState);
 
             return Ok(classrooms);
+        }
+
+        [HttpPost]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(400)]
+
+        public IActionResult CreateClassroom([FromBody] ClassroomDTO classroomCreate)
+        {
+            if (classroomCreate == null)
+                return BadRequest(ModelState);
+            var classroom = _classroomInterface.GetClassrooms()
+                .Where(c => c.Description.Trim().ToUpper() == classroomCreate.Description.TrimEnd().ToUpper())
+                .FirstOrDefault();
+
+            if (classroom != null)
+            {
+                ModelState.AddModelError("", "Classroom already exists");
+                return StatusCode(422, ModelState);
+            }
+
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var classMap = _mapper.Map<Classroom>(classroomCreate);
+
+            if (!_classroomInterface.createClassroom(classMap))
+            {
+              ModelState.AddModelError("", "Something went wrong while saving");
+            return StatusCode(500, ModelState);
+            }
+
+               return Ok("Successfully Created");
         }
 
     }

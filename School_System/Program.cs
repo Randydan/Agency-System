@@ -13,6 +13,7 @@ builder.Services.AddScoped<ILecturerInterface, LecturerRepository>();
 builder.Services.AddScoped<IOfficeInterface, OfficeRepository>();
 builder.Services.AddScoped<IStudentInterface, StudentRepository>();
 builder.Services.AddControllers();
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

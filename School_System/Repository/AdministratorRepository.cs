@@ -15,7 +15,7 @@ namespace School_System.Repository
 
         public Administrator GetAdministrator(int ID)
         {
-            return _context.Administrators.Where(p => p.Id == ID).FirstOrDefault();
+            return _context.Administrators.Where(p => p.AId == ID).FirstOrDefault();
         }
 
         public Administrator GetAdministrator(string Name)
@@ -29,12 +29,12 @@ namespace School_System.Repository
 
         public ICollection<Administrator> GetAdministrators()
         {
-            return _context.Administrators.OrderBy(p => p.Id).ToList();
+            return _context.Administrators.OrderBy(p => p.AId).ToList();
         }
 
         public bool AdministratorExists(int ID)
         {
-            return _context.Administrators.Any(p => p.Id == ID);        
+            return _context.Administrators.Any(p => p.AId == ID);        
         }
 
         public bool AdministratorExists(string Name)

@@ -1,4 +1,5 @@
-﻿using Classes.Models;
+﻿using Classes;
+using Classes.Models;
 
 namespace School_System.Interfaces
 {
@@ -6,7 +7,7 @@ namespace School_System.Interfaces
     {
         ICollection<Administrator> GetAdministrators();
 
-        Administrator GetAdministrator(int ID);
+        Administrator GetAdministrator(int AID);
         Administrator GetAdministrator(string Name);
         Administrator GetAdministrator(DateTime DOB);
 

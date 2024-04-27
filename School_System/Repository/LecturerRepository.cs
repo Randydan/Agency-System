@@ -12,6 +12,12 @@ namespace School_System.Repository
 
         }
 
+        public bool createLecturer(Lecturer lecturer)
+        {
+            _context.Add(lecturer);
+            return Save();
+        }
+
         public Lecturer GetLecturer(int id)
         {
             return _context.Lecturers.Where(p => p.Id == id).FirstOrDefault();
@@ -35,6 +41,13 @@ namespace School_System.Repository
         public bool LecturerExists(string Name)
         {
             return _context.Lecturers.Any(p => p.Name == Name);
+        }
+
+        public bool Save()
+        {
+            var saved = _context.SaveChanges();
+
+            return saved > 0 ? true : false;
         }
     }
 }

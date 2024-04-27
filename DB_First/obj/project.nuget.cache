@@ -1,8 +1,16 @@
 {
   "version": 2,
-  "dgSpecHash": "oZQVtao7xRS1Fr/Ak2v4KDUILBUcet4xssGzLhAjw8M5RkpBdblyO9YcFUkstxL2Zsm41pwiATuGAwZSYn0Mww==",
+  "dgSpecHash": "nzr2QQq29dwoWLx3oI2ga8e+vVReGqYs6zgzN094K6fUnfdoTH/JNnBR18Ngp5jqvie71MqLsktPoUQsHnu6/A==",
   "success": true,
   "projectFilePath": "C:\\Users\\randy\\source\\repos\\Randydan\\School_Management\\DB_First\\DB_First.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\randy\\.nuget\\packages\\automapper\\11.0.0\\automapper.11.0.0.nupkg.sha512",
+    "C:\\Users\\randy\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",
+    "C:\\Users\\randy\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
+    "C:\\Users\\randy\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512",
+    "C:\\Users\\randy\\.nuget\\packages\\microsoft.extensions.options\\6.0.0\\microsoft.extensions.options.6.0.0.nupkg.sha512",
+    "C:\\Users\\randy\\.nuget\\packages\\microsoft.extensions.primitives\\6.0.0\\microsoft.extensions.primitives.6.0.0.nupkg.sha512",
+    "C:\\Users\\randy\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
+  ],
   "logs": []
 }

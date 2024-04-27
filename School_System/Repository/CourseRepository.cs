@@ -24,6 +24,13 @@ namespace School_System.Repository
             return _context.Courses.Any(p => p.Code == Code);
         }
 
+        public bool CreateCourse(Course course)
+        {
+            _context.Add(course);
+
+            return Save();
+        }
+
         public Course GetCourse(string Code)
         {
             return _context.Courses.Where(p => p.Code == Code).FirstOrDefault();
@@ -32,6 +39,13 @@ namespace School_System.Repository
         public ICollection<Course> GetCourses()
         {
             return _context.Courses.OrderBy(p => p.Code).ToList();
+        }
+
+        public bool Save()
+        {
+            var saved = _context.SaveChanges();
+
+            return saved > 0 ? true : false;
         }
 
         Course ICourseInterface.GetName(string Description)

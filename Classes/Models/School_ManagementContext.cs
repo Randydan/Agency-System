@@ -33,11 +33,13 @@ namespace Classes.Models
         {
             modelBuilder.Entity<Administrator>(entity =>
             {
+                entity.HasKey(e => e.AId);
+
                 entity.ToTable("Administrator");
 
-                entity.Property(e => e.Id)
+                entity.Property(e => e.AId)
                     .ValueGeneratedNever()
-                    .HasColumnName("ID");
+                    .HasColumnName("AID");
 
                 entity.Property(e => e.Address)
                     .HasMaxLength(60)

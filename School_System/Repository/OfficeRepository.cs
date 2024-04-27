@@ -13,6 +13,12 @@ namespace School_System.Repository
 
         }
 
+        public bool createOffice(Office office)
+        {
+            _context.Add(office);
+            return Save();
+        }
+
         public Office GetOffice(int id)
         {
             return _context.Offices.Where(p => p.Id == id).FirstOrDefault();
@@ -36,6 +42,13 @@ namespace School_System.Repository
         public bool OfficeExists(string description)
         {
             return _context.Offices.Any(p => p.Description == description);
+        }
+
+        public bool Save()
+        {
+            var saved = _context.SaveChanges();
+
+            return saved > 0? true: false;
         }
     }
 }

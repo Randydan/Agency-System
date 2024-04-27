@@ -10,5 +10,8 @@ namespace School_System.Interfaces
         Student GetStudent(string name);
         bool StudentExist(string matricule);
         bool StudentExists(string name);
+
+        bool createStudent(Student student);
+        bool Save();
     }
 }

@@ -1,4 +1,6 @@
-﻿using Classes.Models;
+﻿using AutoMapper;
+using Classes;
+using Classes.Models;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Mvc;
 using School_System.Interfaces;
@@ -12,16 +14,18 @@ namespace School_System.Controllers
     public class AdministratorsController : Controller
     {
         private readonly IAdministratorsInterface _administratorsInterface;
-        public AdministratorsController (IAdministratorsInterface administratorRepository)
+        private readonly IMapper _mapper;
+        public AdministratorsController (IAdministratorsInterface administratorRepository, IMapper mapper)
         {
                 _administratorsInterface = administratorRepository;
+                _mapper = mapper;
         }
 
         [HttpGet]
         [ProducesResponseType(200, Type = typeof(IEnumerable<Administrator>))]
         public IActionResult GetAdministrators()
         {
-            var administrators = _administratorsInterface.GetAdministrators();
+            var administrators = _mapper.Map<List<AdministratorDTO>>(_administratorsInterface.GetAdministrators());
 
             if(!ModelState.IsValid)
                 return BadRequest(ModelState);
@@ -33,7 +37,7 @@ namespace School_System.Controllers
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
 
-        public IActionResult CreateAdministrator([FromBody] Administrator administratorCreate)
+        public IActionResult CreateAdministrators([FromBody] AdministratorDTO administratorCreate)
         {
             if (administratorCreate == null)
                 return BadRequest(ModelState);
@@ -49,9 +53,9 @@ namespace School_System.Controllers
 
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
+            var adminMap = _mapper.Map<Administrator>(administratorCreate);
 
-
-            if (!_administratorsInterface.createAdministrators(administratorCreate))
+            if (!_administratorsInterface.createAdministrators(adminMap))
             {
                 ModelState.AddModelError("", "Something went wrong while saving");
                 return StatusCode(500, ModelState);

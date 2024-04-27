@@ -13,6 +13,13 @@ namespace School_System.Repository
 
         }
 
+        public bool createStudent(Student student)
+        {
+            _context.Add(student);
+
+            return Save();
+        }
+
         public Student GetMatricule(string matricule)
         {
             return _context.Students.Where(p => p.Matricule == matricule).FirstOrDefault();
@@ -26,6 +33,13 @@ namespace School_System.Repository
         public ICollection<Student> GetStudents()
         {
             return _context.Students.OrderBy(p => p.Matricule).ToList();
+        }
+
+        public bool Save()
+        {
+            var saved = _context.SaveChanges();
+
+            return saved > 0? true: false;
         }
 
         public bool StudentExist(string matricule)

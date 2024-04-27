@@ -12,5 +12,8 @@ namespace School_System.Interfaces
         bool CourseExists(string Code);
         bool CourseExist(string description);
 
+        bool CreateCourse(Course course);
+        bool Save();
+
     }
 }

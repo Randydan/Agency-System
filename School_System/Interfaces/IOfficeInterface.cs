@@ -11,5 +11,8 @@ namespace School_System.Interfaces
 
         bool OfficeExists(int id);
         bool OfficeExists(string description);
+
+        bool createOffice(Office office);
+        bool Save();
     }
 }

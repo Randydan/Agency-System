@@ -1,4 +1,5 @@
 ﻿using Classes.Models;
+using School_System.DTO;
 using School_System.Interfaces;
 
 namespace School_System.Repository
@@ -22,6 +23,13 @@ namespace School_System.Repository
             return _context.Classrooms.Any(p => p.Description == description);
         }
 
+        public bool createClassroom(Classroom classroom)
+        {
+            _context.Add(classroom);
+
+                return Save();
+        }
+
         public Classroom GetClassroom(int ID)
         {
             return _context.Classrooms.Where(p=> p.Id == ID).FirstOrDefault();
@@ -35,6 +43,13 @@ namespace School_System.Repository
         public ICollection<Classroom> GetClassrooms()
         {
             return _context.Classrooms.OrderBy(p => p.Id).ToList();
+        }
+
+        public bool Save()
+        {
+            var saved = _context.SaveChanges();
+
+            return saved > 0 ? true : false;
         }
     }
 }

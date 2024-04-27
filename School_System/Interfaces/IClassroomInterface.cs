@@ -1,4 +1,5 @@
 ﻿using Classes.Models;
+using School_System.DTO;
 
 namespace School_System.Interfaces
 {
@@ -12,5 +13,8 @@ namespace School_System.Interfaces
         bool ClassroomExists(int id);
 
         bool ClassroomExists(string Description);
+
+        bool createClassroom(Classroom classroom);
+        bool Save();
     }
 }

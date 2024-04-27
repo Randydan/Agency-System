@@ -1,14 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace Classes.Models
+namespace Classes
 {
-    public partial class Administrator
+   public class AdministratorDTO
     {
         public int AId { get; set; }
         public int Salary { get; set; }
         public string Department { get; set; } = null!;
-        public string? Post { get; set; }
+        public string Post { get; set; } = null!;
         public string Name { get; set; } = null!;
         public string Gender { get; set; } = null!;
         public DateTime Dob { get; set; }

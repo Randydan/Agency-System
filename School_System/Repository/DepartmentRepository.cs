@@ -12,6 +12,13 @@ namespace School_System.Repository
 
         }
 
+        public bool createDepartment(Department department)
+        {
+            _context.Add(department);
+
+            return Save();
+        }
+
         public bool DepartmentExists(int id)
         {
             return _context.Departments.Any(p => p.Id == id);
@@ -35,6 +42,13 @@ namespace School_System.Repository
         public ICollection<Department> GetDepartments()
         {
             return _context.Departments.OrderBy(p => p.Id).ToList();
+        }
+
+        public bool Save()
+        {
+            var saved = _context.SaveChanges();
+
+            return saved > 0? true: false;
         }
     }
 }
