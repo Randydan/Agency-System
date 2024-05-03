@@ -4,10 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace Classes
 {
-    internal class OfficeDTO
+    public class OfficeDTO
     {
+        
         public int Id { get; set; }
         public string Department { get; set; } = null!;
         public string Description { get; set; } = null!;

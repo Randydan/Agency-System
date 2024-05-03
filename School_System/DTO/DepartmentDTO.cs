@@ -6,12 +6,10 @@ using System.Threading.Tasks;
 
 namespace Classes
 {
-    internal class DepartmentDTO
+    public class DepartmentDTO
     {
-        public int ID;
+        public int DID;
         public string Description;
         public string Courses;
-        public string[] Students;
-        public string[] Lecturers;
     }
 }

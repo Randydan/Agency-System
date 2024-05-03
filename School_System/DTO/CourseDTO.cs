@@ -9,7 +9,7 @@ namespace Classes
     public class CourseDTO
     {
         public string? Description { get; set; }
-        public string Code { get; set; } = null!;
+        public string CCode { get; set; } = null!;
         public int DepartmentId { get; set; }
     }
 }

@@ -6,10 +6,10 @@ namespace School_System.Interfaces
     {
         ICollection<Course> GetCourses();
 
-        Course GetCourse(string Code);
+        Course GetCourse(string CCode);
         Course GetName(string description);
 
-        bool CourseExists(string Code);
+        bool CourseExists(string CCode);
         bool CourseExist(string description);
 
         bool CreateCourse(Course course);

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Classes
 {
-    internal class LecturerDTO 
+    public class LecturerDTO 
     {
         public int Id { get; set; }
         public string Name { get; set; } = null!;

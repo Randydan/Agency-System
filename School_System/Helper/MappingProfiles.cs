@@ -12,10 +12,10 @@ namespace School_System.Helper
            CreateMap<Administrator, AdministratorDTO>();
            CreateMap<Classroom, ClassroomDTO>().ReverseMap();
            CreateMap<Course, CourseDTO>().ReverseMap();
-           CreateMap<Department, DepartmentDTO>();
-           CreateMap<Lecturer, LecturerDTO>();
-           CreateMap<Office, OfficeDTO>();
-           CreateMap<Student, StudentDTO>();
+           CreateMap<Department, DepartmentDTO>().ReverseMap();
+           CreateMap<Lecturer, LecturerDTO>().ReverseMap();
+           CreateMap<Office, OfficeDTO>().ReverseMap();
+           CreateMap<Student, StudentDTO>().ReverseMap();
         }   
     }
 }

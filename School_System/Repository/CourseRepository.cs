@@ -19,9 +19,9 @@ namespace School_System.Repository
             return _context.Courses.Any(p => p.Description == Description);
         }
 
-        public bool CourseExists(string Code)
+        public bool CourseExists(string CCode)
         {
-            return _context.Courses.Any(p => p.Code == Code);
+            return _context.Courses.Any(p => p.CCode == CCode);
         }
 
         public bool CreateCourse(Course course)
@@ -31,14 +31,14 @@ namespace School_System.Repository
             return Save();
         }
 
-        public Course GetCourse(string Code)
+        public Course GetCourse(string CCode)
         {
-            return _context.Courses.Where(p => p.Code == Code).FirstOrDefault();
+            return _context.Courses.Where(p => p.CCode == CCode).FirstOrDefault();
         }
 
         public ICollection<Course> GetCourses()
         {
-            return _context.Courses.OrderBy(p => p.Code).ToList();
+            return _context.Courses.OrderBy(p => p.CCode).ToList();
         }
 
         public bool Save()

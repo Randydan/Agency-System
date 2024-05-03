@@ -102,11 +102,11 @@ namespace Classes.Models
 
             modelBuilder.Entity<Course>(entity =>
             {
-                entity.HasKey(e => e.Code);
+                entity.HasKey(e => e.CCode);
 
                 entity.ToTable("Course");
 
-                entity.Property(e => e.Code)
+                entity.Property(e => e.CCode)
                     .HasMaxLength(10)
                     .IsUnicode(false);
 

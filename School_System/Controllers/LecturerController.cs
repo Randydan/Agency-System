@@ -1,4 +1,6 @@
-﻿using Classes.Models;
+﻿using AutoMapper;
+using Classes;
+using Classes.Models;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Mvc;
 using School_System.Interfaces;
@@ -12,9 +14,11 @@ namespace School_System.Controllers
     public class LecturersController : Controller
     {
         private readonly ILecturerInterface _lecturersInterface;
-        public LecturersController(ILecturerInterface lecturerRepository)
+        private readonly IMapper _mapper;
+        public LecturersController(ILecturerInterface lecturerRepository, IMapper mapper)
         {
             _lecturersInterface = lecturerRepository;
+            _mapper = mapper;
         }
 
         [HttpGet]
@@ -27,6 +31,37 @@ namespace School_System.Controllers
                 return BadRequest(ModelState);
 
             return Ok(lecturers);
+        }
+
+        [HttpPost]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(422)]
+        public IActionResult createStudent([FromBody] LecturerDTO lecturerCreate)
+        {
+            if (lecturerCreate == null)
+                return BadRequest(ModelState);
+
+            var lecturer = _lecturersInterface.GetLecturers()
+            .Where(c => c.Name.Trim().ToUpper() == lecturerCreate.Name.TrimEnd().ToUpper()).FirstOrDefault();
+
+            if (lecturer != null)
+            {
+                ModelState.AddModelError("", "Student Already exists");
+                return StatusCode(422, ModelState);
+            }
+
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var lecturerMap = _mapper.Map<Lecturer>(lecturerCreate);
+
+            if (!_lecturersInterface.createLecturer(lecturerMap))
+            {
+                ModelState.AddModelError("", "Something went wrong while saving");
+                return StatusCode(500, ModelState);
+            }
+
+            return Ok("Successfully Created");
         }
 
     }

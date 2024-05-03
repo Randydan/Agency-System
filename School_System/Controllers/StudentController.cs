@@ -1,4 +1,5 @@
-﻿using Classes;
+﻿using AutoMapper;
+using Classes;
 using Classes.Models;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Mvc;
@@ -13,16 +14,18 @@ namespace School_System.Controllers
         public class StudentsController : Controller
         {
             private readonly IStudentInterface _studentsInterface;
-            public StudentsController(IStudentInterface studentRepository)
+            private readonly IMapper _mapper;
+            public StudentsController(IStudentInterface studentRepository, IMapper mapper)
             {
                 _studentsInterface = studentRepository;
+                _mapper = mapper;
             }
 
             [HttpGet]
             [ProducesResponseType(200, Type = typeof(IEnumerable<Student>))]
             public IActionResult GetStudents()
             {
-                var students = _studentsInterface.GetStudents();
+                var students = _mapper.Map<List<StudentDTO>>(_studentsInterface.GetStudents());
 
                 if (!ModelState.IsValid)
                     return BadRequest(ModelState);
@@ -32,9 +35,9 @@ namespace School_System.Controllers
             [HttpPost]
             [ProducesResponseType(204)]
             [ProducesResponseType(422)]
-            public IActionResult CreateStudent([FromBody] Student studentCreate)
+            public IActionResult createStudent([FromBody] StudentDTO studentCreate)
             {
-                if (studentCreate == null);
+                if (studentCreate == null)
                 return BadRequest(ModelState);
 
             var student = _studentsInterface.GetStudents()
@@ -44,11 +47,14 @@ namespace School_System.Controllers
             {
                 ModelState.AddModelError("", "Student Already exists");
                 return StatusCode(422, ModelState);
+            }
 
                 if (!ModelState.IsValid)
                     return BadRequest(ModelState);
 
-                if (!_studentsInterface.createStudent(studentCreate))
+                var studentMap = _mapper.Map<Student>(studentCreate);
+
+                if (!_studentsInterface.createStudent(studentMap))
                 {
                     ModelState.AddModelError("", "Something went wrong while saving");
                     return StatusCode(500, ModelState);
@@ -58,5 +64,4 @@ namespace School_System.Controllers
             }
             }
 
-    }
     }

@@ -46,7 +46,7 @@ namespace School_System.Controllers
 
             if (course != null)
             {
-                ModelState.AddModelError("", "Classroom already exists");
+                ModelState.AddModelError("", "Course already exists");
                 return StatusCode(422, ModelState);
             }
 
