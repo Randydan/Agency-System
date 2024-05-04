@@ -121,7 +121,7 @@ namespace Classes.Models
             {
                 entity.ToTable("Department");
 
-                entity.Property(e => e.Id)
+                entity.Property(e => e.DId)
                     .ValueGeneratedNever()
                     .HasColumnName("ID");
 

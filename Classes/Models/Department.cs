@@ -11,7 +11,7 @@ namespace Classes.Models
             Students = new HashSet<Student>();
         }
 
-        public int Id { get; set; }
+        public int DId { get; set; } 
         public string? Description { get; set; }
         public string Course_Code { get; set; } = null!;
 

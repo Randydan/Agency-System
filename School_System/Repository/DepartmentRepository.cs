@@ -21,7 +21,7 @@ namespace School_System.Repository
 
         public bool DepartmentExists(int id)
         {
-            return _context.Departments.Any(p => p.Id == id);
+            return _context.Departments.Any(p => p.DId == id);
         }
 
         public bool DepartmentExists(string description)
@@ -31,7 +31,7 @@ namespace School_System.Repository
 
         public Department GetDepartment(int id)
         {
-            return _context.Departments.Where(p => p.Id == id).FirstOrDefault();
+            return _context.Departments.Where(p => p.DId == id).FirstOrDefault();
         }
 
         public Department GetDepartment(string description)
@@ -41,7 +41,7 @@ namespace School_System.Repository
 
         public ICollection<Department> GetDepartments()
         {
-            return _context.Departments.OrderBy(p => p.Id).ToList();
+            return _context.Departments.OrderBy(p => p.DId).ToList();
         }
 
         public bool Save()

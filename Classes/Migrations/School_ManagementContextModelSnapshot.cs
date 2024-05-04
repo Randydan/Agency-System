@@ -17,16 +17,16 @@ namespace Classes.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.0")
+                .HasAnnotation("ProductVersion", "6.0.15")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
             modelBuilder.Entity("Classes.Models.Administrator", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("AId")
                         .HasColumnType("int")
-                        .HasColumnName("ID");
+                        .HasColumnName("AID");
 
                     b.Property<string>("Address")
                         .IsRequired()
@@ -66,7 +66,6 @@ namespace Classes.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Post")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)");
@@ -80,7 +79,7 @@ namespace Classes.Migrations
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)");
 
-                    b.HasKey("Id");
+                    b.HasKey("AId");
 
                     b.ToTable("Administrator", (string)null);
                 });
@@ -116,7 +115,7 @@ namespace Classes.Migrations
 
             modelBuilder.Entity("Classes.Models.Course", b =>
                 {
-                    b.Property<string>("Code")
+                    b.Property<string>("CCode")
                         .HasMaxLength(10)
                         .IsUnicode(false)
                         .HasColumnType("varchar(10)");
@@ -130,7 +129,7 @@ namespace Classes.Migrations
                         .IsUnicode(false)
                         .HasColumnType("varchar(100)");
 
-                    b.HasKey("Code");
+                    b.HasKey("CCode");
 
                     b.ToTable("Course", (string)null);
                 });
@@ -141,12 +140,12 @@ namespace Classes.Migrations
                         .HasColumnType("int")
                         .HasColumnName("ID");
 
-                    b.Property<string>("CoursCode")
+                    b.Property<string>("Course_Code")
                         .IsRequired()
                         .HasMaxLength(50)
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)")
-                        .HasColumnName("Cours_Code");
+                        .HasColumnName("Course_Code");
 
                     b.Property<string>("Description")
                         .HasMaxLength(50)
@@ -176,9 +175,9 @@ namespace Classes.Migrations
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)");
 
-                    b.Property<int>("DepartmentId")
+                    b.Property<int>("DepartmentDescription")
                         .HasColumnType("int")
-                        .HasColumnName("Department_ID");
+                        .HasColumnName("Department_Description");
 
                     b.Property<DateTime>("Dob")
                         .HasColumnType("date")
@@ -216,7 +215,7 @@ namespace Classes.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("DepartmentId");
+                    b.HasIndex("DepartmentDescription");
 
                     b.ToTable("Lecturer", (string)null);
                 });
@@ -263,20 +262,12 @@ namespace Classes.Migrations
                         .IsUnicode(false)
                         .HasColumnType("varchar(10)");
 
-                    b.Property<int>("ClassroomId")
-                        .HasColumnType("int")
-                        .HasColumnName("Classroom_ID");
+                    b.Property<string>("CourseCCode")
+                        .HasColumnType("varchar(10)");
 
-                    b.Property<string>("CourseCode")
-                        .IsRequired()
-                        .HasMaxLength(10)
-                        .IsUnicode(false)
-                        .HasColumnType("varchar(10)")
-                        .HasColumnName("Course_Code");
-
-                    b.Property<int>("DepartmentId")
+                    b.Property<int>("DepartmentDescription")
                         .HasColumnType("int")
-                        .HasColumnName("Department_ID");
+                        .HasColumnName("Department_Description");
 
                     b.Property<DateTime>("Dob")
                         .HasColumnType("date")
@@ -317,9 +308,9 @@ namespace Classes.Migrations
 
                     b.HasKey("Matricule");
 
-                    b.HasIndex("CourseCode");
+                    b.HasIndex("CourseCCode");
 
-                    b.HasIndex("DepartmentId");
+                    b.HasIndex("DepartmentDescription");
 
                     b.ToTable("Student", (string)null);
                 });
@@ -339,7 +330,7 @@ namespace Classes.Migrations
                 {
                     b.HasOne("Classes.Models.Department", "Department")
                         .WithMany("Lecturers")
-                        .HasForeignKey("DepartmentId")
+                        .HasForeignKey("DepartmentDescription")
                         .IsRequired()
                         .HasConstraintName("FK_Lecturer_Department");
 
@@ -348,19 +339,15 @@ namespace Classes.Migrations
 
             modelBuilder.Entity("Classes.Models.Student", b =>
                 {
-                    b.HasOne("Classes.Models.Course", "CourseCodeNavigation")
+                    b.HasOne("Classes.Models.Course", null)
                         .WithMany("Students")
-                        .HasForeignKey("CourseCode")
-                        .IsRequired()
-                        .HasConstraintName("FK_Student_Course");
+                        .HasForeignKey("CourseCCode");
 
                     b.HasOne("Classes.Models.Department", "Department")
                         .WithMany("Students")
-                        .HasForeignKey("DepartmentId")
+                        .HasForeignKey("DepartmentDescription")
                         .IsRequired()
                         .HasConstraintName("FK_Student_Department");
-
-                    b.Navigation("CourseCodeNavigation");
 
                     b.Navigation("Department");
                 });

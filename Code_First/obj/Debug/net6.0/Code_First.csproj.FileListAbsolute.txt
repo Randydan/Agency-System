@@ -1,0 +1,14 @@
+C:\Users\randy\source\repos\Randydan\School_Management\Code_First\bin\Debug\net6.0\Code_First.deps.json
+C:\Users\randy\source\repos\Randydan\School_Management\Code_First\bin\Debug\net6.0\Code_First.dll
+C:\Users\randy\source\repos\Randydan\School_Management\Code_First\bin\Debug\net6.0\Code_First.pdb
+C:\Users\randy\source\repos\Randydan\School_Management\Code_First\obj\Debug\net6.0\Code_First.csproj.AssemblyReference.cache
+C:\Users\randy\source\repos\Randydan\School_Management\Code_First\obj\Debug\net6.0\Code_First.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\randy\source\repos\Randydan\School_Management\Code_First\obj\Debug\net6.0\Code_First.AssemblyInfoInputs.cache
+C:\Users\randy\source\repos\Randydan\School_Management\Code_First\obj\Debug\net6.0\Code_First.AssemblyInfo.cs
+C:\Users\randy\source\repos\Randydan\School_Management\Code_First\obj\Debug\net6.0\Code_First.csproj.CoreCompileInputs.cache
+C:\Users\randy\source\repos\Randydan\School_Management\Code_First\obj\Debug\net6.0\Code_First.dll
+C:\Users\randy\source\repos\Randydan\School_Management\Code_First\obj\Debug\net6.0\refint\Code_First.dll
+C:\Users\randy\source\repos\Randydan\School_Management\Code_First\obj\Debug\net6.0\Code_First.pdb
+C:\Users\randy\source\repos\Randydan\School_Management\Code_First\obj\Debug\net6.0\ref\Code_First.dll
+C:\Users\randy\source\repos\Randydan\School_Management\Code_First\bin\Debug\net6.0\Code_First.runtimeconfig.json
+C:\Users\randy\source\repos\Randydan\School_Management\Code_First\obj\Debug\net6.0\Code_First.genruntimeconfig.cache
