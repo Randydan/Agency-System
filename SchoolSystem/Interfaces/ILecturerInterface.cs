@@ -1,6 +1,15 @@
-﻿namespace SchoolSystem.Interfaces
+﻿using Code_First.Models;
+
+namespace SchoolSystem.Interfaces
 {
-    public class ILecturerInterface
+    public interface ILecturerInterface
     {
+        ICollection<Lecturer> GetStudents();
+        Lecturer GetLecturer(string name);
+        Lecturer GetLecturer(int id);
+        bool LecturerExists(int id);
+
+        bool CreateLecturer(Lecturer lecturer);
+        bool Save();
     }
 }

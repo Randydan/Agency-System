@@ -1,6 +1,15 @@
-﻿namespace SchoolSystem.Interfaces
+﻿using Code_First.Models;
+
+namespace SchoolSystem.Interfaces
 {
-    public class IStudentInterface
+    public interface IStudentInterface
     {
+        ICollection<Student> GetStudents();
+        Student GetStudents(string name);
+        Student GetStudent(string Matricule);
+        bool StudentsExists(string Matricule);
+
+        bool CreateStudent(Student student);
+        bool Save();
     }
 }

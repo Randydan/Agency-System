@@ -1,21 +1,67 @@
 ﻿using Code_First.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using SchoolSystem.Interfaces;
 
 namespace SchoolSystem.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class AdministratorController : ControllerBase
+    public class CourseController : ControllerBase
     {
-        private readonly CodeFirstContext _context;
+        private readonly ICourseInterface _courseInterface;
 
-        public AdministratorController(CodeFirstContext context)
+        public CourseController(ICourseInterface courseInterface)
         {
-            _context = context;
+            _courseInterface = courseInterface;
         }
 
         [HttpGet]
-        [Route("GetAdministrators")]
+        [ProducesResponseType(200, Type = typeof(IEnumerable<Course>))]
+
+        public IActionResult GetCourses()
+        {
+            var course = _courseInterface.GetCourses();
+
+            if (!ModelState.IsValid)
+
+                return BadRequest(ModelState);
+
+            return Ok(course);
+        }
+
+        [HttpPost]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(400)]
+
+        public IActionResult Createcourses([FromBody] Course coursecreate)
+        {
+            if (coursecreate == null)
+                return BadRequest(ModelState);
+
+            var course = _courseInterface.GetCourses()
+                .Where(p => p.Name.Trim().ToUpper() == coursecreate.Name
+                .TrimEnd().ToUpper()).FirstOrDefault();
+
+            if (course != null)
+            {
+                ModelState.AddModelError("", "Course already exists");
+                return StatusCode(422, ModelState);
+            }
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+
+            if (!_courseInterface.CreateCourse(coursecreate))
+            {
+                ModelState.AddModelError("", "Something went wrong");
+
+                return StatusCode(500, ModelState);
+            }
+
+            return Ok("Successfully Ceated");
+        }
+
+
     }
 }
