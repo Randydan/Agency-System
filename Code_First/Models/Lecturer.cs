@@ -15,7 +15,6 @@ namespace Code_First.Models
         public string Status { get; set; } = null!;
         public string Course { get; set; } = null!;
         public int Salary { get; set; }
-        public int DepartmentDescription { get; set; }
 
     }
 }

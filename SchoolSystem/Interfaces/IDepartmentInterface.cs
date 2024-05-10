@@ -4,7 +4,7 @@ namespace SchoolSystem.Interfaces
 {
     public interface IDepartmentInterface
     {
-        ICollection<Department> GetStudents();
+        ICollection<Department> GetDepartments();
         Department GetDepartment(string name);
         Department GetDepartment(int id);
         bool DepartmentExists(int id);

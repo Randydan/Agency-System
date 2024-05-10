@@ -4,7 +4,7 @@ namespace SchoolSystem.Interfaces
 {
     public interface ILecturerInterface
     {
-        ICollection<Lecturer> GetStudents();
+        ICollection<Lecturer> GetLecturers();
         Lecturer GetLecturer(string name);
         Lecturer GetLecturer(int id);
         bool LecturerExists(int id);

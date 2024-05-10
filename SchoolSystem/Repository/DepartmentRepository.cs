@@ -35,7 +35,7 @@ namespace SchoolSystem.Repository
             return _context.Departments.Where(p => p.ID == id).FirstOrDefault();
         }
 
-        public ICollection<Department> GetStudents()
+        public ICollection<Department> GetDepartments()
         {
             return _context.Departments.OrderBy(p=>p.ID).ToList();
         }

@@ -29,7 +29,7 @@ namespace SchoolSystem.Repository
             return _context.Lecturers.Where(p=>p.Id==id).FirstOrDefault();
         }
 
-        public ICollection<Lecturer> GetStudents()
+        public ICollection<Lecturer> GetLecturers()
         {
             return _context.Lecturers.OrderBy(p=>p.Id).ToList();
         }

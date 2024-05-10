@@ -16,21 +16,21 @@ namespace SchoolSystem.Controllers
             _lecturerInterface = lecturerInterface;
         }
 
-        /*[HttpGet]
+        [HttpGet]
         [ProducesResponseType(200, Type = typeof(IEnumerable<Lecturer>))]
 
         public IActionResult GetLecturers()
         {
-            var lecturer = _lecturerInterface.GetLecturer();
+            var lecturer = _lecturerInterface.GetLecturers();
 
             if (!ModelState.IsValid)
 
                 return BadRequest(ModelState);
 
             return Ok(lecturer);
-        }*/
+        }
 
-        /*[HttpPost]
+        [HttpPost]
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
 
@@ -39,7 +39,7 @@ namespace SchoolSystem.Controllers
             if (lecturercreate == null)
                 return BadRequest(ModelState);
 
-            var lecturer = _lecturerInterface.GetLecturer()
+            var lecturer = _lecturerInterface.GetLecturers()
                 .Where(p => p.Name.Trim().ToUpper() == lecturercreate.Name
                 .TrimEnd().ToUpper()).FirstOrDefault();
 
@@ -61,7 +61,7 @@ namespace SchoolSystem.Controllers
 
             return Ok("Successfully Ceated");
         }
-*/
+
 
     }
 }

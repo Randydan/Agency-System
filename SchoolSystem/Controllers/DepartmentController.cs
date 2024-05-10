@@ -16,21 +16,21 @@ namespace SchoolSystem.Controllers
             _departmentInterface = departmentInterface;
         }
 
-        /*[HttpGet]
+        [HttpGet]
         [ProducesResponseType(200, Type = typeof(IEnumerable<Department>))]
 
         public IActionResult GetDepartments()
         {
-            var department = _departmentInterface.GetDepartment();
+            var department = _departmentInterface.GetDepartments();
 
             if (!ModelState.IsValid)
 
                 return BadRequest(ModelState);
 
             return Ok(department);
-        }*/
+        }
 
-        /*[HttpPost]
+        [HttpPost]
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
 
@@ -39,9 +39,9 @@ namespace SchoolSystem.Controllers
             if (departmentcreate == null)
                 return BadRequest(ModelState);
 
-            var department = _departmentInterface.GetDepartment()
-                .Where(p => p.Name.Trim().ToUpper() == departmentcreate.Name
-                .TrimEnd().ToUpper()).FirstOrDefault;
+            var department = _departmentInterface.GetDepartments()
+                .Where(c => c.Name.Trim().ToUpper() == departmentcreate
+                .Name.TrimEnd().ToUpper()).FirstOrDefault();
 
             if (department != null)
             {
@@ -61,7 +61,7 @@ namespace SchoolSystem.Controllers
 
             return Ok("Successfully Ceated");
         }
-*/
+
 
     }
 }
