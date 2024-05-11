@@ -1,0 +1,19 @@
+<div class="first-form">
+    <form action="submit" method="post" autocomplete="off">
+  
+    <div class="containeri">
+      <label for="c1name"><b>Classroom Name</b></label>
+      <input type="text" placeholder="Enter Classroom name" [(ngModel)]="classroomobj.Name" name="c1name" required>
+
+      <label for="dep"><b>Description</b></label>
+      <input type="text" placeholder="Enter Description" [(ngModel)]="classroomobj.Description" name="dep" required>
+
+      <label for="Location"><b>Location</b></label>
+      <input type="text" placeholder="Enter Location" [(ngModel)]="classroomobj.Location" name="Location" required>
+  
+  
+      <button type="submit" name="register">Register</button>
+      <button type="button" class="cancelbtn">Reset</button>
+    </div>
+  </form>
+ </div>
