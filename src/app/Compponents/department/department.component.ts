@@ -1,35 +1,22 @@
-import { Component } from '@angular/core';
+import { AsyncPipe } from '@angular/common';
+import { Component, OnInit, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { DepartmentService } from '../../services/department.service';
+import { Departments } from '../../Types/department';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-department',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, AsyncPipe],
   templateUrl: './department.component.html',
   styleUrl: './department.component.css'
 })
-export class DepartmentComponent {
-
-  departmentobj: Department;
-
-  constructor(){
-    this.departmentobj = new Department();
+export class DepartmentComponent implements OnInit{
+  ngOnInit(): void {
+    this.admin$=this.adminService.getdepartments()
   }
-}
-
-export class Department{
-  Name: string; 
-  Description: string; 
-  Courses: string; 
-  Students: string; 
-  Lecturers: string; 
-
-  constructor(){
-    this.Name ='';
-    this.Description = '';
-    this.Courses ='';
-    this.Students ='';
-    this.Lecturers='';
+  adminService = inject(DepartmentService);
+  admin$!:Observable<Departments[]>
   }
-  
-}
+

@@ -1,42 +1,22 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { ClassroomService } from '../../services/classroom.service';
+import { Observable } from 'rxjs';
+import { Classrooms } from '../../Types/classroom';
+import { AsyncPipe } from '@angular/common';
 
 @Component({
   selector: 'app-lecturer',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, AsyncPipe],
   templateUrl: './lecturer.component.html',
   styleUrl: './lecturer.component.css'
 })
-export class LecturerComponent {
-
-  lecturerobj: Lecturer;
-  constructor(){
-    this.lecturerobj = new Lecturer();
+export class LecturerComponent implements OnInit {
+  ngOnInit(): void {
+    this.admin$=this.adminService.getclassrooms()
   }
-}
-
-export class Lecturer{
-
-  Name: string;  
-  Gender: string;
-  Dob: string; 
-  Address: string ;
-  Email: string ;
-  Phone: number;  
-  Status: string ;
-  Course: string ;
-  Salary: number;
-  
-  constructor(){
-    this.Name ='';
-    this.Gender='';
-    this.Dob ='';
-    this.Address='';
-    this.Email='';
-    this.Phone= 0;
-    this.Status='';
-    this.Course='';
-    this.Salary= 0;
+  adminService = inject(ClassroomService);
+  admin$!:Observable<Classrooms[]>
   }
-}
+

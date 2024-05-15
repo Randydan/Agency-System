@@ -1,30 +1,22 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { Observable } from 'rxjs';
+import { Classrooms } from '../../Types/classroom';
+import { ClassroomService } from '../../services/classroom.service';
+import { AsyncPipe } from '@angular/common';
 
 @Component({
   selector: 'app-office',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, AsyncPipe],
   templateUrl: './office.component.html',
   styleUrl: './office.component.css'
 })
-export class OfficeComponent {
-  officeobj: Office;
+export class OfficeComponent implements OnInit {
 
-  constructor(){
-    this.officeobj = new Office();
-  }
-}
-
-export class Office{
- 
-  Department:string;
-  Description:string ;
-  Address: string;
-
-  constructor(){
-    this.Department='';
-    this.Description='';
-    this.Address='';
-  }
-}
+    ngOnInit(): void {
+      this.admin$=this.adminService.getclassrooms()
+    }
+    adminService = inject(ClassroomService);
+    admin$!:Observable<Classrooms[]>
+    }

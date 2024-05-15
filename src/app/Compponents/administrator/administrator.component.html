@@ -1,39 +1,13 @@
-<div class="first-form">
-    <form action="#">
-  
-    <div class="containeri">
-      <label for="fname"><b>Full Names</b></label>
-      <input type="text" placeholder="Enter Full name" [(ngModel)]="Adminobj.Name" name ="fname" required><br>  
-      <label for="Gen"><b>Gender</b></label>
-      <input type="text" placeholder="Enter Gender" [(ngModel)]="Adminobj.Gender" name="gender" required><br>
-
-      <label for="DOB"><b>Date of Birth</b></label>
-      <input type="date" placeholder="Date of Birth" [(ngModel)]="Adminobj.Dob" name="DOB" required><br>
-  
-      <label for="Addr"><b>Address</b></label>
-      <input type="text" placeholder="Enter Address" [(ngModel)]="Adminobj.Address" name="Addr" required><br>
-
-      <label for="email"><b>Email</b></label>
-      <input type="email" placeholder="Enter Email" [(ngModel)]="Adminobj.Email" name="email" required><br>
-  
-      <label for="phn"><b>Phone number</b></label>
-      <input type="text" placeholder="Enter Phone number" [(ngModel)]="Adminobj.Phone" name="phn" required><br>
-
-      <label for="status"><b>Status</b></label>
-      <input type="text" placeholder="Enter Marital status" [(ngModel)]="Adminobj.Status" name="status" required><br>
-  
-      <label for="post"><b>Post</b></label>
-      <input type="text" placeholder="Enter post" [(ngModel)]="Adminobj.Post" name="post" required><br>
-
-      <label for="sal"><b>Salary</b></label>
-      <input type="text" placeholder="Enter Salary" [(ngModel)]="Adminobj.Salary" name="sal" required><br>
-
-      <label for="dep"><b>Department</b></label>
-      <input type="text" placeholder="Enter Department" [(ngModel)]="Adminobj.Department" name="dep" required><br>
-  
-      <button (click)="onRegister()"> Register </button>
-    </div>
-      
-  </form>
-  
-     </div>
+<div class="p-10">
+    <h1 class="text-2xl font-semibold">All Administrators</h1>
+    <div class="grid grid-cols-4 gap-5" >
+        @for(item of (admin$ | async); track item){
+        <div class="shadow rounded-md p-3">
+            <span>
+                {{item.Name}}
+              
+            </span>
+        </div>
+        }
+        </div>
+</div>

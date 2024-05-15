@@ -1,4 +1,4 @@
-<div class="first-form">
+<!-- <div class="first-form">
     <form action="submit" method="post" autocomplete="off">
   
     <div class="containeri">
@@ -38,4 +38,18 @@
     </div>
   </form>
   
-     </div>
+     </div> -->
+
+     <div class="p-10">
+      <h1 class="text-2xl font-semibold">All Lecturers</h1>
+      <div class="grid grid-cols-4 gap-5" >
+          @for(item of (admin$ | async); track item){
+          <div class="shadow rounded-md p-3">
+              <span>
+                  {{item.Name}}
+                
+              </span>
+          </div>
+          }
+          </div>
+    </div>

@@ -1,5 +1,4 @@
 import { Routes } from '@angular/router';
-import { LandingpageComponent } from './Compponents/landingpage/landingpage.component';
 import { AdministratorComponent } from './Compponents/administrator/administrator.component';
 import { ClassroomComponent } from './Compponents/classroom/classroom.component';
 import { CourseComponent } from './Compponents/course/course.component';
@@ -10,16 +9,9 @@ import { StudentComponent } from './Compponents/student/student.component';
 
 export const routes: Routes = [
     {
-        path: '', redirectTo:'administrator', pathMatch: 'full'
-    },
-
-    {
         path:'administrator',
         component:AdministratorComponent,
-        children:[
-            {
-                path:'administrator',
-                component:AdministratorComponent
+
             },
 
             {
@@ -51,7 +43,4 @@ export const routes: Routes = [
                 path:'student',
                 component:StudentComponent,
             }
-
-        ]   
-    },
 ];
