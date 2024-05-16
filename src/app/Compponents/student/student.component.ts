@@ -13,9 +13,14 @@ import { Students } from '../../Types/student';
   styleUrl: './student.component.css'
 })
 export class StudentComponent implements OnInit{
+
+  students: Students[] = []
   ngOnInit(): void {
-    this.admin$=this.adminService.getstudents()
+    this.studentService.getstudents().subscribe({
+      next:(student)=>{
+        this.students = student
+      }
+    })
   }
-  adminService = inject(StudentService);
-  admin$!:Observable<Students[]>
+  studentService = inject(StudentService);
   }

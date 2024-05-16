@@ -1,13 +1,13 @@
 export interface Administrators{
-    Id:number;
-    Salary:number;
+    id:number;
+    salary:number;
     department:string;
-    Post: string;
-    Name:string;
-    Gender:string;
-    Dob: string; 
-    Address: string;
-    Email:string;
-    Phone: number;
-    Status: string;
+    post: string;
+    name:string;
+    gender:string;
+    dob: string; 
+    address: string;
+    email:string;
+    phone: number;
+    status: string;
 }

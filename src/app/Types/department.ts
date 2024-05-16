@@ -1,7 +1,7 @@
 export interface Departments{
-    Name: string; 
-  Description: string; 
-  Courses: string; 
-  Students: string; 
-  Lecturers: string; 
+  name: string; 
+  description: string; 
+  courses: string; 
+  students: string; 
+  lecturers: string; 
 }

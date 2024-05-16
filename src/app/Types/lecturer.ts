@@ -1,12 +1,12 @@
 export interface Lecturers{
-    Name: string;  
-    Gender: string;
-    Dob: string; 
-    Address: string ;
-    Email: string ;
-    Phone: number;  
-    Status: string ;
-    Course: string ;
-    Salary: number;
+    name: string;  
+    gender: string;
+    dob: string; 
+    address: string ;
+    email: string ;
+    phone: number;  
+    status: string ;
+    course: string ;
+    salary: number;
     
 }

@@ -10,5 +10,5 @@ export class AdministratorsService {
 
   constructor(private http:HttpClient) { }
 
-  getadministrators=():Observable<Administrators[]>=> this.http.get<Administrators[]>("https://localhost:7270/api/Administrator")
+  getadministrators=():Observable<Administrators[]>=> this.http.get<Administrators[]>("https://localhost:7270/api/Administrator");
 }

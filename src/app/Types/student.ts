@@ -1,12 +1,12 @@
 export interface Students{
-    Name: string;  
-    Gender: string; 
-    DOB: string;
-    Address: string; 
-    Email: string; 
-    Phone:number; 
-    Status: string; 
-    Nationality: string; 
-    Department: string;  
-    Matricle: string;
+    name: string;  
+    gender: string; 
+    dOB: string;
+    address: string; 
+    email: string; 
+    phone:number; 
+    status: string; 
+    nationality: string; 
+    department: string;  
+    matricle: string;
 }

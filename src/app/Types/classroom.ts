@@ -1,5 +1,5 @@
 export interface Classrooms{
-    Name: string;
-    Description: string;
-    Location: string;
+    name: string;
+    description: string;
+    location: string;
 }

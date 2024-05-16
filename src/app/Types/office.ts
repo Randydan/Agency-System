@@ -1,5 +1,5 @@
 export interface Offices{
-    Department:string;
-    Description:string ;
-    Address: string;
+    department:string;
+    description:string ;
+    address: string;
 }

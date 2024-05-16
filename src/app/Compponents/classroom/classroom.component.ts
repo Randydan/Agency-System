@@ -5,6 +5,7 @@ import { Classrooms } from '../../Types/classroom';
 import { Observable } from 'rxjs';
 import { Inject,inject } from '@angular/core';
 import { AsyncPipe } from '@angular/common';
+import { response } from 'express';
 
 @Component({
   selector: 'app-classroom',
@@ -14,9 +15,14 @@ import { AsyncPipe } from '@angular/common';
   styleUrl: './classroom.component.css'
 })
 export class ClassroomComponent implements OnInit{
+
+  classrooms: Classrooms[] =[]
   ngOnInit(): void {
-    this.admin$=this.adminService.getclassrooms()
+    this.classroomService.getclassrooms().subscribe({
+      next:(response)=>{
+        this.classrooms = response;
+      }
+    })
   }
-  adminService = inject(ClassroomService);
-  admin$!:Observable<Classrooms[]>
+  classroomService = inject(ClassroomService);
 }

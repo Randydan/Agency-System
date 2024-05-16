@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Classrooms } from '../../Types/classroom';
 import { inject } from '@angular/core';
 import { Observable } from 'rxjs';
 import { CourseService } from '../../services/course.service';
@@ -15,13 +14,16 @@ import { AsyncPipe } from '@angular/common';
   styleUrl: './course.component.css'
 })
 export class CourseComponent implements OnInit{
-  ngOnInit(): void {
-    
-    this.admin$=this.adminService.getcourses()
-  }
-  adminService = inject(CourseService);
-  admin$!:Observable<Courses[]>
 
+  courses: Courses[] =[];
+  ngOnInit(): void {
+    this.courseService.getcourses().subscribe({
+      next:(course)=>{
+       this.courses = course;
+      }
+    })
+  }
+  courseService = inject(CourseService);
   
 }
 

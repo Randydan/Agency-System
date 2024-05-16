@@ -13,10 +13,15 @@ import { Observable } from 'rxjs';
   styleUrl: './department.component.css'
 })
 export class DepartmentComponent implements OnInit{
+  departments: Departments[] = []
+
   ngOnInit(): void {
-    this.admin$=this.adminService.getdepartments()
+    this.departmentService.getdepartments().subscribe({
+      next:(department)=>{
+        this.departments = department;
+      }
+    })
   }
-  adminService = inject(DepartmentService);
-  admin$!:Observable<Departments[]>
+  departmentService = inject(DepartmentService);
   }
 

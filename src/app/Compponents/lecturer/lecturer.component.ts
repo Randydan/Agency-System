@@ -4,6 +4,8 @@ import { ClassroomService } from '../../services/classroom.service';
 import { Observable } from 'rxjs';
 import { Classrooms } from '../../Types/classroom';
 import { AsyncPipe } from '@angular/common';
+import { Lecturers } from '../../Types/lecturer';
+import { LecturerService } from '../../services/lecturer.service';
 
 @Component({
   selector: 'app-lecturer',
@@ -13,10 +15,15 @@ import { AsyncPipe } from '@angular/common';
   styleUrl: './lecturer.component.css'
 })
 export class LecturerComponent implements OnInit {
+
+  lecturers: Lecturers[] = [];
   ngOnInit(): void {
-    this.admin$=this.adminService.getclassrooms()
+    this.lecturerService.getlecturers().subscribe({
+      next:(lecturer)=>{
+        this.lecturers =lecturer;
+      }
+    })
   }
-  adminService = inject(ClassroomService);
-  admin$!:Observable<Classrooms[]>
+  lecturerService = inject(LecturerService);
   }
 

@@ -1,33 +1,26 @@
-<!-- <div class="first-form">
-    <form action="submit" method="post" autocomplete="off">
-  
-    <div class="containeri">
-      <label for="c1name"><b>Classroom Name</b></label>
-      <input type="text" placeholder="Enter Classroom name" [(ngModel)]="classroomobj.Name" name="c1name" required>
-
-      <label for="dep"><b>Description</b></label>
-      <input type="text" placeholder="Enter Description" [(ngModel)]="classroomobj.Description" name="dep" required>
-
-      <label for="Location"><b>Location</b></label>
-      <input type="text" placeholder="Enter Location" [(ngModel)]="classroomobj.Location" name="Location" required>
-  
-  
-      <button type="submit" name="register">Register</button>
-      <button type="button" class="cancelbtn">All Students </button>
-    </div>
-  </form>
- </div> -->
-
- <div class="p-10">
+<div class="p-10">
   <h1 class="text-2xl font-semibold">All Classrooms</h1>
-  <div class="grid grid-cols-4 gap-5" >
-      @for(item of (admin$ | async); track item){
+  <div class="grid grid-cols-3 gap-5" >
+      @for(item of classrooms; track item){
       <div class="shadow rounded-md p-3">
-          <span>
-              {{item.Name}}
-            
-          </span>
+        <div class ="text-center text-white bg-blue-500 rounded-full p-5 w-10 h-10 flex gap-10 justify-center items-center text-black font-bold">
+          {{item.name[0].toUpperCase()}}
       </div>
+          <div class="gap-5 items-center">
+          <div>
+            Name: {{item.name}}
+          </div>
+
+          <div>
+            Description: {{item.description}}
+          </div>
+
+          <div>
+            Location: {{item.location}}
+          </div>
+
+      </div>
+  </div>
       }
       </div>
 </div>

@@ -1,7 +1,7 @@
-<div class="p-10 text-2xl font-semibold">
+<div class=" text-center p-7   grid grid-cols-7 gap-1 bg-blue-500 text-white text-2xl font-semibold ">
 
-   <button> <a [routerLink]="'/administrator'"> 
-        Administrators</a> </button>
+    <a class="text-center" [routerLink]="'/administrator'"> 
+        Administrators</a>
     
     <a [routerLink]="'/classroom'">
         Classrooms</a>
@@ -20,6 +20,6 @@
     
     <a [routerLink]="'/student'">
         Students</a>
-    <router-outlet > </router-outlet>
-    
 </div>
+
+<router-outlet > </router-outlet>
