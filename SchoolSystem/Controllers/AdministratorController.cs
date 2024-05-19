@@ -61,6 +61,33 @@ namespace SchoolSystem.Controllers
 
             return Ok("Successfully Ceated");
         }
+
+        [HttpPut]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(404)]
+
+        public IActionResult UpdateAdministrator(int Id,[FromBody]Administrators updateAdministrators)
+        {
+            if (updateAdministrators == null)
+                return BadRequest(ModelState);
+
+            if (Id != updateAdministrators.Id)
+                return BadRequest(ModelState);
+
+            if (!ModelState.IsValid) 
+                return BadRequest();
+            if (!_administratorInterface.AdministratorsExists(Id))
+                return NotFound();
+
+            if(!_administratorInterface.UpdateAdministrator(updateAdministrators))
+            {
+                ModelState.AddModelError("", "Something went wrong");
+                return StatusCode(500, ModelState);
+            }
+
+            return Ok();
+        } 
          
     }
 }

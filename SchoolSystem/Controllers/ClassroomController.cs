@@ -63,5 +63,33 @@ namespace SchoolSystem.Controllers
         }
 
 
+        [HttpPut]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(404)]
+
+        public IActionResult UpdateAdministraator(int Id, [FromBody] Classroom updateClassroom)
+        {
+            if (updateClassroom == null)
+                return BadRequest(ModelState);
+
+            if (Id != updateClassroom.ID)
+                return BadRequest(ModelState);
+
+            if (!ModelState.IsValid)
+                return BadRequest();
+
+            if (!_classroomInterface.ClassroomExists(Id))
+                return NotFound();
+
+            if (!_classroomInterface.UpdateClassroom(updateClassroom))
+            {
+                ModelState.AddModelError("", "Something went wrong");
+                return StatusCode(500, ModelState);
+            }
+
+            return NoContent();
+        }
+
     }
 }

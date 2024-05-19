@@ -8,8 +8,9 @@ namespace SchoolSystem.Interfaces
         Administrators GetAdministrators(string name);
         Administrators GetAdministrators(int id);
         bool AdministratorsExists(int id);
-
+        bool UpdateAdministrator(Administrators administrator);
         bool CreateAdministrator(Administrators administrators);
+        bool DeleteAdministrator(Administrators administrator);
         bool Save();
     }
 }

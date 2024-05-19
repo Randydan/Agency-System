@@ -24,6 +24,12 @@ namespace SchoolSystem.Repository
             return Save();
         }
 
+        public bool DeleteCourse(Course course)
+        {
+            _context.Remove(course);
+            return Save();
+        }
+
         public Course FetchCourse(string name)
         {
             return _context.Courses.Where(p=>p.Name == name).FirstOrDefault();
@@ -44,6 +50,12 @@ namespace SchoolSystem.Repository
             var saved = _context.SaveChanges();
 
             return saved > 0 ? true : false; 
+        }
+
+        public bool UpdateCourse(Course course)
+        {
+            _context.Update(course);
+            return Save();
         }
     }
 }

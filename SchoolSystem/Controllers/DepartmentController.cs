@@ -62,6 +62,32 @@ namespace SchoolSystem.Controllers
             return Ok("Successfully Ceated");
         }
 
+        [HttpPut]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(404)]
 
+        public IActionResult UpdateDepartment(int Id, [FromBody] Department updateDepartment)
+        {
+            if (updateDepartment == null)
+                return BadRequest(ModelState);
+
+            if (Id != updateDepartment.Id)
+                return BadRequest(ModelState);
+
+            if (!ModelState.IsValid)
+                return BadRequest();
+
+            if (!_departmentInterface.DepartmentExists(Id))
+                return NotFound();
+
+            if (!_departmentInterface.UpdateDepartment(updateDepartment))
+            {
+                ModelState.AddModelError("", "Something went wrong");
+                return StatusCode(500, ModelState);
+            }
+
+            return NoContent();
+        }
     }
 }

@@ -43,5 +43,12 @@ namespace SchoolSystem.Repository
 
             return saved > 0 ? true : false;
         }
+
+        public bool UpdateClassroom(Classroom classroom)
+        {
+            _context.Update(classroom);
+
+            return Save();
+        }
     }
 }

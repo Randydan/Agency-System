@@ -18,6 +18,12 @@ namespace SchoolSystem.Repository
             return Save();
         }
 
+        public bool DeleteOffice(Office office)
+        {
+            _context.Remove(office);
+            return Save();
+        }
+
         public ICollection<Office> GetOffice()
         {
             return _context.Offices.OrderBy(p=>p.ID).ToList();
@@ -43,6 +49,12 @@ namespace SchoolSystem.Repository
             var saved = _context.SaveChanges();
 
             return saved > 0 ? true : false;
+        }
+
+        public bool UpdateOffice(Office office)
+        {
+            _context.Update(office);
+            return Save();
         }
     }
 }

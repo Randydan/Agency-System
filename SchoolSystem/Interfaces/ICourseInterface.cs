@@ -9,6 +9,8 @@ namespace SchoolSystem.Interfaces
         Course FetchCourse(string name);
         bool CourseExists(string code);
         bool CreateCourse(Course course);
+        bool UpdateCourse(Course course);
+        bool DeleteCourse(Course course);
         bool Save();
     }
 }

@@ -62,6 +62,33 @@ namespace SchoolSystem.Controllers
             return Ok("Successfully Ceated");
         }
 
+        [HttpPut]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(404)]
+
+        public IActionResult UpdateCourse(string code, [FromBody] Course updateCourse)
+        {
+            if (updateCourse == null)
+                return BadRequest(ModelState);
+
+            if (code != updateCourse.Code)
+                return BadRequest(ModelState);
+
+            if (!ModelState.IsValid)
+                return BadRequest();
+
+            if (!_courseInterface.CourseExists(code))
+                return NotFound();
+
+            if (!_courseInterface.UpdateCourse(updateCourse))
+            {
+                ModelState.AddModelError("", "Something went wrong");
+                return StatusCode(500, ModelState);
+            }
+
+            return NoContent();
+        }
 
     }
 }

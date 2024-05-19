@@ -63,5 +63,33 @@ namespace SchoolSystem.Controllers
         }
 
 
+        [HttpPut]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(404)]
+
+        public IActionResult UpdateOffice(int ID, [FromBody] Office updateOffice)
+        {
+            if (updateOffice == null)
+                return BadRequest(ModelState);
+
+            if (ID != updateOffice.ID)
+                return BadRequest(ModelState);
+
+            if (!ModelState.IsValid)
+                return BadRequest();
+
+            if (!_officeInterface.OfficeExists(ID))
+                return NotFound();
+
+            if (!_officeInterface.UpdateOffice(updateOffice))
+            {
+                ModelState.AddModelError("", "Something went wrong");
+                return StatusCode(500, ModelState);
+            }
+
+            return NoContent();
+        }
+
     }
 }

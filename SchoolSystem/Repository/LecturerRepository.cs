@@ -19,6 +19,12 @@ namespace SchoolSystem.Repository
             return Save();
         }
 
+        public bool DeleteLecturer(Office office)
+        {
+            _context.Remove(office);
+            return Save();
+        }
+
         public Lecturer GetLecturer(string name)
         {
             return _context.Lecturers.Where(p=>p.Name == name).FirstOrDefault();
@@ -44,6 +50,12 @@ namespace SchoolSystem.Repository
             var saved = _context.SaveChanges();
 
             return saved > 0 ? true : false;
+        }
+
+        public bool UpdateLecturer(Lecturer lecturer)
+        {
+            _context.Update(lecturer);
+            return Save();
         }
     }
 }

@@ -62,5 +62,33 @@ namespace SchoolSystem.Controllers
             return Ok("Successfully Ceated");
         }
 
+        [HttpPut]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(404)]
+
+        public IActionResult UpdateStudent(string Matricule, [FromBody] Student updateStudent)
+        {
+            if (updateStudent == null)
+                return BadRequest(ModelState);
+
+            if (Matricule != updateStudent.Matricle)
+                return BadRequest(ModelState);
+
+            if (!ModelState.IsValid)
+                return BadRequest();
+
+            if (!_studentInterface.StudentsExists(Matricule))
+                return NotFound();
+
+            if (!_studentInterface.UpdateStudent(updateStudent))
+            {
+                ModelState.AddModelError("", "Something went wrong");
+                return StatusCode(500, ModelState);
+            }
+
+            return NoContent();
+        }
+
     }
 }

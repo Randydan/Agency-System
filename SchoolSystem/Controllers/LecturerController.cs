@@ -62,6 +62,32 @@ namespace SchoolSystem.Controllers
             return Ok("Successfully Ceated");
         }
 
+        [HttpPut]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(404)]
 
+        public IActionResult UpdateLecturer(int Id, [FromBody] Lecturer updateLecturer)
+        {
+            if (updateLecturer == null)
+                return BadRequest(ModelState);
+
+            if (Id != updateLecturer.Id)
+                return BadRequest(ModelState);
+
+            if (!ModelState.IsValid)
+                return BadRequest();
+
+            if (!_lecturerInterface.LecturerExists(Id))
+                return NotFound();
+
+            if (!_lecturerInterface.UpdateLecturer(updateLecturer))
+            {
+                ModelState.AddModelError("", "Something went wrong");
+                return StatusCode(500, ModelState);
+            }
+
+            return Ok();
+        }
     }
 }

@@ -20,6 +20,12 @@ namespace SchoolSystem.Repository
             return Save();
         }
 
+        public bool DeleteDepartment(Department department)
+        {
+            _context.Remove(department);
+            return Save();
+        }
+
         public bool DepartmentExists(int id)
         {
             return _context.Departments.Any(p=> p.ID ==id);
@@ -45,6 +51,12 @@ namespace SchoolSystem.Repository
             var saved = _context.SaveChanges();
 
             return saved > 0 ? true : false; 
+        }
+
+        public bool UpdateDepartment(Department department)
+        {
+            _context.Update(department);
+            return Save();
         }
     }
 }

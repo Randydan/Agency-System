@@ -45,5 +45,18 @@ namespace SchoolSystem.Repository
             
             return saved > 0? true: false;
         }
+
+        public bool UpdateStudent(Student student)
+        {
+            _context.Update(student);
+            return Save();
+
+        }
+
+        public bool DeleteStudent(Student student)
+        {
+            _context.Remove(student);
+            return Save();
+        }
     }
 }

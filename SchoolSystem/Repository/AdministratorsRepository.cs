@@ -42,5 +42,11 @@ namespace SchoolSystem.Repository
             var  saved = _context.SaveChanges();
             return saved > 0 ? true : false;
         }
+
+        public bool UpdateAdministrator(Administrators administrator)
+        {
+            _context.Update(administrator);
+            return Save();
+        }
     }
 }

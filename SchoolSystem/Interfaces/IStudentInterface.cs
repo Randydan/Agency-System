@@ -8,7 +8,8 @@ namespace SchoolSystem.Interfaces
         Student GetStudents(string name);
         Student GetStudent(string Matricule);
         bool StudentsExists(string Matricule);
-
+        bool UpdateStudent(Student student);
+        bool DeleteStudent(Student student);
         bool CreateStudent(Student student);
         bool Save();
     }
