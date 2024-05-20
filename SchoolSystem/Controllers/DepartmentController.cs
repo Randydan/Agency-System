@@ -72,7 +72,7 @@ namespace SchoolSystem.Controllers
             if (updateDepartment == null)
                 return BadRequest(ModelState);
 
-            if (Id != updateDepartment.Id)
+            if (Id != updateDepartment.ID)
                 return BadRequest(ModelState);
 
             if (!ModelState.IsValid)

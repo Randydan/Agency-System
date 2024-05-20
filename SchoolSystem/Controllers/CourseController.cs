@@ -67,18 +67,18 @@ namespace SchoolSystem.Controllers
         [ProducesResponseType(204)]
         [ProducesResponseType(404)]
 
-        public IActionResult UpdateCourse(string code, [FromBody] Course updateCourse)
+        public IActionResult UpdateCourse(int ID, [FromBody] Course updateCourse)
         {
             if (updateCourse == null)
                 return BadRequest(ModelState);
 
-            if (code != updateCourse.Code)
+            if (ID != updateCourse.ID)
                 return BadRequest(ModelState);
 
             if (!ModelState.IsValid)
                 return BadRequest();
 
-            if (!_courseInterface.CourseExists(code))
+            if (!_courseInterface.CourseExists(ID))
                 return NotFound();
 
             if (!_courseInterface.UpdateCourse(updateCourse))

@@ -22,6 +22,12 @@ namespace SchoolSystem.Repository
             return Save();
         }
 
+        public bool DeleteAdministrator(Administrators administrator)
+        {
+            _context.Remove(administrator);
+            return Save();
+        }
+
         public ICollection<Administrators> GetAdministrators()
         {
             return _context.Administrators.OrderBy(p=>p.Id).ToList();

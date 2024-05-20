@@ -13,9 +13,9 @@ namespace SchoolSystem.Repository
             _context = context;
         }
 
-        public bool CourseExists(string code)
+        public bool CourseExists(int ID)
         {
-            return _context.Courses.Any(p=>p.Code == code);
+            return _context.Courses.Any(p=>p.ID == ID);
         }
 
         public bool CreateCourse(Course course)
@@ -55,6 +55,7 @@ namespace SchoolSystem.Repository
         public bool UpdateCourse(Course course)
         {
             _context.Update(course);
+
             return Save();
         }
     }

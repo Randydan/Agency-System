@@ -22,6 +22,12 @@ namespace SchoolSystem.Repository
             return Save();
         }
 
+        public bool DeleteClassroom(Classroom classroom)
+        {
+            _context.Remove(classroom);
+            return Save();
+        }
+
         public Classroom GetClassroom(int id)
         {
             return _context.Classrooms.Where(p=> p.ID == id).FirstOrDefault();

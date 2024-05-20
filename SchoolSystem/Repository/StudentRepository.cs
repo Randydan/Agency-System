@@ -18,9 +18,9 @@ namespace SchoolSystem.Repository
             return _context.Students.Where(p => p.Name == name).FirstOrDefault();
         }
 
-        public bool StudentsExists(string Matricule)
+        public bool StudentsExists(int ID)
         {
-            return _context.Students.Any(p=>p.Matricle == Matricule);
+            return _context.Students.Any(p=>p.ID == ID);
         }
 
         public ICollection<Student> GetStudents()

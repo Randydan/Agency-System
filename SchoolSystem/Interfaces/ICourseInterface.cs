@@ -7,7 +7,7 @@ namespace SchoolSystem.Interfaces
         ICollection<Course> GetCourses();
         Course GetCourse(string code);
         Course FetchCourse(string name);
-        bool CourseExists(string code);
+        bool CourseExists(int ID);
         bool CreateCourse(Course course);
         bool UpdateCourse(Course course);
         bool DeleteCourse(Course course);
