@@ -1,7 +1,7 @@
 export interface Students{
     name: string;  
     gender: string; 
-    dOB: string;
+    dob: string;
     address: string; 
     email: string; 
     phone:number; 

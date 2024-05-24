@@ -10,5 +10,9 @@ export class LecturerService {
 
   constructor(private http:HttpClient) { }
 
-  getlecturers=():Observable<Lecturers[]>=>this.http.get<Lecturers[]>("https://localhost:7270/api/Lecturer")
+  getlecturers=():Observable<Lecturers[]>=>this.http.get<Lecturers[]>("https://localhost:7270/api/Lecturer");
+
+  addlecturer=(Data:Lecturers)=>this.http.post("https://localhost:7270/api/Lecturer", Data);
+
+  deletelecturer=(id:number)=>this.http.delete("https://localhost:7270/api/Lecturer?Id="+id);
 }

@@ -9,6 +9,10 @@ import { Observable } from 'rxjs';
 export class CourseService {
 
   constructor(private http:HttpClient) { }
-  getcourses=():Observable<Courses[]>=> this.http.get<Courses[]>("https://localhost:7270/api/Course")
+  getcourses=():Observable<Courses[]>=> this.http.get<Courses[]>("https://localhost:7270/api/Course");
+
+  addcourse=(data:Courses)=>this.http.post("https://localhost:7270/api/Course", data);
+
+  deletecourse=(id:number)=>this.http.delete("https://localhost:7270/api/Course?Id=" +id);
 
 }

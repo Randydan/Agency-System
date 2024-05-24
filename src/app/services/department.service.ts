@@ -10,6 +10,10 @@ export class DepartmentService {
 
   constructor(private http:HttpClient) { }
 
-  getdepartments=():Observable<Departments[]>=> this.http.get<Departments[]>("https://localhost:7270/api/Department")
+  getdepartments=():Observable<Departments[]>=> this.http.get<Departments[]>("https://localhost:7270/api/Department");
+
+  addDepartment=(Data:Departments)=>this.http.post("https://localhost:7270/api/Department", Data);
+
+  deletedeparment=(id:number)=>this.http.delete("https://localhost:7270/api/Department?Id="+id);
 
 }

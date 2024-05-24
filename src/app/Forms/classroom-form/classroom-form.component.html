@@ -1,19 +1,19 @@
-<div class="first-form">
-    <form action="submit" method="post" autocomplete="off">
-  
-    <div class="containeri">
-      <label for="c1name"><b>Classroom Name</b></label>
-      <input type="text" placeholder="Enter Classroom name" name="c1name" required>
+<form [formGroup]="form" class="my-40 shadow-2xl w-1/3 mx-auto p-10 rounded-md" (ngSubmit)="onSubmit()">
+  <div class="grid grid-cols-2 place-items-end " >
+    <div></div>
 
-      <label for="dep"><b>Description</b></label>
-      <input type="text" placeholder="Enter Description"  name="dep" required>
+  <a [routerLink]="'/classroom'" class="bg-red-600 place-items-end text-white rounded-full p-3 w-10 h-10 flex gap-10 justify-center items-center font-bold">X</a>
+</div>
 
-      <label for="Location"><b>Location</b></label>
-      <input type="text" placeholder="Enter Location" name="Location" required>
+  <input formControlName="name" type="text" class="border w-full p-2 px-4 rounded-md my-3" placeholder="Name" required>
+
+  <input formControlName="description" type="text" class="border w-full p-2 px-4 rounded-md my-3" placeholder="Enter Desription" required>
   
+  <input formControlName="location" type="text" class="border w-full p-2 px-4 rounded-md my-3" placeholder="Enter location" required>
   
-      <button type="submit" name="register">Register</button>
-      <button type="button" class="cancelbtn">All Students </button>
-    </div>
-  </form>
- </div>
+  <div class="pl-48  my-3">
+    <button class="bg-blue-500 rounded-md py-2 shadow-md px-7 text-white font-semibold font-sans text-center">Add</button>
+  </div>
+
+</form>
+

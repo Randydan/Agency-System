@@ -13,6 +13,7 @@ import { DepartmentComponent } from './Compponents/department/department.compone
 import { LecturerComponent } from './Compponents/lecturer/lecturer.component';
 import { OfficeComponent } from './Compponents/office/office.component';
 import { StudentComponent } from './Compponents/student/student.component';
+import { provideToastr } from 'ngx-toastr';
 
   NgModule({
   declarations:[
@@ -32,6 +33,7 @@ export const appConfig: ApplicationConfig = {
     provideClientHydration(), 
     provideHttpClient(withFetch()),
     importProvidersFrom(HttpClientModule),
-    provideHttpClient()
+    provideHttpClient(),
+    provideToastr(),
   ]
 };

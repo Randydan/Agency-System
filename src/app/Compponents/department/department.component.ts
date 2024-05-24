@@ -3,12 +3,12 @@ import { Component, OnInit, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { DepartmentService } from '../../services/department.service';
 import { Departments } from '../../Types/department';
-import { Observable } from 'rxjs';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-department',
   standalone: true,
-  imports: [FormsModule, AsyncPipe],
+  imports: [FormsModule, AsyncPipe, RouterLink],
   templateUrl: './department.component.html',
   styleUrl: './department.component.css'
 })

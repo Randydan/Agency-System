@@ -1,16 +1,14 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Observable } from 'rxjs';
-import { Classrooms } from '../../Types/classroom';
-import { ClassroomService } from '../../services/classroom.service';
 import { AsyncPipe } from '@angular/common';
 import { Offices } from '../../Types/office';
 import { OfficeService } from '../../services/office.service';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-office',
   standalone: true,
-  imports: [FormsModule, AsyncPipe],
+  imports: [FormsModule, AsyncPipe,RouterLink],
   templateUrl: './office.component.html',
   styleUrl: './office.component.css'
 })

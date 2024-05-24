@@ -1,41 +1,35 @@
-<div class="first-form">
-    <form action="submit" method="post" autocomplete="off">
-  
-    <div class="containeri">
-      <label for="fname"><b>Full Names</b></label>
-      <input type="text" placeholder="Enter Full name" name="fname" required><br>
-  
-      <label for="Gen"><b>Gender</b></label>
-      <input type="text" placeholder="Enter Gender" name="gender" required><br>
 
-      <label for="DOB"><b>Date of Birth</b></label>
-      <input type="date" placeholder="Date of Birth" name="DOB" required><br>
-  
-      <label for="Addr"><b>Address</b></label>
-      <input type="text" placeholder="Enter Address" name="Addr" required><br>
+<div class="my-10 shadow-2xl w-2/5 mx-auto  rounded-md">
+  <div class="grid grid-cols-2 place-items-end pr-3 pt-3" >
+    <div></div>
 
-      <label for="email"><b>Email</b></label>
-      <input type="email" placeholder="Enter Email" name="email" required><br>
+  <a [routerLink]="'/lecturer'" class="bg-red-600 place-items-end text-white rounded-full p-3 w-10 h-10 flex gap-10 justify-center items-center font-bold">X</a>
+</div>
+<form [formGroup]="form" class="p-7 my-2" (ngSubmit)="onSubmit()">
   
-      <label for="phn"><b>Phone number</b></label>
-      <input type="text" placeholder="Enter Phone number" name="phn" required><br>
 
-      <label for="status"><b>Status</b></label>
-      <input type="text" placeholder="Enter Marital status" name="status" required><br>
+      <input formControlName="name" type="text" class="border w-full p-2 px-4 rounded-md my-1" placeholder="Name" required>
   
-      <label for="cos"><b>Course</b></label>
-      <input type="text" placeholder="Enter Course/s"  name="cos" required><br>
-
-      <label for="sal"><b>Salary</b></label>
-      <input type="text" placeholder="Enter Salary"  name="sal" required><br>
-  
-      <button type="submit" name="register">Register</button>
+      <input formControlName="gender" type="text" class="border w-full p-2 px-4 rounded-md my-1" placeholder="Enter Gender" required>
       
+      <input formControlName="dob" type="date" class="border w-full p-2 px-4 rounded-md my-1" placeholder="Date of Birth" required>
+      
+      <input formControlName="address" type="text" placeholder="Enter Address" class="border w-full p-2 px-4 rounded-md my-1" required>
+
+      <input formControlName="email" type="email" placeholder="Enter Email" class="border w-full p-2 px-4 rounded-md my-1" required>
+
+      <input formControlName="phone" type="number" placeholder="Enter Phone number" class="border w-full p-2 px-4 rounded-md my-1" required>
+
+      <input formControlName="status" type="text" placeholder="Enter Marital status" class="border w-full p-2 px-4 rounded-md my-1" required>
+
+      <input formControlName="course" type="text" placeholder="Course Taught" class="border w-full p-2 px-4 rounded-md my-1" required>
+
+      <input formControlName="salary" type="text" placeholder="Enter Salary" class="border w-full p-2 px-4 rounded-md my-1" required>
+
+      <div class="pl-60 my-3">
+      <button class="bg-blue-500 rounded-md py-2 shadow-md px-7 text-white font-semibold font-sans text-center">Add</button>
     </div>
-  
-    <div class="container" style="background-color:#f1f1f1">
-      <button type="button" class="cancelbtn">Reset</button>
-    </div>
-  </form>
-  
-     </div>
+
+    <!-- {{form.value | json}} -->
+    </form>
+  </div>

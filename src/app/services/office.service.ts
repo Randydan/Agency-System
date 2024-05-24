@@ -10,5 +10,9 @@ export class OfficeService {
 
   constructor(private http:HttpClient) { }
 
-  getoffice=():Observable<Offices[]>=>this.http.get<Offices[]>("https://localhost:7270/api/Offices")
+  getoffice=():Observable<Offices[]>=>this.http.get<Offices[]>("https://localhost:7270/api/Office");
+
+  addoffice=(Data:Offices)=>this.http.post("https://localhost:7270/api/Office", Data);
+
+  deleteoffice=(id:number)=>this.http.delete("https://localhost:7270/api/Office?Id="+id)
 }

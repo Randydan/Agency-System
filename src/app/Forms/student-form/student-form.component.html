@@ -1,43 +1,37 @@
-<div class="first-form">
-    <form action="submit" method="post" autocomplete="off">
-  
-    <div class="containeri">
-      <label for="fname"><b>Full Names</b></label>
-      <input type="text" placeholder="Enter Full name"  name="fname" required>
-  
-      <label for="Gen"><b>Gender</b></label>
-      <input type="text" placeholder="Enter Gender" name="gender" required>
 
-      <label for="DOB"><b>Date of Birth</b></label>
-      <input type="date" placeholder="Date of Birth" name="DOB" required>
-  
-      <label for="Addr"><b>Address</b></label>
-      <input type="text" placeholder="Enter Address" name="Addr" required>
+<div class="my-10 shadow-2xl w-2/5 mx-auto  rounded-md">
+  <div class="grid grid-cols-2 place-items-end pr-3 pt-3" >
+    <div></div>
 
-      <label for="email"><b>Email</b></label>
-      <input type="email" placeholder="Enter Email" name="email" required>
+  <a [routerLink]="'/student'" class="bg-red-600 place-items-end text-white rounded-full p-3 w-10 h-10 flex gap-10 justify-center items-center font-bold">X</a>
+</div>
+<form [formGroup]="form" class="p-7 my-2" (ngSubmit)="onSubmit()">
   
-      <label for="phn"><b>Phone/Guidiant phone number</b></label>
-      <input type="text" placeholder="Enter Phone number" name="phn" required>
 
-      <label for="status"><b>Status</b></label>
-      <input type="text" placeholder="Enter Marital status" name="status" required>
+      <input formControlName="name" type="text" class="border w-full p-2 px-4 rounded-md my-1" placeholder="Name" required>
   
-      <label for="nat"><b>Nationality</b></label>
-      <input type="text" placeholder="Enter Nationality" name="nat" required>
+      <input formControlName="gender" type="text" class="border w-full p-2 px-4 rounded-md my-1" placeholder="Enter Gender" required>
+      
+      <input formControlName="dob" type="date" class="border w-full p-2 px-4 rounded-md my-1" placeholder="Date of Birth" required>
+      
+      <input formControlName="address" type="text" placeholder="Enter Address" class="border w-full p-2 px-4 rounded-md my-1" required>
 
-      <label for="dep"><b>Department</b></label>
-      <input type="text" placeholder="Enter Department" name="dep" required>
+      <input formControlName="email" type="email" placeholder="Enter Email" class="border w-full p-2 px-4 rounded-md my-1" required>
 
-      <label for="dep"><b>Matricle</b></label>
-      <input type="text" placeholder="Enter Matricle" name="dep" required>
-  
-      <button type="submit" name="register">Register</button>
+      <input formControlName="phone" type="number" placeholder="Enter Phone number" class="border w-full p-2 px-4 rounded-md my-1" required>
+
+      <input formControlName="status" type="text" placeholder="Enter Marital status" class="border w-full p-2 px-4 rounded-md my-1" required>
+
+      <input formControlName="matricle" type="text" placeholder="Matricle" class="border w-full p-2 px-4 rounded-md my-1" required>
+
+      <input formControlName="nationality" type="text" placeholder="Nationality" class="border w-full p-2 px-4 rounded-md my-1" required>
+
+      <input formControlName="department" type="text" placeholder="Department" class="border w-full p-2 px-4 rounded-md my-1" required>
+
+      <div class="pl-60 my-3">
+      <button class="bg-blue-500 rounded-md py-2 shadow-md px-7 text-white font-semibold font-sans text-center">Add</button>
     </div>
-  
-    <div class="container" style="background-color:#f1f1f1">
-      <button type="button" class="cancelbtn">Reset</button>
-    </div>
-  </form>
-  
-     </div>
+
+    <!-- {{form.value | json}} -->
+    </form>
+  </div>

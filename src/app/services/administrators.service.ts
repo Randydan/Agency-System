@@ -11,4 +11,8 @@ export class AdministratorsService {
   constructor(private http:HttpClient) { }
 
   getadministrators=():Observable<Administrators[]>=> this.http.get<Administrators[]>("https://localhost:7270/api/Administrator");
+
+  addadministrator=(data:Administrators)=> this.http.post("https://localhost:7270/api/Administrator", data);
+
+  deleteadministrator=(id:number)=> this.http.delete("https://localhost:7270/api/Administrator?Id="+id);
 }
