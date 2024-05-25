@@ -1,4 +1,5 @@
 export interface Students{
+    id:number;
     name: string;  
     gender: string; 
     dob: string;

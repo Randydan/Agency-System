@@ -1,0 +1,23 @@
+<div class="my-36 shadow-2xl w-1/3 mx-auto  rounded-md">
+  <div class="flex justify-between pt-2 items-center">
+    <div></div>
+    <a [routerLink]="'/office'" class="bg-red-600 text-white rounded-full px-4 py-2">X</a>
+  </div>
+    <div class="pl-48 pt-1 items-center" >
+      <div class="text-2xl font-sans font-bold">Edit Office</div>
+  </div>
+
+<form [formGroup]="form" class="p-7" (ngSubmit)="onSubmit()">
+    <input formControlName="department" type="text" class="border w-full p-2 px-4 rounded-md my-3" placeholder="Name" required>
+  
+    <input formControlName="description" type="text" class="border w-full p-2 px-4 rounded-md my-3" placeholder="Enter Desription" required>
+    
+    <input formControlName="address" type="text" class="border w-full p-2 px-4 rounded-md my-3" placeholder="Enter location" required>
+    
+    <div class="pl-48  my-3">
+      <button class="bg-blue-500 rounded-md py-2 shadow-md px-7 text-white font-semibold font-sans text-center">Save</button>
+    </div>
+
+  </form>
+  
+  

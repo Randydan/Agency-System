@@ -9,7 +9,7 @@
       @for(item of students; track item){
         <div class="font-sans font-semibold text-xl shadow-2xl rounded-md p-3">
 
-            <div class ="text-center text-white bg-blue-500 rounded-full p-5 w-10 h-10 flex gap-10 justify-center items-center text-black font-bold">
+            <div class ="text-center text-white bg-blue-500 rounded-full p-5 w-10 h-10 flex gap-10 justify-center items-center font-bold">
               {{$index+1}}
               
           </div>
@@ -56,8 +56,8 @@
               </div>
             </div>
               <div class="p-5 grid grid-cols-2 gap-5">
-                <button class="bg-red-600 rounded-md p-2 text-white font-semibold font-sans"> Delete</button>
-                <button class="bg-blue-500 rounded-md p-2 text-white font-semibold font-sans"> Edit</button>
+                <button (click)="delete(item.id)" class="bg-red-600 rounded-md p-2 text-white font-semibold font-sans"> Delete</button>
+                <a [routerLink]="['/update-student-form/']" (click)="get(item.id)" class="bg-blue-500 rounded-md p-2 text-white text-center font-semibold font-sans"> Edit</a>
              </div>
           </div>
       </div>

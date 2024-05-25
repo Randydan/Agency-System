@@ -16,12 +16,30 @@ import { RouterLink } from '@angular/router';
 export class ClassroomComponent implements OnInit{
 
   classrooms: Classrooms[] =[]
+ 
+ delete(id:number){
+
+  this.classroomService.deleteclassroom(id).subscribe({
+    next:(response)=>{
+      console.log(response);
+      this.getClassrooms();
+    }
+ })
+      
+ }
+
+ private getClassrooms(): void{
+  this.classroomService.getclassrooms().subscribe({
+    next:(response)=>{
+      this.classrooms = response;
+    }
+  })
+
+ }
   ngOnInit(): void {
-    this.classroomService.getclassrooms().subscribe({
-      next:(response)=>{
-        this.classrooms = response;
-      }
-    })
+    this.getClassrooms();
   }
+
+
   classroomService = inject(ClassroomService);
 }

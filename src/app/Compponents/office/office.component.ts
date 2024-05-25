@@ -13,11 +13,25 @@ import { RouterLink } from '@angular/router';
   styleUrl: './office.component.css'
 })
 export class OfficeComponent implements OnInit {
-  offices: Offices[] =[]
+  offices: Offices[] =[];
+
     ngOnInit(): void {
+      this.getOffices();
+    }
+
+    private getOffices(): void{
       this.officeService.getoffice().subscribe({
         next:(office)=>{
           this.offices = office;
+        }
+      })
+    }
+
+    delete(id:number){
+      this.officeService.deleteoffice(id).subscribe({
+        next:(response)=>{
+          console.log(response);
+          this.getOffices();
         }
       })
     }

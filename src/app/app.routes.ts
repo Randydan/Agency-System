@@ -13,6 +13,13 @@ import { DepartmentFormComponent } from './Forms/department-form/department-form
 import { LecturerFormComponent } from './Forms/lecturer-form/lecturer-form.component';
 import { OfficeFormComponent } from './Forms/office-form/office-form.component';
 import { StudentFormComponent } from './Forms/student-form/student-form.component';
+import { UpdateAdministratorFormComponent } from './Update-Forms/update-administrator-form/update-administrator-form.component';
+import { UpdateClassroomFormComponent } from './Update-Forms/update-classroom-form/update-classroom-form.component';
+import { UpdateCourseFormComponent } from './Update-Forms/update-course-form/update-course-form.component';
+import { UpdateLecturerFormComponent } from './Update-Forms/update-lecturer-form/update-lecturer-form.component';
+import { UpdateDepartmentFormComponent } from './Update-Forms/update-department-form/update-department-form.component';
+import { UpdateOfficeFormComponent } from './Update-Forms/update-office-form/update-office-form.component';
+import { UpdateStudentFormComponent } from './Update-Forms/update-student-form/update-student-form.component';
 
 export const routes: Routes = [
     {
@@ -86,6 +93,42 @@ export const routes: Routes = [
                 {
                     path:'student-form',
                     component:StudentFormComponent,
-                }
+                },
+                {
+
+                    path:'update-administrator-form',
+                    component:UpdateAdministratorFormComponent,
+            
+                        },
+            
+                        {
+                            path:'update-classroom-form',
+                            component:UpdateClassroomFormComponent,
+                        },
+            
+                        {
+                            path:'update-course-form',
+                            component:UpdateCourseFormComponent,
+                        },
+            
+                        {
+                            path:'update-department-form',
+                            component:UpdateDepartmentFormComponent,
+                        },
+            
+                        {
+                            path:'update-lecturer-form',
+                            component:UpdateLecturerFormComponent,
+                        },
+            
+                        {
+                            path:'update-office-form',
+                            component:UpdateOfficeFormComponent,
+                        },
+            
+                        {
+                            path:'update-student-form',
+                            component:UpdateStudentFormComponent,
+                        }
 
 ];

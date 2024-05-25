@@ -16,7 +16,7 @@ export class AdministratorComponent implements OnInit{
   administrators: Administrators[] = [];
 
  ngOnInit(): void {
-  this.getStudents();
+  this.getAdministrators();
   
   }
 
@@ -24,12 +24,12 @@ export class AdministratorComponent implements OnInit{
     this.adminService.deleteadministrator(id).subscribe({
       next:(response)=>{
         console.log(response);
-        this.getStudents();
+        this.getAdministrators();
       }
     })
   }
 
-  private getStudents():void{
+  private getAdministrators():void{
    this.adminService.getadministrators().subscribe({
       next:(response)=>{
         console.log(response);

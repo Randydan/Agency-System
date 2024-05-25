@@ -14,5 +14,7 @@ export class LecturerService {
 
   addlecturer=(Data:Lecturers)=>this.http.post("https://localhost:7270/api/Lecturer", Data);
 
+  updatelecturer=(id:number, data:Lecturers)=>this.http.put("https://localhost:7270/api/Lecturer?Id="+id, data);
+
   deletelecturer=(id:number)=>this.http.delete("https://localhost:7270/api/Lecturer?Id="+id);
 }

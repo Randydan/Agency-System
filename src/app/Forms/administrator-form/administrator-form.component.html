@@ -1,31 +1,104 @@
 
 <div class="my-10 shadow-2xl w-2/5 mx-auto  rounded-md">
-  <div class="grid grid-cols-2 place-items-end pr-3 pt-3" >
+  <div class="flex justify-between pt-2 items-center">
     <div></div>
+    <a [routerLink]="'/administrator'" class="bg-red-600 text-white rounded-full px-4 py-2">X</a>
+  </div>
+    <div class="pl-52 pt-1 items-center" >
+      <div class="text-2xl font-sans font-bold">Add Administrator</div>
+  </div>
 
-  <a [routerLink]="'/administrator'" class="bg-red-600 place-items-end text-white rounded-full p-3 w-10 h-10 flex gap-10 justify-center items-center font-bold">X</a>
-</div>
-<form [formGroup]="form" class="p-7 my-2" (ngSubmit)="onSubmit()">
-  
+<form [formGroup]="form" class="p-7" (ngSubmit)="onSubmit()">
+
+  <div>
       <input formControlName="name" type="text" class="border w-full p-2 px-4 rounded-md my-1" placeholder="Name" required>
-  
+      @if(form.controls['name'].errors && form.controls['name'].touched){
+        <span class="text-red-400">
+          Name is required
+        </span>
+      }
+  </div> 
+
+  <div>
       <input formControlName="gender" type="text" class="border w-full p-2 px-4 rounded-md my-1" placeholder="Enter Gender" required>
+      @if(form.controls['gender'].errors && form.controls['gender'].touched){
+        <span class="text-red-400">
+          Gender is required
+        </span>
+      }
+    </div>
       
+    <div>
       <input formControlName="dob" type="date" class="border w-full p-2 px-4 rounded-md my-1" placeholder="Date of Birth" required>
-      
+      @if(form.controls['dob'].errors && form.controls['dob'].touched){
+        <span class="text-red-400">
+          Date of birth is required
+        </span>
+      }
+    </div>  
+
+    <div>
       <input formControlName="address" type="text" placeholder="Enter Address" class="border w-full p-2 px-4 rounded-md my-1" required>
+      @if(form.controls['address'].errors && form.controls['address'].touched){
+        <span class="text-red-400">
+          Address is required
+        </span>
+      }
+    </div>
 
+    <div>
       <input formControlName="email" type="email" placeholder="Enter Email" class="border w-full p-2 px-4 rounded-md my-1" required>
+      @if(form.controls['email'].errors && form.controls['email'].touched){
+        <span class="text-red-400">
+          Invalid Email
+        </span>
+      }
+    </div>
 
+    <div>
       <input formControlName="phone" type="number" placeholder="Enter Phone number" class="border w-full p-2 px-4 rounded-md my-1" required>
+      @if(form.controls['phone'].errors && form.controls['phone'].touched){
+        <span class="text-red-400">
+          Phone Number is required
+        </span>
+      }
+    </div>
 
+    <div>
       <input formControlName="status" type="text" placeholder="Enter Marital status" class="border w-full p-2 px-4 rounded-md my-1" required>
+      @if(form.controls['status'].errors && form.controls['status'].touched){
+        <span class="text-red-400">
+          Marital status is required
+        </span>
+      }
+    </div>
 
+    <div>
       <input formControlName="department" type="text" placeholder="Enter Department" class="border w-full p-2 px-4 rounded-md my-1" required>
+      @if(form.controls['department'].errors && form.controls['department'].touched){
+        <span class="text-red-400">
+          Department is required
+        </span>
+      }
+    </div>
 
+    <div>
       <input formControlName="salary" type="number" placeholder="Enter Salary" class="border w-full p-2 px-4 rounded-md my-1" required>
+      @if(form.controls['salary'].errors && form.controls['salary'].touched){
+        <span class="text-red-400">
+          Salary is required
+        </span>
+      }
+    </div>
 
+    <div>
       <input formControlName="post" type="text" placeholder="Enter Post" class="border w-full p-2 px-4 rounded-md my-1" required>
+      @if(form.controls['post'].errors && form.controls['post'].touched){
+        <span class="text-red-400">
+          Post is required
+        </span>
+      }
+    </div>
 
       <div class="pl-60 my-3">
       <button class="bg-blue-500 rounded-md py-2 shadow-md px-7 text-white font-semibold font-sans text-center">Add</button>

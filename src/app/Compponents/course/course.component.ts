@@ -17,12 +17,26 @@ export class CourseComponent implements OnInit{
 
   courses: Courses[] =[];
   ngOnInit(): void {
+    this.getCourses();
+    }
+
+  delete(id:number){
+    this.courseService.deletecourse(id).subscribe({
+      next:(response)=>{
+        console.log(response);
+        this.getCourses();
+      }
+    })
+  }
+
+  private getCourses(): void{
     this.courseService.getcourses().subscribe({
       next:(course)=>{
        this.courses = course;
       }
-    })
+  })
   }
+
   courseService = inject(CourseService);
   
 }

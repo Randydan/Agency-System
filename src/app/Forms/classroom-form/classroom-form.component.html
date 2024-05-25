@@ -1,16 +1,41 @@
-<form [formGroup]="form" class="my-40 shadow-2xl w-1/3 mx-auto p-10 rounded-md" (ngSubmit)="onSubmit()">
-  <div class="grid grid-cols-2 place-items-end " >
+<div class="my-28 shadow-2xl w-1/3 mx-auto  rounded-md">
+  <div class="flex justify-between pt-2 items-center">
     <div></div>
+    <a [routerLink]="'/classroom'" class="bg-red-600 text-white rounded-full px-4 py-2">X</a>
+  </div>
+    <div class="pl-48 pt-1 items-center" >
+      <div class="text-2xl font-sans font-bold">Add Classroom</div>
+  </div>
 
-  <a [routerLink]="'/classroom'" class="bg-red-600 place-items-end text-white rounded-full p-3 w-10 h-10 flex gap-10 justify-center items-center font-bold">X</a>
+<form [formGroup]="form" class="p-7" (ngSubmit)="onSubmit()">
+
+<div>
+  <input formControlName="name" type="text" class="border w-full p-2 px-4 rounded-md my-3" placeholder="Name" required>
+  @if(form.controls['name'].errors && form.controls['name'].touched){
+    <span class="text-red-400">
+      Name is required
+    </span>
+  }
 </div>
 
-  <input formControlName="name" type="text" class="border w-full p-2 px-4 rounded-md my-3" placeholder="Name" required>
-
+<div>
   <input formControlName="description" type="text" class="border w-full p-2 px-4 rounded-md my-3" placeholder="Enter Desription" required>
-  
+  @if(form.controls['description'].errors && form.controls['description'].touched){
+    <span class="text-red-400">
+      Description is required
+    </span>
+  }
+</div>  
+
+<div>
   <input formControlName="location" type="text" class="border w-full p-2 px-4 rounded-md my-3" placeholder="Enter location" required>
-  
+  @if(form.controls['location'].errors && form.controls['location'].touched){
+    <span class="text-red-400">
+      Location is required
+    </span>
+  }
+</div> 
+
   <div class="pl-48  my-3">
     <button class="bg-blue-500 rounded-md py-2 shadow-md px-7 text-white font-semibold font-sans text-center">Add</button>
   </div>

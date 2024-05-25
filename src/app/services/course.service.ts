@@ -13,6 +13,8 @@ export class CourseService {
 
   addcourse=(data:Courses)=>this.http.post("https://localhost:7270/api/Course", data);
 
+  updatecourse=(id:number, data:Courses)=>this.http.put("https://localhost:7270/api/Course?Id="+id, data);
+
   deletecourse=(id:number)=>this.http.delete("https://localhost:7270/api/Course?Id=" +id);
 
 }

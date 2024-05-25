@@ -1,6 +1,6 @@
 import { JsonPipe } from '@angular/common';
 import { Component, OnInit, inject } from '@angular/core';
-import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { AdministratorsService } from '../../services/administrators.service';
 import { ToastrService } from 'ngx-toastr';
@@ -39,16 +39,16 @@ export class AdministratorFormComponent implements OnInit{
   }
   ngOnInit(): void {
     this.form = this.fb.group({
-      salary:[],
-      department:[],
-      post: [],
-      name:[],
-      gender:[],
-      dob: [],
-      address:[],
-      email:[],
-      phone: [],
-      status: []
+      salary:['', Validators.required],
+      department:['', Validators.required],
+      post: ['', Validators.required],
+      name:['', Validators.required],
+      gender:['', Validators.required],
+      dob: ['', Validators.required],
+      address:['', Validators.required],
+      email:['', Validators.email],
+      phone: ['', Validators.required],
+      status: ['', Validators.required]
     });
   }
 

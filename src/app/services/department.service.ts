@@ -14,6 +14,8 @@ export class DepartmentService {
 
   addDepartment=(Data:Departments)=>this.http.post("https://localhost:7270/api/Department", Data);
 
+  updatedepartment=(id:number, data:Departments)=>this.http.put("https://localhost:7270/api/Department?Id="+id, data);
+
   deletedeparment=(id:number)=>this.http.delete("https://localhost:7270/api/Department?Id="+id);
 
 }

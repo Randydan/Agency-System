@@ -1,6 +1,6 @@
 import { JsonPipe } from '@angular/common';
 import { Component, OnInit, inject } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { LecturerService } from '../../services/lecturer.service';
 import { response } from 'express';
@@ -37,9 +37,9 @@ export class OfficeFormComponent implements OnInit{
   }
   ngOnInit(): void {
     this.form = this.fb.group({
-      department: [],
-      description:[],
-      address: []
+      department: ['', Validators.required],
+      description:['', Validators.required],
+      address: ['', Validators.required]
 })
     }
   }

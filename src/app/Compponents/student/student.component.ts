@@ -15,13 +15,37 @@ import { RouterLink } from '@angular/router';
 })
 export class StudentComponent implements OnInit{
 
-  students: Students[] = []
+  students: Students[] = [];
+
   ngOnInit(): void {
+    this.getStudents();
+  }
+
+  private getStudents():void{
     this.studentService.getstudents().subscribe({
       next:(student)=>{
         this.students = student
       }
     })
   }
+
+  delete(id:number){
+    this.studentService.deletestudent(id).subscribe({
+      next:(response)=>{
+        console.log(response);
+        this.getStudents();
+      }
+    })
+  }
+
+  get(id:number){
+    this.studentService.getstudentsmethod(id).subscribe({
+      next:(response)=>{
+        console.log(response);
+        
+      }
+    })
+  }
+
   studentService = inject(StudentService);
   }

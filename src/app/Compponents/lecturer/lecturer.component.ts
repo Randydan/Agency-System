@@ -15,13 +15,28 @@ import { RouterLink } from '@angular/router';
 export class LecturerComponent implements OnInit {
 
   lecturers: Lecturers[] = [];
+
   ngOnInit(): void {
+    this.getLecturers();
+  }
+
+  private getLecturers():void{
     this.lecturerService.getlecturers().subscribe({
       next:(lecturer)=>{
         this.lecturers =lecturer;
       }
     })
   }
+
+  delete(id:number){
+    this.lecturerService.deletelecturer(id).subscribe({
+      next:(response)=>{
+        console.log(response);
+        this.getLecturers();
+      }
+    })
+  }
+
   lecturerService = inject(LecturerService);
   }
 

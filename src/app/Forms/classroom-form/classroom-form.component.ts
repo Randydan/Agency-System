@@ -1,6 +1,6 @@
 import { JsonPipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { inject } from '@angular/core';
 import { ClassroomService } from '../../services/classroom.service';
@@ -35,9 +35,9 @@ export class ClassroomFormComponent implements OnInit{
   }
   ngOnInit(): void {
     this.form= this.fb.group({
-    name: [],
-    description: [],
-    location: []
+    name: ['', Validators.required],
+    description: ['', Validators.required],
+    location: ['', Validators.required]
     })
   }
 
