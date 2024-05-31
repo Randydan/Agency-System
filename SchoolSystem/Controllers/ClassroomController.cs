@@ -30,6 +30,23 @@ namespace SchoolSystem.Controllers
             return Ok(classroom);
         }
 
+        [HttpGet("{Id}")]
+        [ProducesResponseType(200, Type = typeof(IEnumerable<Classroom>))]
+
+        public IActionResult GetClassroom(int Id)
+        {
+            if (!_classroomInterface.ClassroomExists(Id))
+                return NotFound();
+
+            var classroom = _classroomInterface.GetClassroom(Id);
+
+            if (!ModelState.IsValid)
+
+                return BadRequest(ModelState);
+
+            return Ok(classroom);
+        }
+
         [HttpPost]
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
@@ -68,7 +85,7 @@ namespace SchoolSystem.Controllers
         [ProducesResponseType(204)]
         [ProducesResponseType(404)]
 
-        public IActionResult UpdateAdministraator(int Id, [FromBody] Classroom updateClassroom)
+        public IActionResult UpdateClassroom(int Id, [FromBody] Classroom updateClassroom)
         {
             if (updateClassroom == null)
                 return BadRequest(ModelState);
@@ -88,8 +105,33 @@ namespace SchoolSystem.Controllers
                 return StatusCode(500, ModelState);
             }
 
-            return NoContent();
+            return Ok();
         }
 
+
+        [HttpDelete]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(404)]
+
+        public IActionResult DeleteClassroom(int Id)
+        {
+
+            if (!ModelState.IsValid)
+                return BadRequest();
+
+            if (!_classroomInterface.ClassroomExists(Id))
+                return NotFound();
+
+            var classroom = _classroomInterface.GetClassroom(Id);
+
+            if (!_classroomInterface.DeleteClassroom(classroom))
+            {
+                ModelState.AddModelError("", "Something went wrong");
+                return StatusCode(500, ModelState);
+            }
+
+            return Ok();
+        }
     }
 }

@@ -6,7 +6,7 @@ namespace SchoolSystem.Interfaces
     {
         ICollection<Student> GetStudents();
         Student GetStudents(string name);
-        Student GetStudent(string Matricule);
+        Student GetStudent(int ID);
         bool StudentsExists(int ID);
         bool UpdateStudent(Student student);
         bool DeleteStudent(Student student);

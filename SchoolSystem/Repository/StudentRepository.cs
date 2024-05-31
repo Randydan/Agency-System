@@ -28,9 +28,9 @@ namespace SchoolSystem.Repository
             return _context.Students.OrderBy(p => p.ID).ToList();
         }
 
-        public Student GetStudent(string Matricule)
+        public Student GetStudent(int ID)
         {
-            return _context.Students.Where(p => p.Matricle == Matricule).FirstOrDefault();
+            return _context.Students.Where(p => p.ID == ID).FirstOrDefault();
         }
 
         public bool CreateStudent(Student student)

@@ -1,11 +1,12 @@
 {
   "ExpandedNodes": [
     "",
+    "\\SchoolSystem",
     "\\School_Management",
     "\\School_System",
     "\\School_System\\Controllers",
     "\\School_System\\Repository"
   ],
-  "SelectedNode": "\\School_Management\\Department.cs",
+  "SelectedNode": "\\SchoolSystem\\Program.cs",
   "PreviewInSolutionExplorer": false
 }

@@ -9,7 +9,7 @@ namespace SchoolSystem.Interfaces
         Lecturer GetLecturer(int id);
         bool LecturerExists(int id);
         bool UpdateLecturer(Lecturer lecturer);
-        bool DeleteLecturer(Office office);
+        bool DeleteLecturer(Lecturer lecturer);
         bool CreateLecturer(Lecturer lecturer);
         bool Save();
     }

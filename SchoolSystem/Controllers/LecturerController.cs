@@ -30,6 +30,23 @@ namespace SchoolSystem.Controllers
             return Ok(lecturer);
         }
 
+        [HttpGet("{Id}")]
+        [ProducesResponseType(200, Type = typeof(IEnumerable<Lecturer>))]
+
+        public IActionResult GetLecturers(int Id)
+        {
+            if (!_lecturerInterface.LecturerExists(Id))
+                return NotFound();
+
+            var lecturer = _lecturerInterface.GetLecturer(Id);
+
+            if (!ModelState.IsValid)
+
+                return BadRequest(ModelState);
+
+            return Ok(lecturer);
+        }
+
         [HttpPost]
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
@@ -82,6 +99,33 @@ namespace SchoolSystem.Controllers
                 return NotFound();
 
             if (!_lecturerInterface.UpdateLecturer(updateLecturer))
+            {
+                ModelState.AddModelError("", "Something went wrong");
+                return StatusCode(500, ModelState);
+            }
+
+            return Ok();
+        }
+
+
+        [HttpDelete]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(404)]
+
+        public IActionResult DeleteLecturer(int Id)
+        {
+
+
+            if (!ModelState.IsValid)
+                return BadRequest();
+
+            if (!_lecturerInterface.LecturerExists(Id))
+                return NotFound();
+
+            var lecturer = _lecturerInterface.GetLecturer(Id);
+
+            if (!_lecturerInterface.DeleteLecturer(lecturer))
             {
                 ModelState.AddModelError("", "Something went wrong");
                 return StatusCode(500, ModelState);

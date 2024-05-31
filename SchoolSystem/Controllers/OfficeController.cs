@@ -88,7 +88,50 @@ namespace SchoolSystem.Controllers
                 return StatusCode(500, ModelState);
             }
 
-            return NoContent();
+            return Ok();
+        }
+
+        [HttpGet("{Id}")]
+        [ProducesResponseType(200, Type = typeof(IEnumerable<Office>))]
+
+        public IActionResult GetStudents(int Id)
+        {
+            if (!_officeInterface.OfficeExists(Id))
+                return NotFound();
+
+            var student = _officeInterface.GetOffice(Id);
+
+            if (!ModelState.IsValid)
+
+                return BadRequest(ModelState);
+
+            return Ok(student);
+        }
+
+
+        [HttpDelete]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(404)]
+
+        public IActionResult DeleteOffice(int ID)
+        {
+
+            if (!ModelState.IsValid)
+                return BadRequest();
+
+            if (!_officeInterface.OfficeExists(ID))
+                return NotFound();
+
+            var office = _officeInterface.GetOffice(ID);
+
+            if (!_officeInterface.DeleteOffice(office))
+            {
+                ModelState.AddModelError("", "Something went wrong");
+                return StatusCode(500, ModelState);
+            }
+
+            return Ok();
         }
 
     }

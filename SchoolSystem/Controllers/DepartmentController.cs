@@ -30,6 +30,23 @@ namespace SchoolSystem.Controllers
             return Ok(department);
         }
 
+        [HttpGet("{Id}")]
+        [ProducesResponseType(200, Type = typeof(IEnumerable<Department>))]
+
+        public IActionResult GetDepartment(int Id)
+        {
+            if (!_departmentInterface.DepartmentExists(Id))
+                return NotFound();
+
+            var department = _departmentInterface.GetDepartment(Id);
+
+            if (!ModelState.IsValid)
+
+                return BadRequest(ModelState);
+
+            return Ok(department);
+        }
+
         [HttpPost]
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
@@ -87,7 +104,33 @@ namespace SchoolSystem.Controllers
                 return StatusCode(500, ModelState);
             }
 
-            return NoContent();
+            return Ok();
+        }
+
+
+        [HttpDelete]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(404)]
+
+        public IActionResult DeleteDepartment(int Id)
+        {
+
+            if (!ModelState.IsValid)
+                return BadRequest();
+
+            if (!_departmentInterface.DepartmentExists(Id))
+                return NotFound();
+
+            var department = _departmentInterface.GetDepartment(Id);
+
+            if (!_departmentInterface.DeleteDepartment(department))
+            {
+                ModelState.AddModelError("", "Something went wrong");
+                return StatusCode(500, ModelState);
+            }
+
+            return Ok();
         }
     }
 }

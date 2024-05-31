@@ -19,9 +19,9 @@ namespace SchoolSystem.Repository
             return Save();
         }
 
-        public bool DeleteLecturer(Office office)
+        public bool DeleteLecturer(Lecturer lecturer)
         {
-            _context.Remove(office);
+            _context.Remove(lecturer);
             return Save();
         }
 

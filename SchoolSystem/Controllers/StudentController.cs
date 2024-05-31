@@ -30,6 +30,23 @@ namespace SchoolSystem.Controllers
             return Ok(student);
         }
 
+        [HttpGet("{Id}")]
+        [ProducesResponseType(200, Type = typeof(IEnumerable<Student>))]
+
+        public IActionResult GetStudent(int Id)
+        {
+            if (!_studentInterface.StudentsExists(Id))
+                return NotFound();
+
+            var student = _studentInterface.GetStudent(Id);
+
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            return Ok(student);
+        }
+
+
         [HttpPost]
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
@@ -67,18 +84,18 @@ namespace SchoolSystem.Controllers
         [ProducesResponseType(204)]
         [ProducesResponseType(404)]
 
-        public IActionResult UpdateStudent(string Matricule, [FromBody] Student updateStudent)
+        public IActionResult UpdateStudent(int ID, [FromBody] Student updateStudent)
         {
             if (updateStudent == null)
                 return BadRequest(ModelState);
 
-            if (Matricule != updateStudent.Matricle)
+            if (ID != updateStudent.ID)
                 return BadRequest(ModelState);
 
             if (!ModelState.IsValid)
                 return BadRequest();
 
-            if (!_studentInterface.StudentsExists(Matricule))
+            if (!_studentInterface.StudentsExists(ID))
                 return NotFound();
 
             if (!_studentInterface.UpdateStudent(updateStudent))
@@ -87,8 +104,34 @@ namespace SchoolSystem.Controllers
                 return StatusCode(500, ModelState);
             }
 
-            return NoContent();
+            return Ok();
         }
 
+
+
+        [HttpDelete]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(404)]
+
+        public IActionResult DeleteStudent(int ID)
+        {
+
+            if (!ModelState.IsValid)
+                return BadRequest();
+
+            if (!_studentInterface.StudentsExists(ID))
+                return NotFound();
+
+            var student = _studentInterface.GetStudent(ID);
+
+            if (!_studentInterface.DeleteStudent(student))
+            {
+                ModelState.AddModelError("", "Something went wrong");
+                return StatusCode(500, ModelState);
+            }
+
+            return Ok();
+        }
     }
 }

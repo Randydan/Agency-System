@@ -5,7 +5,7 @@ namespace SchoolSystem.Interfaces
     public interface ICourseInterface
     {
         ICollection<Course> GetCourses();
-        Course GetCourse(string code);
+        Course GetCourse(int ID);
         Course FetchCourse(string name);
         bool CourseExists(int ID);
         bool CreateCourse(Course course);

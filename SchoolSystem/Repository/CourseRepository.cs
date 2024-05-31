@@ -35,9 +35,9 @@ namespace SchoolSystem.Repository
             return _context.Courses.Where(p=>p.Name == name).FirstOrDefault();
         }
 
-        public Course GetCourse(string code)
+        public Course GetCourse(int ID)
         {
-            return _context.Courses.Where(p => p.Code == code).FirstOrDefault();
+            return _context.Courses.Where(p => p.ID == ID).FirstOrDefault();
         }
 
         public ICollection<Course> GetCourses()

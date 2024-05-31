@@ -77,6 +77,7 @@ namespace SchoolSystem.Controllers
 
             if (!ModelState.IsValid) 
                 return BadRequest();
+
             if (!_administratorInterface.AdministratorsExists(Id))
                 return NotFound();
 
@@ -87,7 +88,51 @@ namespace SchoolSystem.Controllers
             }
 
             return Ok();
-        } 
-         
+        }
+
+        [HttpGet("{Id}")]
+        [ProducesResponseType(200, Type = typeof(IEnumerable<Administrators>))]
+
+        public IActionResult GetAdministrators(int Id)
+        {
+            if (!_administratorInterface.AdministratorsExists(Id))
+                return NotFound();
+
+            var admin = _administratorInterface.GetAdministrators(Id);
+
+            if (!ModelState.IsValid)
+
+                return BadRequest(ModelState);
+
+            return Ok(admin);
+        }
+
+
+
+        [HttpDelete]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(404)]
+
+        public IActionResult DeleteAdministrator(int Id)
+        {
+
+            if (!ModelState.IsValid)
+                return BadRequest();
+
+            if (!_administratorInterface.AdministratorsExists(Id))
+                return NotFound();
+
+            var administrator = _administratorInterface.GetAdministrators(Id);
+
+            if (!_administratorInterface.DeleteAdministrator(administrator))
+            {
+                ModelState.AddModelError("", "Something went wrong");
+                return StatusCode(500, ModelState);
+            }
+
+            return Ok();
+        }
+
     }
 }

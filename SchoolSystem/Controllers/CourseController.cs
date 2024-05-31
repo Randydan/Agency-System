@@ -30,6 +30,23 @@ namespace SchoolSystem.Controllers
             return Ok(course);
         }
 
+        [HttpGet("{Id}")]
+        [ProducesResponseType(200, Type = typeof(IEnumerable<Course>))]
+
+        public IActionResult GetCourses(int Id)
+        {
+            if (!_courseInterface.CourseExists(Id))
+                return NotFound();
+
+            var student = _courseInterface.GetCourse(Id);
+
+            if (!ModelState.IsValid)
+
+                return BadRequest(ModelState);
+
+            return Ok(student);
+        }
+
         [HttpPost]
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
@@ -82,6 +99,32 @@ namespace SchoolSystem.Controllers
                 return NotFound();
 
             if (!_courseInterface.UpdateCourse(updateCourse))
+            {
+                ModelState.AddModelError("", "Something went wrong");
+                return StatusCode(500, ModelState);
+            }
+
+            return NoContent();
+        }
+
+
+        [HttpDelete]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(404)]
+
+        public IActionResult DeleteCourse(int ID)
+        {
+
+            if (!ModelState.IsValid)
+                return BadRequest();
+
+            if (!_courseInterface.CourseExists(ID))
+                return NotFound();
+
+            var course = _courseInterface.GetCourse(ID);
+
+            if (!_courseInterface.DeleteCourse(course))
             {
                 ModelState.AddModelError("", "Something went wrong");
                 return StatusCode(500, ModelState);
