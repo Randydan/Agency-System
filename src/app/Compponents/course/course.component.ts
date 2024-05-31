@@ -29,6 +29,14 @@ export class CourseComponent implements OnInit{
     })
   }
 
+  get(id:number){
+    this.courseService.getcoursemethod(id).subscribe({
+      next:(response)=>{
+        console.log(response);
+      }
+    })
+  }
+
   private getCourses(): void{
     this.courseService.getcourses().subscribe({
       next:(course)=>{

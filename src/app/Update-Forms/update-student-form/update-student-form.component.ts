@@ -1,8 +1,9 @@
 import { JsonPipe } from '@angular/common';
 import { Component, OnInit, inject } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { ActivatedRoute, RouterLink } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { StudentService } from '../../services/student.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-student-form',
@@ -14,27 +15,36 @@ import { StudentService } from '../../services/student.service';
 export class UpdateStudentFormComponent implements OnInit{
 
   form!: FormGroup;
-
+  Id=0;
   studentService=inject(StudentService);
 
-  constructor(private fb: FormBuilder, private activateRouter: ActivatedRoute){
+
+  constructor(private fb: FormBuilder, 
+    private activateRouter: ActivatedRoute,
+    private route:Router
+  ){
 
   }
 
   onSubmit(){
-    this.studentService.addstudent(this.form.value,).subscribe({
-      next:(response)=>{
-        console.log(response);
+
+    this.form.value.Id = this.Id;
+    this.studentService.updatestudent(this.Id, this.form.value).subscribe({
+      next:(value)=>{
+        console.log(value);
+        this.route.navigateByUrl('/student')
       }
     })
   }
 
   ngOnInit(): void {
-
-    this.activateRouter.params.subscribe({
+   this.activateRouter.params.subscribe({
       next:(response)=>{
         console.log(response['id']);
-        this.studentService.getstudentsmethod(response['id']).subscribe({
+        let routeId = response['id'];
+        this.Id=routeId;
+        if(!routeId) return;
+        this.studentService.getstudentsmethod(routeId).subscribe({
           next:(response)=>{
             this.form.patchValue(response);
           },
@@ -46,8 +56,9 @@ export class UpdateStudentFormComponent implements OnInit{
       },
       error:err=>{
         console.log(err);
-      }
+      } 
     })
+
     this.form = this.fb.group({
       name: [],  
       gender: [], 

@@ -37,6 +37,14 @@ export class LecturerComponent implements OnInit {
     })
   }
 
+  get(id:number){
+    this.lecturerService.getlecturermethod(id).subscribe({
+      next:(response)=>{
+        console.log(response);
+      }
+    })
+  }
+
   lecturerService = inject(LecturerService);
   }
 

@@ -18,7 +18,6 @@ export class ClassroomComponent implements OnInit{
   classrooms: Classrooms[] =[]
  
  delete(id:number){
-
   this.classroomService.deleteclassroom(id).subscribe({
     next:(response)=>{
       console.log(response);
@@ -38,6 +37,14 @@ export class ClassroomComponent implements OnInit{
  }
   ngOnInit(): void {
     this.getClassrooms();
+  }
+
+  get(id:number){
+    this.classroomService.getclassroommethod(id).subscribe({
+      next:(response)=>{
+        console.log(response);
+      }
+    })
   }
 
 

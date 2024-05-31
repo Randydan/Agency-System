@@ -1,9 +1,10 @@
 import { JsonPipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { inject } from '@angular/core';
 import { ClassroomService } from '../../services/classroom.service';
+import { __values } from 'tslib';
 
 @Component({
   selector: 'app-classroom-form',
@@ -15,18 +16,24 @@ import { ClassroomService } from '../../services/classroom.service';
 export class UpdateClassroomFormComponent implements OnInit{
 
   form!: FormGroup;
-
+  Id =0;
   classroomService = inject(ClassroomService);
 
-  constructor(private fb: FormBuilder){
+  constructor(private fb: FormBuilder,
+    private route:Router,
+    private activateroute: ActivatedRoute
+  ){
 
   }
 
   onSubmit(){
-    this.classroomService.addclassroom(this.form.value).subscribe({
+
+    this.form.value.Id = this.Id;
+
+    this.classroomService.updateclassroom(this.Id, this.form.value).subscribe({
       next:(response)=>{
         console.log(response);
-
+        this.route.navigateByUrl("/classroom");
       },
       error:err=>{
         console.log(err);
@@ -34,6 +41,27 @@ export class UpdateClassroomFormComponent implements OnInit{
     })
   }
   ngOnInit(): void {
+    this.activateroute.params.subscribe({
+      next:(response)=>{
+        console.log(response['id']);
+        let routeId = response['id'];
+        this.Id=routeId;
+        if(!routeId) return;
+        this.classroomService.getclassroommethod(routeId).subscribe({
+          next:(response)=>{
+            this.form.patchValue(response);
+          },
+
+          error:err=>{
+            console.log(err);
+          }
+        })
+      },
+      error:err=>{
+        console.log(err);
+      } 
+    })
+
     this.form= this.fb.group({
     name: [],
     description: [],

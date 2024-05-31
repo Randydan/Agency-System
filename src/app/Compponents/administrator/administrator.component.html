@@ -47,7 +47,7 @@
          </div>
             <div class="p-5 grid grid-cols-2 gap-5">
                <button (click)="delete(item.id)" class="bg-red-600 rounded-md p-2 text-white font-semibold font-sans"> Delete</button>
-               <a [routerLink]="['/update-administrator-form/']" class="bg-blue-500 rounded-md p-2 text-white font-semibold font-sans text-center"> Edit</a>
+               <a [routerLink]="['/update-administrator-form/', item.id]"  (click)="get(item.id)" class="bg-blue-500 rounded-md p-2 text-white font-semibold font-sans text-center"> Edit</a>
             </div>
         </div>
     </div>

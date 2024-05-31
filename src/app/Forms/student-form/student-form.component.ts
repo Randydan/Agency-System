@@ -1,7 +1,7 @@
 import { JsonPipe } from '@angular/common';
 import { Component, OnInit, inject } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { StudentService } from '../../services/student.service';
 
 @Component({
@@ -17,7 +17,7 @@ export class StudentFormComponent implements OnInit{
 
   studentService=inject(StudentService);
 
-  constructor(private fb: FormBuilder){
+  constructor(private fb: FormBuilder, private router:Router){
 
   }
 
@@ -25,6 +25,7 @@ export class StudentFormComponent implements OnInit{
     this.studentService.addstudent(this.form.value).subscribe({
       next:(response)=>{
         console.log(response);
+        this.router.navigateByUrl('/student')
       }
     })
   }

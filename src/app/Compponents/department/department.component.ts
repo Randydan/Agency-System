@@ -29,6 +29,17 @@ export class DepartmentComponent implements OnInit{
     })
   }
 
+  get(id:number){
+    this.departmentService.getdepartmentmethod(id).subscribe({
+      next:(response)=>{
+        console.log(response);
+      },
+      error:err=>{
+        console.log(err);
+      }
+    })
+  }
+
   private getDepartments(): void{
     this.departmentService.getdepartments().subscribe({
       next:(department)=>{

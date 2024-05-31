@@ -14,10 +14,10 @@ export class StudentService {
 
   addstudent=(Data:Students)=>this.http.post("https://localhost:7270/api/Student", Data);
 
-  updatestundent=(id:number, data:Students)=>this.http.put("https://localhost:7270/api/Student?Id="+id, data);
+  updatestudent=(id:number, data:Students)=>this.http.put("https://localhost:7270/api/Student?ID="+id, data);
 
-  getstudentsmethod=(id:number):Observable<Students[]>=>this.http.get<Students[]>("https://localhost:7270/api/Student/" + id);
+  getstudentsmethod=(id:number):Observable<Students[]>=>this.http.get<Students[]>("https://localhost:7270/api/Student/"+id);
 
+  deletestudent=(id:number)=>this.http.delete("https://localhost:7270/api/Student?Id="+id);
 
-  deletestudent=(id:number)=>this.http.delete("https://localhost:7270/api/Student?Id="+id)
 }

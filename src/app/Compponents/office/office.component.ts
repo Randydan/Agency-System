@@ -35,5 +35,15 @@ export class OfficeComponent implements OnInit {
         }
       })
     }
+
+    get(id:number){
+      this.officeService.getofficemethod(id).subscribe({
+        next:(response)=>{
+          console.log(response);
+        }
+      })
+    }
+
+    
     officeService = inject(OfficeService);
     }

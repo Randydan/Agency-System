@@ -18,4 +18,6 @@ export class DepartmentService {
 
   deletedeparment=(id:number)=>this.http.delete("https://localhost:7270/api/Department?Id="+id);
 
+  getdepartmentmethod=(Id:number)=>this.http.get("https://localhost:7270/api/Department/" + Id);
+
 }

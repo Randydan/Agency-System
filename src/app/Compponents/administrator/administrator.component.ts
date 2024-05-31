@@ -29,6 +29,14 @@ export class AdministratorComponent implements OnInit{
     })
   }
 
+  get(id:number){
+    this.adminService.getadminmethod(id).subscribe({
+      next:(response)=>{
+        console.log(response);
+      }
+    })
+  }
+
   private getAdministrators():void{
    this.adminService.getadministrators().subscribe({
       next:(response)=>{

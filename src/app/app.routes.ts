@@ -96,39 +96,38 @@ export const routes: Routes = [
                 },
                 {
 
-                    path:'update-administrator-form',
+                    path:'update-administrator-form/:id',
                     component:UpdateAdministratorFormComponent,
             
                         },
             
                         {
-                            path:'update-classroom-form',
+                            path:'update-classroom-form/:id',
                             component:UpdateClassroomFormComponent,
                         },
             
                         {
-                            path:'update-course-form',
+                            path:'update-course-form/:id',
                             component:UpdateCourseFormComponent,
                         },
             
                         {
-                            path:'update-department-form',
+                            path:'update-department-form/:id',
                             component:UpdateDepartmentFormComponent,
                         },
             
                         {
-                            path:'update-lecturer-form',
+                            path:'update-lecturer-form/:id',
                             component:UpdateLecturerFormComponent,
                         },
             
                         {
-                            path:'update-office-form',
+                            path:'update-office-form/:id',
                             component:UpdateOfficeFormComponent,
                         },
             
                         {
-                            path:'update-student-form',
+                            path:'update-student-form/:id',
                             component:UpdateStudentFormComponent,
-                        }
-
+                        },
 ];

@@ -13,7 +13,8 @@ import { DepartmentComponent } from './Compponents/department/department.compone
 import { LecturerComponent } from './Compponents/lecturer/lecturer.component';
 import { OfficeComponent } from './Compponents/office/office.component';
 import { StudentComponent } from './Compponents/student/student.component';
-import { provideToastr } from 'ngx-toastr';
+import { ToastrModule, ToastrService, provideToastr } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
   NgModule({
   declarations:[
@@ -25,7 +26,10 @@ import { provideToastr } from 'ngx-toastr';
   ],
   imports:[
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    ToastrService,
+    ToastrModule
   ]
 })
 export const appConfig: ApplicationConfig = {

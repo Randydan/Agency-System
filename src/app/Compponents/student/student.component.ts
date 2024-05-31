@@ -1,4 +1,4 @@
-import { AsyncPipe } from '@angular/common';
+import { AsyncPipe, CommonModule } from '@angular/common';
 import { Component, OnInit, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Observable, generate } from 'rxjs';
@@ -9,7 +9,7 @@ import { RouterLink } from '@angular/router';
 @Component({
   selector: 'app-student',
   standalone: true,
-  imports: [FormsModule, AsyncPipe, RouterLink],
+  imports: [FormsModule,CommonModule, AsyncPipe, RouterLink],
   templateUrl: './student.component.html',
   styleUrl: './student.component.css'
 })
@@ -42,7 +42,6 @@ export class StudentComponent implements OnInit{
     this.studentService.getstudentsmethod(id).subscribe({
       next:(response)=>{
         console.log(response);
-        
       }
     })
   }

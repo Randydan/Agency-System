@@ -17,4 +17,6 @@ export class CourseService {
 
   deletecourse=(id:number)=>this.http.delete("https://localhost:7270/api/Course?Id=" +id);
 
+  getcoursemethod=(Id:number)=>this.http.get("https://localhost:7270/api/Course/" + Id);
+
 }

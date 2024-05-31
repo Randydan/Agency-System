@@ -14,7 +14,9 @@ export class ClassroomService {
 
   addclassroom=(Data:Classrooms)=>this.http.post("https://localhost:7270/api/Classroom", Data);
 
-  updateclassroom=(id:number, data:Classrooms)=>this.http.put("https://localhost:7270/api/Classroom?Id="+id, data);
+  updateclassroom=(Id:number, data:Classrooms)=>this.http.put("https://localhost:7270/api/Classroom?Id="+Id, data);
   
   deleteclassroom=(id:number)=>this.http.delete("https://localhost:7270/api/Classroom?Id=" +id);
+
+  getclassroommethod=(Id:number)=>this.http.get("https://localhost:7270/api/Classroom/" + Id);
 }

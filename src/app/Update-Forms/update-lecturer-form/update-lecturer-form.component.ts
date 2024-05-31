@@ -1,7 +1,7 @@
 import { JsonPipe } from '@angular/common';
 import { Component, OnInit, inject } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { LecturerService } from '../../services/lecturer.service';
 
 @Component({
@@ -14,17 +14,24 @@ import { LecturerService } from '../../services/lecturer.service';
 export class UpdateLecturerFormComponent implements OnInit {
 
   form!: FormGroup; 
-
+  Id=0;
   lecturerService = inject(LecturerService);
 
-  constructor(private fb:FormBuilder){
+  constructor(private fb:FormBuilder,
+    private activatedRouter: ActivatedRoute,
+    private route:Router
+  ){
 
   }
 
   onSubmit(){
-    this.lecturerService.addlecturer(this.form.value).subscribe({
+
+    this.form.value.Id = this.Id;
+
+    this.lecturerService.updatelecturer(this.Id, this.form.value).subscribe({
       next:(response)=>{
         console.log(response);
+        this.route.navigateByUrl('/lecturer');
 
       },
       error:err=>{
@@ -34,6 +41,29 @@ export class UpdateLecturerFormComponent implements OnInit {
   }
   
   ngOnInit(): void {
+    this.activatedRouter.params.subscribe({
+      next:(response)=>{
+        console.log(response['id']);
+        let routeId = response ['id'];
+        this.Id = routeId;
+
+        if(!routeId) return;
+
+    this.lecturerService.getlecturermethod(routeId).subscribe({
+      next:(response)=>{
+        this.form.patchValue(response);
+      },
+
+      error:err=>{
+        console.log(err);
+      }
+    })
+  },
+  error:err=>{
+    console.log(err);
+  } 
+})
+
     this.form = this.fb.group({
       name: [],  
       gender: [],

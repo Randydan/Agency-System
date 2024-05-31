@@ -16,5 +16,8 @@ export class OfficeService {
 
   updateoffice=(id:number, data:Offices)=>this.http.put("https://localhost:7270/api/Office?Id="+id, data);
 
-  deleteoffice=(id:number)=>this.http.delete("https://localhost:7270/api/Office?Id="+id)
+  deleteoffice=(id:number)=>this.http.delete("https://localhost:7270/api/Office?Id="+id);
+
+  getofficemethod=(Id:number)=>this.http.get("https://localhost:7270/api/Office/" +Id);
+
 }
