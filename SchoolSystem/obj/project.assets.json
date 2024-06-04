@@ -2495,9 +2495,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\randy\\source\\repos\\Randydan\\School_Management\\SchoolSystem\\SchoolSystem.csproj",
-      "projectName": "SchoolSystem",
-      "projectPath": "C:\\Users\\randy\\source\\repos\\Randydan\\School_Management\\SchoolSystem\\SchoolSystem.csproj",
+      "projectUniqueName": "C:\\Users\\randy\\source\\repos\\Randydan\\School_Management\\SchoolSystem\\API Controllers.csproj",
+      "projectName": "API Controllers",
+      "projectPath": "C:\\Users\\randy\\source\\repos\\Randydan\\School_Management\\SchoolSystem\\API Controllers.csproj",
       "packagesPath": "C:\\Users\\randy\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\randy\\source\\repos\\Randydan\\School_Management\\SchoolSystem\\obj\\",
       "projectStyle": "PackageReference",

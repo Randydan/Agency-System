@@ -1,5 +1,0 @@
-C:\Users\randy\source\repos\Bus_Agency\Bus_Agency\obj\Debug\net6.0\Bus_Agency.csproj.AssemblyReference.cache
-C:\Users\randy\source\repos\Bus_Agency\Bus_Agency\obj\Debug\net6.0\Bus_Agency.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\randy\source\repos\Bus_Agency\Bus_Agency\obj\Debug\net6.0\Bus_Agency.AssemblyInfoInputs.cache
-C:\Users\randy\source\repos\Bus_Agency\Bus_Agency\obj\Debug\net6.0\Bus_Agency.AssemblyInfo.cs
-C:\Users\randy\source\repos\Bus_Agency\Bus_Agency\obj\Debug\net6.0\Bus_Agency.csproj.CoreCompileInputs.cache
