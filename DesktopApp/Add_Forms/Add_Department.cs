@@ -18,6 +18,16 @@ namespace DesktopApp.Add_Forms
         {
             InitializeComponent();
         }
+        private void DepartmentDat()
+        {
+            connect.Open();
+            string query = "SELECT Name, Description, Courses, Students,Lecturers FROM Departments";
+            SqlDataAdapter dataAdapter = new SqlDataAdapter(query, connect);
+            DataTable dataTable = new DataTable();
+            dataAdapter.Fill(dataTable);
+            DepData.DataSource = dataTable;
+            connect.Close();
+        }
 
         private void AddDepBtn_Click(object sender, EventArgs e)
         {
@@ -67,6 +77,47 @@ namespace DesktopApp.Add_Forms
                 }
             }
 
+        }
+
+        private void Administrator_Click(object sender, EventArgs e)
+        {
+            Add_Administrator frm = new();
+            frm.Show();
+        }
+
+        private void Classroom_Click(object sender, EventArgs e)
+        {
+            Add_Classroom frm = new();
+            frm.Show();
+        }
+
+        private void Student_Click(object sender, EventArgs e)
+        {
+            Add_Student frm = new();
+            frm.Show();
+        }
+
+        private void Course_Click(object sender, EventArgs e)
+        {
+            Add_Course frm = new();
+            frm.Show();
+        }
+
+        private void Lecturer_Click(object sender, EventArgs e)
+        {
+            Add_Lecturer frm = new();
+            frm.Show();
+        }
+
+        private void Office_Click(object sender, EventArgs e)
+        {
+            Add_Office frm = new();
+            frm.Show();
+        }
+
+        private void Add_Department_Load(object sender, EventArgs e)
+        {
+            DepartmentDat();
         }
     }
 }

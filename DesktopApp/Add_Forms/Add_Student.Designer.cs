@@ -30,25 +30,25 @@
         {
             AddStudentBtn = new Button();
             label9 = new Label();
-            textBox10 = new TextBox();
-            textBox9 = new TextBox();
-            textBox8 = new TextBox();
-            textBox1 = new TextBox();
+            AddStudentNat = new TextBox();
+            AddStudentEmail = new TextBox();
+            AddStudentMat = new TextBox();
+            AddStudentDep = new TextBox();
             label8 = new Label();
             label7 = new Label();
             label6 = new Label();
-            textBox7 = new TextBox();
+            AddStudentPhone = new TextBox();
             AddDob = new TextBox();
-            textBox5 = new TextBox();
-            textBox4 = new TextBox();
+            AddStudentStat = new TextBox();
             label11 = new Label();
             label10 = new Label();
             label5 = new Label();
             label4 = new Label();
             label3 = new Label();
             label1 = new Label();
-            textBox3 = new TextBox();
+            AddStudentAddr = new TextBox();
             AddStudentName = new TextBox();
+            AddStudentGen = new ComboBox();
             SuspendLayout();
             // 
             // AddStudentBtn
@@ -71,33 +71,33 @@
             label9.TabIndex = 88;
             label9.Text = "Department:";
             // 
-            // textBox10
+            // AddStudentNat
             // 
-            textBox10.Location = new Point(318, 205);
-            textBox10.Name = "textBox10";
-            textBox10.Size = new Size(225, 23);
-            textBox10.TabIndex = 69;
+            AddStudentNat.Location = new Point(318, 205);
+            AddStudentNat.Name = "AddStudentNat";
+            AddStudentNat.Size = new Size(225, 23);
+            AddStudentNat.TabIndex = 69;
             // 
-            // textBox9
+            // AddStudentEmail
             // 
-            textBox9.Location = new Point(318, 152);
-            textBox9.Name = "textBox9";
-            textBox9.Size = new Size(225, 23);
-            textBox9.TabIndex = 70;
+            AddStudentEmail.Location = new Point(318, 152);
+            AddStudentEmail.Name = "AddStudentEmail";
+            AddStudentEmail.Size = new Size(225, 23);
+            AddStudentEmail.TabIndex = 70;
             // 
-            // textBox8
+            // AddStudentMat
             // 
-            textBox8.Location = new Point(318, 101);
-            textBox8.Name = "textBox8";
-            textBox8.Size = new Size(225, 23);
-            textBox8.TabIndex = 71;
+            AddStudentMat.Location = new Point(318, 101);
+            AddStudentMat.Name = "AddStudentMat";
+            AddStudentMat.Size = new Size(225, 23);
+            AddStudentMat.TabIndex = 71;
             // 
-            // textBox1
+            // AddStudentDep
             // 
-            textBox1.Location = new Point(318, 45);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(225, 23);
-            textBox1.TabIndex = 72;
+            AddStudentDep.Location = new Point(318, 45);
+            AddStudentDep.Name = "AddStudentDep";
+            AddStudentDep.Size = new Size(225, 23);
+            AddStudentDep.TabIndex = 72;
             // 
             // label8
             // 
@@ -126,12 +126,12 @@
             label6.TabIndex = 85;
             label6.Text = "Nationality:";
             // 
-            // textBox7
+            // AddStudentPhone
             // 
-            textBox7.Location = new Point(318, 258);
-            textBox7.Name = "textBox7";
-            textBox7.Size = new Size(225, 23);
-            textBox7.TabIndex = 82;
+            AddStudentPhone.Location = new Point(318, 258);
+            AddStudentPhone.Name = "AddStudentPhone";
+            AddStudentPhone.Size = new Size(225, 23);
+            AddStudentPhone.TabIndex = 82;
             // 
             // AddDob
             // 
@@ -140,19 +140,12 @@
             AddDob.Size = new Size(209, 23);
             AddDob.TabIndex = 81;
             // 
-            // textBox5
+            // AddStudentStat
             // 
-            textBox5.Location = new Point(40, 258);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(203, 23);
-            textBox5.TabIndex = 83;
-            // 
-            // textBox4
-            // 
-            textBox4.Location = new Point(34, 205);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(209, 23);
-            textBox4.TabIndex = 80;
+            AddStudentStat.Location = new Point(34, 205);
+            AddStudentStat.Name = "AddStudentStat";
+            AddStudentStat.Size = new Size(209, 23);
+            AddStudentStat.TabIndex = 80;
             // 
             // label11
             // 
@@ -208,12 +201,12 @@
             label1.TabIndex = 73;
             label1.Text = "Name:";
             // 
-            // textBox3
+            // AddStudentAddr
             // 
-            textBox3.Location = new Point(34, 152);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(209, 23);
-            textBox3.TabIndex = 79;
+            AddStudentAddr.Location = new Point(34, 152);
+            AddStudentAddr.Name = "AddStudentAddr";
+            AddStudentAddr.Size = new Size(209, 23);
+            AddStudentAddr.TabIndex = 79;
             // 
             // AddStudentName
             // 
@@ -222,31 +215,40 @@
             AddStudentName.Size = new Size(209, 23);
             AddStudentName.TabIndex = 84;
             // 
+            // AddStudentGen
+            // 
+            AddStudentGen.FormattingEnabled = true;
+            AddStudentGen.Items.AddRange(new object[] { "Male", "Female" });
+            AddStudentGen.Location = new Point(34, 258);
+            AddStudentGen.Name = "AddStudentGen";
+            AddStudentGen.Size = new Size(209, 23);
+            AddStudentGen.TabIndex = 91;
+            // 
             // Add_Student
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(577, 362);
+            Controls.Add(AddStudentGen);
             Controls.Add(AddStudentBtn);
             Controls.Add(label9);
-            Controls.Add(textBox10);
-            Controls.Add(textBox9);
-            Controls.Add(textBox8);
-            Controls.Add(textBox1);
+            Controls.Add(AddStudentNat);
+            Controls.Add(AddStudentEmail);
+            Controls.Add(AddStudentMat);
+            Controls.Add(AddStudentDep);
             Controls.Add(label8);
             Controls.Add(label7);
             Controls.Add(label6);
-            Controls.Add(textBox7);
+            Controls.Add(AddStudentPhone);
             Controls.Add(AddDob);
-            Controls.Add(textBox5);
-            Controls.Add(textBox4);
+            Controls.Add(AddStudentStat);
             Controls.Add(label11);
             Controls.Add(label10);
             Controls.Add(label5);
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(label1);
-            Controls.Add(textBox3);
+            Controls.Add(AddStudentAddr);
             Controls.Add(AddStudentName);
             Name = "Add_Student";
             StartPosition = FormStartPosition.CenterScreen;
@@ -259,24 +261,24 @@
 
         private Button AddStudentBtn;
         private Label label9;
-        private TextBox textBox10;
-        private TextBox textBox9;
-        private TextBox textBox8;
-        private TextBox textBox1;
+        private TextBox AddStudentNat;
+        private TextBox AddStudentEmail;
+        private TextBox AddStudentMat;
+        private TextBox AddStudentDep;
         private Label label8;
         private Label label7;
         private Label label6;
-        private TextBox textBox7;
+        private TextBox AddStudentPhone;
         private TextBox AddDob;
-        private TextBox textBox5;
-        private TextBox textBox4;
+        private TextBox AddStudentStat;
         private Label label11;
         private Label label10;
         private Label label5;
         private Label label4;
         private Label label3;
         private Label label1;
-        private TextBox textBox3;
+        private TextBox AddStudentAddr;
         private TextBox AddStudentName;
+        private ComboBox AddStudentGen;
     }
 }

@@ -23,13 +23,6 @@ C:\Users\randy\source\repos\Randydan\School_Management\DesktopApp\obj\Debug\net6
 C:\Users\randy\source\repos\Randydan\School_Management\DesktopApp\obj\Debug\net6.0-windows\DesktopApp.Add_Forms.Add_Lecturer.resources
 C:\Users\randy\source\repos\Randydan\School_Management\DesktopApp\obj\Debug\net6.0-windows\DesktopApp.Add_Forms.Add_Office.resources
 C:\Users\randy\source\repos\Randydan\School_Management\DesktopApp\obj\Debug\net6.0-windows\DesktopApp.Add_Forms.Add_Student.resources
-C:\Users\randy\source\repos\Randydan\School_Management\DesktopApp\obj\Debug\net6.0-windows\DesktopApp.Update_Forms.UpdateAdministratorForm.resources
-C:\Users\randy\source\repos\Randydan\School_Management\DesktopApp\obj\Debug\net6.0-windows\DesktopApp.Update_Forms.UpdateClassroomForm.resources
-C:\Users\randy\source\repos\Randydan\School_Management\DesktopApp\obj\Debug\net6.0-windows\DesktopApp.Update_Forms.UpdateCourseForm.resources
-C:\Users\randy\source\repos\Randydan\School_Management\DesktopApp\obj\Debug\net6.0-windows\DesktopApp.Update_Forms.UpdateDepartmentForm.resources
-C:\Users\randy\source\repos\Randydan\School_Management\DesktopApp\obj\Debug\net6.0-windows\DesktopApp.Update_Forms.UpdateLecturerForm.resources
-C:\Users\randy\source\repos\Randydan\School_Management\DesktopApp\obj\Debug\net6.0-windows\DesktopApp.Update_Forms.UpdateOfficeForm.resources
-C:\Users\randy\source\repos\Randydan\School_Management\DesktopApp\obj\Debug\net6.0-windows\DesktopApp.Update_Forms.UpdateStudentForm.resources
 C:\Users\randy\source\repos\Randydan\School_Management\DesktopApp\bin\Debug\net6.0-windows\System.Data.SqlClient.dll
 C:\Users\randy\source\repos\Randydan\School_Management\DesktopApp\bin\Debug\net6.0-windows\runtimes\win-arm64\native\sni.dll
 C:\Users\randy\source\repos\Randydan\School_Management\DesktopApp\bin\Debug\net6.0-windows\runtimes\win-x64\native\sni.dll
@@ -37,3 +30,11 @@ C:\Users\randy\source\repos\Randydan\School_Management\DesktopApp\bin\Debug\net6
 C:\Users\randy\source\repos\Randydan\School_Management\DesktopApp\bin\Debug\net6.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\randy\source\repos\Randydan\School_Management\DesktopApp\bin\Debug\net6.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\randy\source\repos\Randydan\School_Management\DesktopApp\obj\Debug\net6.0-windows\DesktopApp.csproj.CopyComplete
+C:\Users\randy\source\repos\Randydan\School_Management\DesktopApp\obj\Debug\net6.0-windows\DesktopApp.Data.AdministratorData.resources
+C:\Users\randy\source\repos\Randydan\School_Management\DesktopApp\obj\Debug\net6.0-windows\DesktopApp.Data.ClassroomData.resources
+C:\Users\randy\source\repos\Randydan\School_Management\DesktopApp\obj\Debug\net6.0-windows\DesktopApp.Data.CourseData.resources
+C:\Users\randy\source\repos\Randydan\School_Management\DesktopApp\obj\Debug\net6.0-windows\DesktopApp.Data.DepartmentData.resources
+C:\Users\randy\source\repos\Randydan\School_Management\DesktopApp\obj\Debug\net6.0-windows\DesktopApp.Data.LecturerData.resources
+C:\Users\randy\source\repos\Randydan\School_Management\DesktopApp\obj\Debug\net6.0-windows\DesktopApp.Data.OfficeData.resources
+C:\Users\randy\source\repos\Randydan\School_Management\DesktopApp\obj\Debug\net6.0-windows\DesktopApp.Data.StudentData.resources
+C:\Users\randy\source\repos\Randydan\School_Management\DesktopApp\obj\Debug\net6.0-windows\DesktopApp.Loading_Screen.resources

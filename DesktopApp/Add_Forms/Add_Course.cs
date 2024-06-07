@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DesktopApp.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,6 +18,17 @@ namespace DesktopApp.Add_Forms
         public Add_Course()
         {
             InitializeComponent();
+        }
+
+        private void CourseDat()
+        {
+            connect.Open();
+            string query = "SELECT Name, Description, Code, Department FROM Courses";
+            SqlDataAdapter dataAdapter = new SqlDataAdapter(query, connect);
+            DataTable dataTable = new DataTable();
+            dataAdapter.Fill(dataTable);
+            CourseDatas.DataSource = dataTable;
+            connect.Close();
         }
 
         private void AddCourseBtn_Click(object sender, EventArgs e)
@@ -40,7 +52,7 @@ namespace DesktopApp.Add_Forms
                         }
                         else
                         {
-                            string insertData = "INSERT INTO Courses(Name, Description, Code, Department,) VALUES(@Name, @Description, @Code, @Department)";
+                            string insertData = "INSERT INTO Courses(Name, Description, Code, Department) VALUES(@Name, @Description, @Code, @Department)";
 
                             using (SqlCommand cmd = new SqlCommand(insertData, connect))
                             {
@@ -66,6 +78,11 @@ namespace DesktopApp.Add_Forms
                 }
             }
 
+        }
+
+        private void Add_Course_Load(object sender, EventArgs e)
+        {
+            CourseDat();
         }
     }
 }

@@ -22,28 +22,31 @@
     <Compile Update="Add_Forms\Add_Student.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Data\AdministratorData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Data\ClassroomData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Data\CourseData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Data\DepartmentData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Data\LecturerData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Data\OfficeData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Data\StudentData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Loading_Screen.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="MainWindow.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Update_Forms\UpdateAdministratorForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Update_Forms\UpdateClassroomForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Update_Forms\UpdateCourseForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Update_Forms\UpdateDepartmentForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Update_Forms\UpdateLecturerForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Update_Forms\UpdateOfficeForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Update_Forms\UpdateStudentForm.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

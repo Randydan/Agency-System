@@ -1,13 +1,11 @@
 {
   "ExpandedNodes": [
     "",
+    "\\DesktopApp",
+    "\\DesktopApp\\Data",
     "\\SchoolSystem",
-    "\\SchoolSystem\\Controllers",
-    "\\School_Management",
-    "\\School_System",
-    "\\School_System\\Controllers",
-    "\\School_System\\Repository"
+    "\\SchoolSystem\\Controllers"
   ],
-  "SelectedNode": "\\SchoolSystem\\Controllers\\StudentController.cs",
+  "SelectedNode": "\\DesktopApp\\Data\\AdministratorData.cs",
   "PreviewInSolutionExplorer": false
 }

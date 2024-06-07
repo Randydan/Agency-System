@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Add_Administrator));
             AddAdminBtn = new Button();
             label9 = new Label();
             AddAdminStatus = new TextBox();
@@ -38,7 +39,6 @@
             label7 = new Label();
             label6 = new Label();
             AddAdminPhone = new TextBox();
-            AddAdminGender = new TextBox();
             AddAdminPost = new TextBox();
             label11 = new Label();
             label10 = new Label();
@@ -46,20 +46,40 @@
             label4 = new Label();
             label3 = new Label();
             label1 = new Label();
-            fileToolStripMenuItem = new ToolStripMenuItem();
-            exitToolStripMenuItem = new ToolStripMenuItem();
             AddAdminA = new TextBox();
             AddAdminN = new TextBox();
-            menuStrip1 = new MenuStrip();
             AddAdminDOB = new DateTimePicker();
-            menuStrip1.SuspendLayout();
+            AddAdminGender = new ComboBox();
+            panel1 = new Panel();
+            label13 = new Label();
+            label2 = new Label();
+            Student = new Button();
+            Office = new Button();
+            Lecturer = new Button();
+            Department = new Button();
+            Course = new Button();
+            Classroom = new Button();
+            button1 = new Button();
+            label12 = new Label();
+            pictureBox1 = new PictureBox();
+            panel2 = new Panel();
+            button9 = new Button();
+            button8 = new Button();
+            panel3 = new Panel();
+            AdminData = new DataGridView();
+            panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            panel2.SuspendLayout();
+            panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)AdminData).BeginInit();
             SuspendLayout();
             // 
             // AddAdminBtn
             // 
-            AddAdminBtn.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            AddAdminBtn.BackColor = SystemColors.Highlight;
-            AddAdminBtn.Location = new Point(238, 326);
+            AddAdminBtn.Anchor = AnchorStyles.Top;
+            AddAdminBtn.BackColor = Color.MediumSeaGreen;
+            AddAdminBtn.ForeColor = Color.White;
+            AddAdminBtn.Location = new Point(586, 234);
             AddAdminBtn.Name = "AddAdminBtn";
             AddAdminBtn.Size = new Size(68, 29);
             AddAdminBtn.TabIndex = 68;
@@ -69,8 +89,9 @@
             // 
             // label9
             // 
+            label9.Anchor = AnchorStyles.Top;
             label9.AutoSize = true;
-            label9.Location = new Point(293, 48);
+            label9.Location = new Point(292, 47);
             label9.Name = "label9";
             label9.Size = new Size(73, 15);
             label9.TabIndex = 67;
@@ -78,40 +99,41 @@
             // 
             // AddAdminStatus
             // 
-            AddAdminStatus.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            AddAdminStatus.Location = new Point(306, 226);
+            AddAdminStatus.Anchor = AnchorStyles.Top;
+            AddAdminStatus.Location = new Point(599, 163);
             AddAdminStatus.Name = "AddAdminStatus";
             AddAdminStatus.Size = new Size(232, 23);
             AddAdminStatus.TabIndex = 48;
             // 
             // AddAdminEmail
             // 
-            AddAdminEmail.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            AddAdminEmail.Location = new Point(306, 173);
+            AddAdminEmail.Anchor = AnchorStyles.Top;
+            AddAdminEmail.Location = new Point(305, 189);
             AddAdminEmail.Name = "AddAdminEmail";
             AddAdminEmail.Size = new Size(232, 23);
             AddAdminEmail.TabIndex = 49;
             // 
             // AddAdminSalary
             // 
-            AddAdminSalary.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            AddAdminSalary.Location = new Point(306, 122);
+            AddAdminSalary.Anchor = AnchorStyles.Top;
+            AddAdminSalary.Location = new Point(305, 127);
             AddAdminSalary.Name = "AddAdminSalary";
             AddAdminSalary.Size = new Size(232, 23);
             AddAdminSalary.TabIndex = 50;
             // 
             // AddAdminDepartment
             // 
-            AddAdminDepartment.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            AddAdminDepartment.Location = new Point(306, 66);
+            AddAdminDepartment.Anchor = AnchorStyles.Top;
+            AddAdminDepartment.Location = new Point(305, 65);
             AddAdminDepartment.Name = "AddAdminDepartment";
             AddAdminDepartment.Size = new Size(232, 23);
             AddAdminDepartment.TabIndex = 51;
             // 
             // label8
             // 
+            label8.Anchor = AnchorStyles.Top;
             label8.AutoSize = true;
-            label8.Location = new Point(293, 100);
+            label8.Location = new Point(292, 105);
             label8.Name = "label8";
             label8.Size = new Size(41, 15);
             label8.TabIndex = 66;
@@ -119,8 +141,9 @@
             // 
             // label7
             // 
+            label7.Anchor = AnchorStyles.Top;
             label7.AutoSize = true;
-            label7.Location = new Point(293, 155);
+            label7.Location = new Point(292, 171);
             label7.Name = "label7";
             label7.Size = new Size(39, 15);
             label7.TabIndex = 65;
@@ -128,8 +151,9 @@
             // 
             // label6
             // 
+            label6.Anchor = AnchorStyles.Top;
             label6.AutoSize = true;
-            label6.Location = new Point(293, 208);
+            label6.Location = new Point(586, 145);
             label6.Name = "label6";
             label6.Size = new Size(42, 15);
             label6.TabIndex = 64;
@@ -137,32 +161,25 @@
             // 
             // AddAdminPhone
             // 
-            AddAdminPhone.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            AddAdminPhone.Location = new Point(306, 279);
+            AddAdminPhone.Anchor = AnchorStyles.Top;
+            AddAdminPhone.Location = new Point(599, 104);
             AddAdminPhone.Name = "AddAdminPhone";
             AddAdminPhone.Size = new Size(232, 23);
             AddAdminPhone.TabIndex = 61;
             // 
-            // AddAdminGender
-            // 
-            AddAdminGender.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            AddAdminGender.Location = new Point(28, 279);
-            AddAdminGender.Name = "AddAdminGender";
-            AddAdminGender.Size = new Size(210, 23);
-            AddAdminGender.TabIndex = 62;
-            // 
             // AddAdminPost
             // 
-            AddAdminPost.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            AddAdminPost.Location = new Point(22, 226);
+            AddAdminPost.Anchor = AnchorStyles.Top;
+            AddAdminPost.Location = new Point(21, 224);
             AddAdminPost.Name = "AddAdminPost";
             AddAdminPost.Size = new Size(216, 23);
             AddAdminPost.TabIndex = 59;
             // 
             // label11
             // 
+            label11.Anchor = AnchorStyles.Top;
             label11.AutoSize = true;
-            label11.Location = new Point(15, 208);
+            label11.Location = new Point(14, 206);
             label11.Name = "label11";
             label11.Size = new Size(33, 15);
             label11.TabIndex = 57;
@@ -170,8 +187,9 @@
             // 
             // label10
             // 
+            label10.Anchor = AnchorStyles.Top;
             label10.AutoSize = true;
-            label10.Location = new Point(293, 261);
+            label10.Location = new Point(586, 86);
             label10.Name = "label10";
             label10.Size = new Size(44, 15);
             label10.TabIndex = 56;
@@ -179,8 +197,9 @@
             // 
             // label5
             // 
+            label5.Anchor = AnchorStyles.Top;
             label5.AutoSize = true;
-            label5.Location = new Point(15, 155);
+            label5.Location = new Point(14, 145);
             label5.Name = "label5";
             label5.Size = new Size(52, 15);
             label5.TabIndex = 55;
@@ -188,8 +207,9 @@
             // 
             // label4
             // 
+            label4.Anchor = AnchorStyles.Top;
             label4.AutoSize = true;
-            label4.Location = new Point(15, 100);
+            label4.Location = new Point(14, 79);
             label4.Name = "label4";
             label4.Size = new Size(76, 15);
             label4.TabIndex = 54;
@@ -197,8 +217,9 @@
             // 
             // label3
             // 
+            label3.Anchor = AnchorStyles.Top;
             label3.AutoSize = true;
-            label3.Location = new Point(15, 261);
+            label3.Location = new Point(586, 21);
             label3.Name = "label3";
             label3.Size = new Size(48, 15);
             label3.TabIndex = 53;
@@ -206,93 +227,307 @@
             // 
             // label1
             // 
+            label1.Anchor = AnchorStyles.Top;
             label1.AutoSize = true;
-            label1.Location = new Point(15, 46);
+            label1.Location = new Point(14, 19);
             label1.Name = "label1";
             label1.Size = new Size(42, 15);
             label1.TabIndex = 52;
             label1.Text = "Name:";
             // 
-            // fileToolStripMenuItem
-            // 
-            fileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { exitToolStripMenuItem });
-            fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            fileToolStripMenuItem.Size = new Size(37, 20);
-            fileToolStripMenuItem.Text = "&File";
-            // 
-            // exitToolStripMenuItem
-            // 
-            exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            exitToolStripMenuItem.Size = new Size(93, 22);
-            exitToolStripMenuItem.Text = "&Exit";
-            // 
             // AddAdminA
             // 
-            AddAdminA.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            AddAdminA.Location = new Point(22, 173);
+            AddAdminA.Anchor = AnchorStyles.Top;
+            AddAdminA.Location = new Point(21, 163);
             AddAdminA.Name = "AddAdminA";
             AddAdminA.Size = new Size(216, 23);
             AddAdminA.TabIndex = 58;
             // 
             // AddAdminN
             // 
-            AddAdminN.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            AddAdminN.Location = new Point(22, 66);
+            AddAdminN.Anchor = AnchorStyles.Top;
+            AddAdminN.Location = new Point(21, 39);
             AddAdminN.Name = "AddAdminN";
             AddAdminN.Size = new Size(216, 23);
             AddAdminN.TabIndex = 63;
             // 
-            // menuStrip1
-            // 
-            menuStrip1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem });
-            menuStrip1.Location = new Point(0, 0);
-            menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(560, 24);
-            menuStrip1.TabIndex = 69;
-            menuStrip1.Text = "menuStrip1";
-            // 
             // AddAdminDOB
             // 
+            AddAdminDOB.Anchor = AnchorStyles.Top;
             AddAdminDOB.Format = DateTimePickerFormat.Short;
-            AddAdminDOB.Location = new Point(22, 122);
+            AddAdminDOB.Location = new Point(21, 101);
             AddAdminDOB.Name = "AddAdminDOB";
             AddAdminDOB.Size = new Size(216, 23);
             AddAdminDOB.TabIndex = 70;
+            // 
+            // AddAdminGender
+            // 
+            AddAdminGender.Anchor = AnchorStyles.Top;
+            AddAdminGender.FormattingEnabled = true;
+            AddAdminGender.Items.AddRange(new object[] { "Male", "Female" });
+            AddAdminGender.Location = new Point(599, 39);
+            AddAdminGender.Name = "AddAdminGender";
+            AddAdminGender.Size = new Size(232, 23);
+            AddAdminGender.TabIndex = 71;
+            // 
+            // panel1
+            // 
+            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            panel1.BackColor = Color.WhiteSmoke;
+            panel1.Controls.Add(label13);
+            panel1.Controls.Add(label2);
+            panel1.Controls.Add(Student);
+            panel1.Controls.Add(Office);
+            panel1.Controls.Add(Lecturer);
+            panel1.Controls.Add(Department);
+            panel1.Controls.Add(Course);
+            panel1.Controls.Add(Classroom);
+            panel1.Controls.Add(button1);
+            panel1.Controls.Add(label12);
+            panel1.Controls.Add(pictureBox1);
+            panel1.Location = new Point(0, 1);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(357, 726);
+            panel1.TabIndex = 72;
+            // 
+            // label13
+            // 
+            label13.Anchor = AnchorStyles.Bottom;
+            label13.AutoSize = true;
+            label13.BackColor = Color.White;
+            label13.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
+            label13.ForeColor = Color.DarkGreen;
+            label13.Location = new Point(82, 704);
+            label13.Name = "label13";
+            label13.Size = new Size(156, 15);
+            label13.TabIndex = 73;
+            label13.Text = "Keeping Records Made easy";
+            // 
+            // label2
+            // 
+            label2.Anchor = AnchorStyles.Bottom;
+            label2.AutoSize = true;
+            label2.BackColor = Color.White;
+            label2.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
+            label2.ForeColor = Color.DarkGreen;
+            label2.Location = new Point(171, 1204);
+            label2.Name = "label2";
+            label2.Size = new Size(156, 15);
+            label2.TabIndex = 3;
+            label2.Text = "Keeping Records Made easy";
+            // 
+            // Student
+            // 
+            Student.BackColor = Color.MediumSeaGreen;
+            Student.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            Student.ForeColor = Color.White;
+            Student.Location = new Point(186, 295);
+            Student.Name = "Student";
+            Student.Size = new Size(164, 41);
+            Student.TabIndex = 2;
+            Student.Text = "Student";
+            Student.UseVisualStyleBackColor = false;
+            Student.Click += Student_Click;
+            // 
+            // Office
+            // 
+            Office.BackColor = Color.MediumSeaGreen;
+            Office.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            Office.ForeColor = Color.White;
+            Office.Location = new Point(82, 487);
+            Office.Name = "Office";
+            Office.Size = new Size(167, 41);
+            Office.TabIndex = 2;
+            Office.Text = "Office";
+            Office.UseVisualStyleBackColor = false;
+            Office.Click += Office_Click;
+            // 
+            // Lecturer
+            // 
+            Lecturer.BackColor = Color.MediumSeaGreen;
+            Lecturer.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            Lecturer.ForeColor = Color.White;
+            Lecturer.Location = new Point(177, 415);
+            Lecturer.Name = "Lecturer";
+            Lecturer.Size = new Size(164, 41);
+            Lecturer.TabIndex = 2;
+            Lecturer.Text = "Lecturer";
+            Lecturer.UseVisualStyleBackColor = false;
+            Lecturer.Click += Lecturer_Click;
+            // 
+            // Department
+            // 
+            Department.BackColor = Color.MediumSeaGreen;
+            Department.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            Department.ForeColor = Color.White;
+            Department.Location = new Point(82, 357);
+            Department.Name = "Department";
+            Department.Size = new Size(167, 41);
+            Department.TabIndex = 2;
+            Department.Text = "Department";
+            Department.UseVisualStyleBackColor = false;
+            Department.Click += Department_Click;
+            // 
+            // Course
+            // 
+            Course.BackColor = Color.MediumSeaGreen;
+            Course.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            Course.ForeColor = Color.White;
+            Course.Location = new Point(4, 415);
+            Course.Name = "Course";
+            Course.Size = new Size(167, 41);
+            Course.TabIndex = 2;
+            Course.Text = "Course";
+            Course.UseVisualStyleBackColor = false;
+            Course.Click += Course_Click;
+            // 
+            // Classroom
+            // 
+            Classroom.BackColor = Color.MediumSeaGreen;
+            Classroom.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            Classroom.ForeColor = Color.White;
+            Classroom.Location = new Point(7, 295);
+            Classroom.Name = "Classroom";
+            Classroom.Size = new Size(167, 41);
+            Classroom.TabIndex = 2;
+            Classroom.Text = "Classroom";
+            Classroom.UseVisualStyleBackColor = false;
+            Classroom.Click += Classroom_Click;
+            // 
+            // button1
+            // 
+            button1.BackColor = Color.Honeydew;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            button1.ForeColor = Color.Green;
+            button1.Location = new Point(82, 234);
+            button1.Name = "button1";
+            button1.Size = new Size(167, 41);
+            button1.TabIndex = 2;
+            button1.Text = "Administrator";
+            button1.UseVisualStyleBackColor = false;
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Font = new Font("Cooper Black", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
+            label12.Location = new Point(66, 154);
+            label12.Name = "label12";
+            label12.Size = new Size(211, 31);
+            label12.TabIndex = 1;
+            label12.Text = "Welcome Back";
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Anchor = AnchorStyles.Top;
+            pictureBox1.BackgroundImageLayout = ImageLayout.Stretch;
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(132, 59);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(82, 84);
+            pictureBox1.TabIndex = 0;
+            pictureBox1.TabStop = false;
+            // 
+            // panel2
+            // 
+            panel2.Anchor = AnchorStyles.Bottom;
+            panel2.BackColor = SystemColors.Control;
+            panel2.Controls.Add(button9);
+            panel2.Controls.Add(button8);
+            panel2.Controls.Add(AddAdminPhone);
+            panel2.Controls.Add(label10);
+            panel2.Controls.Add(AddAdminGender);
+            panel2.Controls.Add(AddAdminBtn);
+            panel2.Controls.Add(AddAdminStatus);
+            panel2.Controls.Add(label3);
+            panel2.Controls.Add(label6);
+            panel2.Controls.Add(AddAdminDOB);
+            panel2.Controls.Add(AddAdminEmail);
+            panel2.Controls.Add(AddAdminPost);
+            panel2.Controls.Add(label7);
+            panel2.Controls.Add(label11);
+            panel2.Controls.Add(AddAdminN);
+            panel2.Controls.Add(label9);
+            panel2.Controls.Add(AddAdminSalary);
+            panel2.Controls.Add(label1);
+            panel2.Controls.Add(label8);
+            panel2.Controls.Add(AddAdminDepartment);
+            panel2.Controls.Add(label5);
+            panel2.Controls.Add(label4);
+            panel2.Controls.Add(AddAdminA);
+            panel2.Location = new Point(428, 440);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(854, 277);
+            panel2.TabIndex = 73;
+            // 
+            // button9
+            // 
+            button9.Anchor = AnchorStyles.Top;
+            button9.BackColor = Color.Red;
+            button9.ForeColor = Color.White;
+            button9.Location = new Point(763, 234);
+            button9.Name = "button9";
+            button9.Size = new Size(68, 29);
+            button9.TabIndex = 68;
+            button9.Text = "Delete";
+            button9.UseVisualStyleBackColor = false;
+            button9.Click += AddAdminBtn_Click;
+            // 
+            // button8
+            // 
+            button8.Anchor = AnchorStyles.Top;
+            button8.BackColor = Color.Blue;
+            button8.ForeColor = Color.White;
+            button8.Location = new Point(673, 234);
+            button8.Name = "button8";
+            button8.Size = new Size(68, 29);
+            button8.TabIndex = 68;
+            button8.Text = "Update";
+            button8.UseVisualStyleBackColor = false;
+            button8.Click += AddAdminBtn_Click;
+            // 
+            // panel3
+            // 
+            panel3.Controls.Add(AdminData);
+            panel3.Location = new Point(367, 6);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(977, 428);
+            panel3.TabIndex = 74;
+            // 
+            // AdminData
+            // 
+            AdminData.AllowUserToAddRows = false;
+            AdminData.AllowUserToDeleteRows = false;
+            AdminData.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            AdminData.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            AdminData.Location = new Point(3, 1);
+            AdminData.Name = "AdminData";
+            AdminData.ReadOnly = true;
+            AdminData.RowTemplate.Height = 25;
+            AdminData.Size = new Size(971, 424);
+            AdminData.TabIndex = 0;
             // 
             // Add_Administrator
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(560, 367);
-            Controls.Add(AddAdminDOB);
-            Controls.Add(AddAdminBtn);
-            Controls.Add(label9);
-            Controls.Add(AddAdminStatus);
-            Controls.Add(AddAdminEmail);
-            Controls.Add(AddAdminSalary);
-            Controls.Add(AddAdminDepartment);
-            Controls.Add(label8);
-            Controls.Add(label7);
-            Controls.Add(label6);
-            Controls.Add(AddAdminPhone);
-            Controls.Add(AddAdminGender);
-            Controls.Add(AddAdminPost);
-            Controls.Add(label11);
-            Controls.Add(label10);
-            Controls.Add(label5);
-            Controls.Add(label4);
-            Controls.Add(label3);
-            Controls.Add(label1);
-            Controls.Add(AddAdminA);
-            Controls.Add(AddAdminN);
-            Controls.Add(menuStrip1);
+            BackColor = Color.White;
+            ClientSize = new Size(1350, 729);
+            Controls.Add(panel3);
+            Controls.Add(panel2);
+            Controls.Add(panel1);
             Name = "Add_Administrator";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Add_Administrator";
-            menuStrip1.ResumeLayout(false);
-            menuStrip1.PerformLayout();
+            Text = "Administrators";
+            Load += Add_Administrator_Load;
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
+            panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)AdminData).EndInit();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -307,7 +542,6 @@
         private Label label7;
         private Label label6;
         private TextBox AddAdminPhone;
-        private TextBox AddAdminGender;
         private TextBox AddAdminPost;
         private Label label11;
         private Label label10;
@@ -315,11 +549,26 @@
         private Label label4;
         private Label label3;
         private Label label1;
-        private ToolStripMenuItem fileToolStripMenuItem;
-        private ToolStripMenuItem exitToolStripMenuItem;
         private TextBox AddAdminA;
         private TextBox AddAdminN;
-        private MenuStrip menuStrip1;
         private DateTimePicker AddAdminDOB;
+        private ComboBox AddAdminGender;
+        private Panel panel1;
+        private Label label2;
+        private Button Student;
+        private Button Office;
+        private Button Lecturer;
+        private Button Department;
+        private Button Course;
+        private Button Classroom;
+        private Button button1;
+        private Label label12;
+        private PictureBox pictureBox1;
+        private Label label13;
+        private Panel panel2;
+        private Button button9;
+        private Button button8;
+        private Panel panel3;
+        private DataGridView AdminData;
     }
 }

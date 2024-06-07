@@ -1,4 +1,5 @@
 ﻿using DesktopApp.Add_Forms;
+using DesktopApp.Data;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,58 +19,46 @@ namespace DesktopApp
             InitializeComponent();
         }
 
-        private void MFT_Exit_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-
-        private void administratorToolStripMenuItem_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
             Add_Administrator frm = new();
 
             frm.Show();
         }
 
-        private void classroomToolStripMenuItem_Click(object sender, EventArgs e)
+        private void Classroom_Click(object sender, EventArgs e)
         {
             Add_Classroom frm = new();
-
             frm.Show();
         }
 
-        private void courseToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Add_Course frm = new();
-
-            frm.Show();
-        }
-
-        private void officeToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Add_Office frm = new();
-
-            frm.Show();
-        }
-
-        private void lecturerToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Add_Lecturer frm = new();
-
-            frm.Show();
-        }
-
-        private void studentToolStripMenuItem_Click(object sender, EventArgs e)
+        private void Student_Click(object sender, EventArgs e)
         {
             Add_Student frm = new();
-
             frm.Show();
         }
 
-        private void departmentToolStripMenuItem_Click(object sender, EventArgs e)
+        private void Department_Click(object sender, EventArgs e)
         {
             Add_Department frm = new();
+            frm.Show();
+        }
 
+        private void Course_Click(object sender, EventArgs e)
+        {
+            Add_Course frm = new();
+            frm.Show();
+        }
+
+        private void Lecturer_Click(object sender, EventArgs e)
+        {
+            Add_Lecturer frm = new();
+            frm.Show();
+        }
+
+        private void Office_Click(object sender, EventArgs e)
+        {
+            Add_Office frm = new();
             frm.Show();
         }
     }

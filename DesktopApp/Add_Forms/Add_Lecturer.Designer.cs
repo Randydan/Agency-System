@@ -39,7 +39,6 @@
             label6 = new Label();
             AddLecPhone = new TextBox();
             AddLecDOB = new TextBox();
-            AddLecGen = new TextBox();
             label10 = new Label();
             label5 = new Label();
             label4 = new Label();
@@ -47,6 +46,7 @@
             label1 = new Label();
             AddLecAddr = new TextBox();
             AddLecName = new TextBox();
+            AddLecGen = new ComboBox();
             SuspendLayout();
             // 
             // AddLecBtn
@@ -149,14 +149,6 @@
             AddLecDOB.Size = new Size(204, 23);
             AddLecDOB.TabIndex = 81;
             // 
-            // AddLecGen
-            // 
-            AddLecGen.Anchor = AnchorStyles.Left;
-            AddLecGen.Location = new Point(46, 271);
-            AddLecGen.Name = "AddLecGen";
-            AddLecGen.Size = new Size(198, 23);
-            AddLecGen.TabIndex = 83;
-            // 
             // label10
             // 
             label10.Anchor = AnchorStyles.Left;
@@ -223,11 +215,21 @@
             AddLecName.Size = new Size(204, 23);
             AddLecName.TabIndex = 84;
             // 
+            // AddLecGen
+            // 
+            AddLecGen.FormattingEnabled = true;
+            AddLecGen.Items.AddRange(new object[] { "Male", "Female" });
+            AddLecGen.Location = new Point(46, 271);
+            AddLecGen.Name = "AddLecGen";
+            AddLecGen.Size = new Size(198, 23);
+            AddLecGen.TabIndex = 90;
+            // 
             // Add_Lecturer
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(574, 376);
+            Controls.Add(AddLecGen);
             Controls.Add(AddLecBtn);
             Controls.Add(AddLecCourse);
             Controls.Add(AddLecStatus);
@@ -239,7 +241,6 @@
             Controls.Add(label6);
             Controls.Add(AddLecPhone);
             Controls.Add(AddLecDOB);
-            Controls.Add(AddLecGen);
             Controls.Add(label10);
             Controls.Add(label5);
             Controls.Add(label4);
@@ -267,7 +268,6 @@
         private Label label6;
         private TextBox AddLecPhone;
         private TextBox AddLecDOB;
-        private TextBox AddLecGen;
         private Label label10;
         private Label label5;
         private Label label4;
@@ -275,5 +275,6 @@
         private Label label1;
         private TextBox AddLecAddr;
         private TextBox AddLecName;
+        private ComboBox AddLecGen;
     }
 }
