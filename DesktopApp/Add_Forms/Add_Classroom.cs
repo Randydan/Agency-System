@@ -83,7 +83,7 @@ namespace DesktopApp
 
         private void Administrator_Click(object sender, EventArgs e)
         {
-            Add_Classroom frm = new();
+            Add_Administrator frm = new();
             frm.Show();
         }
 

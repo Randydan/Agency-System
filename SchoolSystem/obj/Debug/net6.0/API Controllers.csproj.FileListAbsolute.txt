@@ -65,3 +65,4 @@ C:\Users\randy\source\repos\Randydan\School_Management\SchoolSystem\obj\Debug\ne
 C:\Users\randy\source\repos\Randydan\School_Management\SchoolSystem\obj\Debug\net6.0\API Controllers.pdb
 C:\Users\randy\source\repos\Randydan\School_Management\SchoolSystem\obj\Debug\net6.0\API Controllers.genruntimeconfig.cache
 C:\Users\randy\source\repos\Randydan\School_Management\SchoolSystem\obj\Debug\net6.0\ref\API Controllers.dll
+C:\Users\randy\source\repos\Randydan\School_Management\SchoolSystem\bin\Debug\net6.0\Newtonsoft.Json.dll

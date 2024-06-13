@@ -74,5 +74,58 @@ namespace DesktopApp.Add_Forms
             }
 
         }
+
+        private void Administrator_Click(object sender, EventArgs e)
+        {
+            Add_Administrator frm = new();
+            frm.Show();
+        }
+
+
+        private void Classroom_Click_1(object sender, EventArgs e)
+        {
+            Add_Classroom frm = new();
+            frm.Show();
+        }
+
+        private void Student_Click_1(object sender, EventArgs e)
+        {
+            Add_Student frm = new();
+            frm.Show();
+        }
+
+        private void Office_Click(object sender, EventArgs e)
+        {
+            Add_Office frm = new();
+            frm.Show();
+        }
+
+        private void Course_Click(object sender, EventArgs e)
+        {
+            Add_Course frm = new();
+            frm.Show();
+        }
+
+        private void Department_Click(object sender, EventArgs e)
+        {
+            Add_Department frm = new();
+            frm.Show();
+        }
+
+        private void LecturerDat()
+        {
+            connect.Open();
+            string query = "SELECT Name, Gender, Dob, Address, Email, Phone, Status ,Course ,Salary FROM Lecturers";
+            SqlDataAdapter dataAdapter = new SqlDataAdapter(query, connect);
+            DataTable dataTable = new DataTable();
+            dataAdapter.Fill(dataTable);
+            LecData.DataSource = dataTable;
+            connect.Close();
+        }
+
+        private void Lecturer_Load(object sender, EventArgs e)
+        {
+            LecturerDat();
+        }
     }
 }

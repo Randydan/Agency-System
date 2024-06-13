@@ -1,4 +1,6 @@
-﻿namespace Code_First.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Code_First.Models
 {
     public class Administrators
     {

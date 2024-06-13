@@ -68,7 +68,21 @@ namespace DesktopApp.Add_Forms
             }
 
         }
+        private void OfficeDat()
+        {
+            connect.Open();
+            string query = "SELECT Department, Description, Address FROM Offices";
+            SqlDataAdapter dataAdapter = new SqlDataAdapter(query, connect);
+            DataTable dataTable = new DataTable();
+            dataAdapter.Fill(dataTable);
+            OffData.DataSource = dataTable;
+            connect.Close();
+        }
 
+        private void Add_Office_Load(object sender, EventArgs e)
+        {
+            OfficeDat();
+        }
     }
-    
+
 }

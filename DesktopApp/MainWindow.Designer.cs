@@ -40,6 +40,7 @@
             Administrator = new Button();
             label1 = new Label();
             pictureBox1 = new PictureBox();
+            label3 = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -171,6 +172,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Cooper Black", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.ForeColor = Color.MediumSeaGreen;
             label1.Location = new Point(66, 154);
             label1.Name = "label1";
             label1.Size = new Size(211, 31);
@@ -188,12 +190,26 @@
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             // 
+            // label3
+            // 
+            label3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
+            label3.AutoSize = true;
+            label3.BackColor = Color.Transparent;
+            label3.Font = new Font("Algerian", 33F, FontStyle.Regular, GraphicsUnit.Point);
+            label3.ForeColor = Color.White;
+            label3.Location = new Point(405, 295);
+            label3.Name = "label3";
+            label3.Size = new Size(736, 98);
+            label3.TabIndex = 1;
+            label3.Text = "BRINGING YOUR RECORDS AT YOUR \r\n                         FINGER TIPS\r\n";
+            // 
             // MainWindow
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(1171, 594);
+            Controls.Add(label3);
             Controls.Add(panel1);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "MainWindow";
@@ -203,6 +219,7 @@
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -218,5 +235,6 @@
         private Button Classroom;
         private Button Administrator;
         private Label label2;
+        private Label label3;
     }
 }
