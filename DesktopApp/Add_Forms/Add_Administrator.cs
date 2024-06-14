@@ -13,6 +13,8 @@ using System.Windows.Forms;
 using System.Net.Http;
 using Code_First.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using System.Security.Cryptography.X509Certificates;
 
 namespace DesktopApp
 {
@@ -21,7 +23,7 @@ namespace DesktopApp
         public Add_Administrator()
         {
             InitializeComponent();
-           
+
         }
 
         private async void AddAdminBtn_Click(object sender, EventArgs e)
@@ -41,7 +43,40 @@ namespace DesktopApp
             }
             else
             {
-                await RestApiHelpers.Post<Administrators>(new Administrators() {
+                await RestApiHelpers.Post<Administrators>(new Administrators()
+                {
+                    Salary = Int32.Parse(AddAdminSalary.Text),
+                    Department = AddAdminDepartment.Text,
+                    Post = AddAdminPost.Text,
+                    Name = AddAdminN.Text,
+                    Gender = AddAdminGender.Text,
+                    Dob = AddAdminDOB.Text,
+                    Address = AddAdminA.Text,
+                    Email = AddAdminEmail.Text,
+                    Phone = Int32.Parse(AddAdminPhone.Text),
+                    Status = AddAdminStatus.Text
+
+                }, "Administrator");
+
+
+                MessageBox.Show("Registered Successfully", "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private async void Add_Administrator_Load(object sender, EventArgs e)
+        {
+
+            var data = await RestApiHelpers.GetALL<Administrators>(new Administrators(), "Administrator");
+
+            AdminData.DataSource = data;
+
+        }
+
+        private async void UpdateAdmin_Click(object sender, EventArgs e)
+        {
+            await RestApiHelpers.Update<Administrators>(new Administrators()
+            {
+                // Id = Int32.Parse(),
                 Salary = Int32.Parse(AddAdminSalary.Text),
                 Department = AddAdminDepartment.Text,
                 Post = AddAdminPost.Text,
@@ -50,64 +85,31 @@ namespace DesktopApp
                 Dob = AddAdminDOB.Text,
                 Address = AddAdminA.Text,
                 Email = AddAdminEmail.Text,
-               Phone = Int32.Parse(AddAdminPhone.Text),
-               Status = AddAdminStatus.Text
+                Phone = Int32.Parse(AddAdminPhone.Text),
+                Status = AddAdminStatus.Text
 
-                }, "Administrator");
+            }, "Administrator", AdminId);
 
 
-               MessageBox.Show("Registered Successfully", "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-        }
-
-        private async void Add_Administrator_Load(object sender, EventArgs e)
-        {
-
-            var data = await RestApiHelpers.GetALL();
-
-            AdminData.DataSource = data;
-
-        }
-
-        private void Classroom_Click(object sender, EventArgs e)
-        {
-            Add_Classroom frm = new();
-            frm.Show();
-        }
-
-        private void Student_Click(object sender, EventArgs e)
-        {
-            Add_Student frm = new();
-            frm.Show();
-        }
-
-        private void Department_Click(object sender, EventArgs e)
-        {
-            Add_Department frm = new();
-            frm.Show();
-        }
-
-        private void Course_Click(object sender, EventArgs e)
-        {
-            Add_Course frm = new();
-            frm.Show();
-        }
-
-        private void Lecturer_Click(object sender, EventArgs e)
-        {
-            Add_Lecturer frm = new();
-            frm.Show();
-        }
-
-        private void Office_Click(object sender, EventArgs e)
-        {
-            Add_Office frm = new();
-            frm.Show();
+            MessageBox.Show("Registered Successfully", "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void AdminData_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            DataGridViewRow row = AdminData.Rows[e.RowIndex];
 
+            var AdminId = row.Cells[0].Value.ToString();
+
+            AddAdminSalary.Text = row.Cells[1].Value.ToString();
+            AddAdminDepartment.Text = row.Cells[2].Value.ToString();
+            AddAdminPost.Text = row.Cells[3].Value.ToString();
+            AddAdminN.Text = row.Cells[4].Value.ToString();
+            AddAdminGender.Text = row.Cells[5].Value.ToString();
+            AddAdminDOB.Text = row.Cells[6].Value.ToString();
+            AddAdminA.Text = row.Cells[7].Value.ToString();
+            AddAdminEmail.Text = row.Cells[8].Value.ToString();
+            AddAdminPhone.Text = row.Cells[9].Value.ToString();
+            AddAdminStatus.Text = row.Cells[10].Value.ToString();
         }
     }
 }

@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Add_Course));
             AddCourseBtn = new Button();
             AddCourseName = new TextBox();
             label1 = new Label();
@@ -38,26 +37,12 @@
             label3 = new Label();
             AddCourseDep = new TextBox();
             label4 = new Label();
-            panel1 = new Panel();
-            label7 = new Label();
-            label5 = new Label();
-            Student = new Button();
-            Office = new Button();
-            Lecturer = new Button();
-            Department = new Button();
-            Course = new Button();
-            Classroom = new Button();
-            Administrator = new Button();
-            label6 = new Label();
-            pictureBox1 = new PictureBox();
             panel2 = new Panel();
             Delete = new Button();
             button1 = new Button();
-            CourseDatas = new DataGridView();
-            panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            CourseData = new DataGridView();
             panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)CourseDatas).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)CourseData).BeginInit();
             SuspendLayout();
             // 
             // AddCourseBtn
@@ -135,158 +120,6 @@
             label4.TabIndex = 2;
             label4.Text = "Department:";
             // 
-            // panel1
-            // 
-            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
-            panel1.BackColor = Color.WhiteSmoke;
-            panel1.Controls.Add(label7);
-            panel1.Controls.Add(label5);
-            panel1.Controls.Add(Student);
-            panel1.Controls.Add(Office);
-            panel1.Controls.Add(Lecturer);
-            panel1.Controls.Add(Department);
-            panel1.Controls.Add(Course);
-            panel1.Controls.Add(Classroom);
-            panel1.Controls.Add(Administrator);
-            panel1.Controls.Add(label6);
-            panel1.Controls.Add(pictureBox1);
-            panel1.Location = new Point(1, 1);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(357, 726);
-            panel1.TabIndex = 3;
-            // 
-            // label7
-            // 
-            label7.Anchor = AnchorStyles.Bottom;
-            label7.AutoSize = true;
-            label7.BackColor = Color.White;
-            label7.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            label7.ForeColor = Color.DarkGreen;
-            label7.Location = new Point(93, 711);
-            label7.Name = "label7";
-            label7.Size = new Size(156, 15);
-            label7.TabIndex = 4;
-            label7.Text = "Keeping Records Made easy";
-            // 
-            // label5
-            // 
-            label5.Anchor = AnchorStyles.Bottom;
-            label5.AutoSize = true;
-            label5.BackColor = Color.White;
-            label5.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            label5.ForeColor = Color.DarkGreen;
-            label5.Location = new Point(171, 1204);
-            label5.Name = "label5";
-            label5.Size = new Size(156, 15);
-            label5.TabIndex = 3;
-            label5.Text = "Keeping Records Made easy";
-            // 
-            // Student
-            // 
-            Student.BackColor = Color.MediumSeaGreen;
-            Student.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            Student.ForeColor = Color.White;
-            Student.Location = new Point(186, 295);
-            Student.Name = "Student";
-            Student.Size = new Size(164, 41);
-            Student.TabIndex = 2;
-            Student.Text = "Student";
-            Student.UseVisualStyleBackColor = false;
-            // 
-            // Office
-            // 
-            Office.BackColor = Color.MediumSeaGreen;
-            Office.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            Office.ForeColor = Color.White;
-            Office.Location = new Point(82, 487);
-            Office.Name = "Office";
-            Office.Size = new Size(167, 41);
-            Office.TabIndex = 2;
-            Office.Text = "Office";
-            Office.UseVisualStyleBackColor = false;
-            // 
-            // Lecturer
-            // 
-            Lecturer.BackColor = Color.MediumSeaGreen;
-            Lecturer.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            Lecturer.ForeColor = Color.White;
-            Lecturer.Location = new Point(177, 415);
-            Lecturer.Name = "Lecturer";
-            Lecturer.Size = new Size(164, 41);
-            Lecturer.TabIndex = 2;
-            Lecturer.Text = "Lecturer";
-            Lecturer.UseVisualStyleBackColor = false;
-            // 
-            // Department
-            // 
-            Department.BackColor = Color.MediumSeaGreen;
-            Department.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            Department.ForeColor = Color.White;
-            Department.Location = new Point(82, 357);
-            Department.Name = "Department";
-            Department.Size = new Size(167, 41);
-            Department.TabIndex = 2;
-            Department.Text = "Department";
-            Department.UseVisualStyleBackColor = false;
-            // 
-            // Course
-            // 
-            Course.BackColor = Color.Honeydew;
-            Course.FlatStyle = FlatStyle.Flat;
-            Course.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            Course.ForeColor = Color.MediumSeaGreen;
-            Course.Location = new Point(4, 415);
-            Course.Name = "Course";
-            Course.Size = new Size(167, 41);
-            Course.TabIndex = 2;
-            Course.Text = "Course";
-            Course.UseVisualStyleBackColor = false;
-            // 
-            // Classroom
-            // 
-            Classroom.BackColor = Color.MediumSeaGreen;
-            Classroom.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            Classroom.ForeColor = Color.White;
-            Classroom.Location = new Point(7, 295);
-            Classroom.Name = "Classroom";
-            Classroom.Size = new Size(167, 41);
-            Classroom.TabIndex = 2;
-            Classroom.Text = "Classroom";
-            Classroom.UseVisualStyleBackColor = false;
-            // 
-            // Administrator
-            // 
-            Administrator.BackColor = Color.MediumSeaGreen;
-            Administrator.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            Administrator.ForeColor = Color.White;
-            Administrator.Location = new Point(82, 234);
-            Administrator.Name = "Administrator";
-            Administrator.Size = new Size(167, 41);
-            Administrator.TabIndex = 2;
-            Administrator.Text = "Administrator";
-            Administrator.UseVisualStyleBackColor = false;
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Cooper Black", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
-            label6.Location = new Point(66, 154);
-            label6.Name = "label6";
-            label6.Size = new Size(211, 31);
-            label6.TabIndex = 1;
-            label6.Text = "Welcome Back";
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.Anchor = AnchorStyles.Top;
-            pictureBox1.BackgroundImageLayout = ImageLayout.Stretch;
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(131, 55);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(82, 84);
-            pictureBox1.TabIndex = 0;
-            pictureBox1.TabStop = false;
-            // 
             // panel2
             // 
             panel2.BackColor = SystemColors.Control;
@@ -301,7 +134,7 @@
             panel2.Controls.Add(label2);
             panel2.Controls.Add(label3);
             panel2.Controls.Add(AddCourseCode);
-            panel2.Location = new Point(539, 499);
+            panel2.Location = new Point(225, 507);
             panel2.Name = "panel2";
             panel2.Size = new Size(521, 192);
             panel2.TabIndex = 4;
@@ -328,37 +161,33 @@
             button1.UseVisualStyleBackColor = false;
             button1.Click += AddCourseBtn_Click;
             // 
-            // CourseDatas
+            // CourseData
             // 
-            CourseDatas.AllowUserToAddRows = false;
-            CourseDatas.AllowUserToDeleteRows = false;
-            CourseDatas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            CourseDatas.Location = new Point(362, 5);
-            CourseDatas.Name = "CourseDatas";
-            CourseDatas.ReadOnly = true;
-            CourseDatas.RowTemplate.Height = 25;
-            CourseDatas.Size = new Size(983, 478);
-            CourseDatas.TabIndex = 5;
+            CourseData.AllowUserToAddRows = false;
+            CourseData.AllowUserToDeleteRows = false;
+            CourseData.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            CourseData.Location = new Point(12, 12);
+            CourseData.Name = "CourseData";
+            CourseData.ReadOnly = true;
+            CourseData.RowTemplate.Height = 25;
+            CourseData.Size = new Size(983, 478);
+            CourseData.TabIndex = 5;
             // 
             // Add_Course
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(1350, 729);
-            Controls.Add(CourseDatas);
+            ClientSize = new Size(1007, 711);
+            Controls.Add(CourseData);
             Controls.Add(panel2);
-            Controls.Add(panel1);
             Name = "Add_Course";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Course";
             Load += Add_Course_Load;
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)CourseDatas).EndInit();
+            ((System.ComponentModel.ISupportInitialize)CourseData).EndInit();
             ResumeLayout(false);
         }
 
@@ -373,21 +202,9 @@
         private Label label3;
         private TextBox AddCourseDep;
         private Label label4;
-        private Panel panel1;
-        private Label label5;
-        private Button Student;
-        private Button Office;
-        private Button Lecturer;
-        private Button Department;
-        private Button Course;
-        private Button Classroom;
-        private Button Administrator;
-        private Label label6;
-        private PictureBox pictureBox1;
-        private Label label7;
         private Panel panel2;
         private Button Delete;
         private Button button1;
-        private DataGridView CourseDatas;
+        private DataGridView CourseData;
     }
 }

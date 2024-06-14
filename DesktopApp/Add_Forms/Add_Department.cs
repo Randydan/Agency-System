@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Code_First.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,70 +14,36 @@ namespace DesktopApp.Add_Forms
 {
     public partial class Add_Department : Form
     {
-        SqlConnection connect = new SqlConnection(@"Data Source=KING-DAN;Initial Catalog=Code_First;Integrated Security=True");
         public Add_Department()
         {
             InitializeComponent();
         }
-        private void DepartmentDat()
-        {
-            connect.Open();
-            string query = "SELECT Name, Description, Courses, Students,Lecturers FROM Departments";
-            SqlDataAdapter dataAdapter = new SqlDataAdapter(query, connect);
-            DataTable dataTable = new DataTable();
-            dataAdapter.Fill(dataTable);
-            DepData.DataSource = dataTable;
-            connect.Close();
-        }
 
-        private void AddDepBtn_Click(object sender, EventArgs e)
+        private async void AddDepBtn_Click(object sender, EventArgs e)
         {
-            if (connect.State != ConnectionState.Open)
+            if (AddDepName.Text == "" ||
+                  AddDepStudents.Text == "" ||
+                  AddDepDes.Text == "" ||
+                   AddDepLecturers.Text == "" ||
+                  AddDepCourses.Text == "")
             {
-                try
-                {
-                    connect.Open();
-                    string existCheck = "SELECT * FROM Departments WHERE Name = '" + AddDepName.Text.Trim() + "'";
-
-                    using (SqlCommand checkCourse = new SqlCommand(existCheck, connect))
-                    {
-                        SqlDataAdapter adapter = new SqlDataAdapter(checkCourse);
-                        DataTable table = new DataTable();
-                        adapter.Fill(table);
-
-                        if (table.Rows.Count >= 1)
-                        {
-                            MessageBox.Show(AddDepName.Text + " already exist", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                        else
-                        {
-                            string insertData = "INSERT INTO Departments(Name, Description, Courses, Students,Lecturers) VALUES(@Name, @Description, @Courses, @Students, @Lecturers)";
-
-                            using (SqlCommand cmd = new SqlCommand(insertData, connect))
-                            {
-                                cmd.Parameters.AddWithValue("@Name", AddDepName.Text.Trim());
-                                cmd.Parameters.AddWithValue("@Description", AddDepDes.Text.Trim());
-                                cmd.Parameters.AddWithValue("@Courses", AddDepCourses.Text.Trim());
-                                cmd.Parameters.AddWithValue("@Students", AddDepStudents.Text.Trim());
-                                cmd.Parameters.AddWithValue("@Lecturers", AddDepLecturers.Text.Trim());
-
-                                cmd.ExecuteNonQuery();
-
-                                MessageBox.Show("Registered Successfully", "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            }
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error connecting Database" + ex, "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                finally
-                {
-                    connect.Close();
-                }
+                MessageBox.Show("Please fill all fields", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            else
+            {
+                await RestApiHelpers.Post<Department>(new Department()
+                {
+                    Name = AddDepName.Text,
+                    Description = AddDepDes.Text,
+                    Lecturers = AddDepLecturers.Text,
+                    Students = AddDepStudents.Text,
+                    Courses = AddDepCourses.Text
 
+                }, "Department");
+
+
+                MessageBox.Show("Registered Successfully", "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void Administrator_Click(object sender, EventArgs e)
@@ -115,9 +82,11 @@ namespace DesktopApp.Add_Forms
             frm.Show();
         }
 
-        private void Add_Department_Load(object sender, EventArgs e)
+        private async void Add_Department_Load(object sender, EventArgs e)
         {
-            DepartmentDat();
+            var data = await RestApiHelpers.GetALL<Department>(new Department(), "Department");
+
+            DepData.DataSource = data;
         }
     }
 }

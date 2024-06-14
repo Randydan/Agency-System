@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Add_Administrator));
             AddAdminBtn = new Button();
             label9 = new Label();
             AddAdminStatus = new TextBox();
@@ -51,24 +50,11 @@
             AddAdminN = new TextBox();
             AddAdminDOB = new DateTimePicker();
             AddAdminGender = new ComboBox();
-            panel1 = new Panel();
-            label13 = new Label();
-            label2 = new Label();
-            Student = new Button();
-            Office = new Button();
-            Lecturer = new Button();
-            Department = new Button();
-            Course = new Button();
-            Classroom = new Button();
-            button1 = new Button();
-            label12 = new Label();
-            pictureBox1 = new PictureBox();
             panel2 = new Panel();
+            UpdateAdmin = new Button();
             button9 = new Button();
-            button8 = new Button();
-            panel3 = new Panel();
-            AdminData = new DataGridView();
             administratorsBindingSource = new BindingSource(components);
+            AdminData = new DataGridView();
             idDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             salaryDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             departmentDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
@@ -80,12 +66,9 @@
             emailDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             phoneDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             statusDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel2.SuspendLayout();
-            panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)AdminData).BeginInit();
             ((System.ComponentModel.ISupportInitialize)administratorsBindingSource).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)AdminData).BeginInit();
             SuspendLayout();
             // 
             // AddAdminBtn
@@ -93,9 +76,9 @@
             AddAdminBtn.Anchor = AnchorStyles.Top;
             AddAdminBtn.BackColor = Color.MediumSeaGreen;
             AddAdminBtn.ForeColor = Color.White;
-            AddAdminBtn.Location = new Point(586, 234);
+            AddAdminBtn.Location = new Point(557, 234);
             AddAdminBtn.Name = "AddAdminBtn";
-            AddAdminBtn.Size = new Size(68, 29);
+            AddAdminBtn.Size = new Size(86, 29);
             AddAdminBtn.TabIndex = 68;
             AddAdminBtn.Text = "Add";
             AddAdminBtn.UseVisualStyleBackColor = false;
@@ -284,170 +267,12 @@
             AddAdminGender.Size = new Size(232, 23);
             AddAdminGender.TabIndex = 71;
             // 
-            // panel1
-            // 
-            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
-            panel1.BackColor = Color.WhiteSmoke;
-            panel1.Controls.Add(label13);
-            panel1.Controls.Add(label2);
-            panel1.Controls.Add(Student);
-            panel1.Controls.Add(Office);
-            panel1.Controls.Add(Lecturer);
-            panel1.Controls.Add(Department);
-            panel1.Controls.Add(Course);
-            panel1.Controls.Add(Classroom);
-            panel1.Controls.Add(button1);
-            panel1.Controls.Add(label12);
-            panel1.Controls.Add(pictureBox1);
-            panel1.Location = new Point(0, 1);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(357, 726);
-            panel1.TabIndex = 72;
-            // 
-            // label13
-            // 
-            label13.Anchor = AnchorStyles.Bottom;
-            label13.AutoSize = true;
-            label13.BackColor = Color.White;
-            label13.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            label13.ForeColor = Color.DarkGreen;
-            label13.Location = new Point(82, 704);
-            label13.Name = "label13";
-            label13.Size = new Size(156, 15);
-            label13.TabIndex = 73;
-            label13.Text = "Keeping Records Made easy";
-            // 
-            // label2
-            // 
-            label2.Anchor = AnchorStyles.Bottom;
-            label2.AutoSize = true;
-            label2.BackColor = Color.White;
-            label2.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            label2.ForeColor = Color.DarkGreen;
-            label2.Location = new Point(171, 1204);
-            label2.Name = "label2";
-            label2.Size = new Size(156, 15);
-            label2.TabIndex = 3;
-            label2.Text = "Keeping Records Made easy";
-            // 
-            // Student
-            // 
-            Student.BackColor = Color.MediumSeaGreen;
-            Student.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            Student.ForeColor = Color.White;
-            Student.Location = new Point(186, 295);
-            Student.Name = "Student";
-            Student.Size = new Size(164, 41);
-            Student.TabIndex = 2;
-            Student.Text = "Student";
-            Student.UseVisualStyleBackColor = false;
-            Student.Click += Student_Click;
-            // 
-            // Office
-            // 
-            Office.BackColor = Color.MediumSeaGreen;
-            Office.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            Office.ForeColor = Color.White;
-            Office.Location = new Point(82, 487);
-            Office.Name = "Office";
-            Office.Size = new Size(167, 41);
-            Office.TabIndex = 2;
-            Office.Text = "Office";
-            Office.UseVisualStyleBackColor = false;
-            Office.Click += Office_Click;
-            // 
-            // Lecturer
-            // 
-            Lecturer.BackColor = Color.MediumSeaGreen;
-            Lecturer.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            Lecturer.ForeColor = Color.White;
-            Lecturer.Location = new Point(177, 415);
-            Lecturer.Name = "Lecturer";
-            Lecturer.Size = new Size(164, 41);
-            Lecturer.TabIndex = 2;
-            Lecturer.Text = "Lecturer";
-            Lecturer.UseVisualStyleBackColor = false;
-            Lecturer.Click += Lecturer_Click;
-            // 
-            // Department
-            // 
-            Department.BackColor = Color.MediumSeaGreen;
-            Department.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            Department.ForeColor = Color.White;
-            Department.Location = new Point(82, 357);
-            Department.Name = "Department";
-            Department.Size = new Size(167, 41);
-            Department.TabIndex = 2;
-            Department.Text = "Department";
-            Department.UseVisualStyleBackColor = false;
-            Department.Click += Department_Click;
-            // 
-            // Course
-            // 
-            Course.BackColor = Color.MediumSeaGreen;
-            Course.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            Course.ForeColor = Color.White;
-            Course.Location = new Point(4, 415);
-            Course.Name = "Course";
-            Course.Size = new Size(167, 41);
-            Course.TabIndex = 2;
-            Course.Text = "Course";
-            Course.UseVisualStyleBackColor = false;
-            Course.Click += Course_Click;
-            // 
-            // Classroom
-            // 
-            Classroom.BackColor = Color.MediumSeaGreen;
-            Classroom.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            Classroom.ForeColor = Color.White;
-            Classroom.Location = new Point(7, 295);
-            Classroom.Name = "Classroom";
-            Classroom.Size = new Size(167, 41);
-            Classroom.TabIndex = 2;
-            Classroom.Text = "Classroom";
-            Classroom.UseVisualStyleBackColor = false;
-            Classroom.Click += Classroom_Click;
-            // 
-            // button1
-            // 
-            button1.BackColor = Color.Honeydew;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            button1.ForeColor = Color.Green;
-            button1.Location = new Point(82, 234);
-            button1.Name = "button1";
-            button1.Size = new Size(167, 41);
-            button1.TabIndex = 2;
-            button1.Text = "Administrator";
-            button1.UseVisualStyleBackColor = false;
-            // 
-            // label12
-            // 
-            label12.AutoSize = true;
-            label12.Font = new Font("Cooper Black", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
-            label12.Location = new Point(66, 154);
-            label12.Name = "label12";
-            label12.Size = new Size(211, 31);
-            label12.TabIndex = 1;
-            label12.Text = "Welcome Back";
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.Anchor = AnchorStyles.Top;
-            pictureBox1.BackgroundImageLayout = ImageLayout.Stretch;
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(132, 59);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(82, 84);
-            pictureBox1.TabIndex = 0;
-            pictureBox1.TabStop = false;
-            // 
             // panel2
             // 
-            panel2.Anchor = AnchorStyles.Bottom;
+            panel2.Anchor = AnchorStyles.Left;
             panel2.BackColor = SystemColors.Control;
+            panel2.Controls.Add(UpdateAdmin);
             panel2.Controls.Add(button9);
-            panel2.Controls.Add(button8);
             panel2.Controls.Add(AddAdminPhone);
             panel2.Controls.Add(label10);
             panel2.Controls.Add(AddAdminGender);
@@ -469,10 +294,23 @@
             panel2.Controls.Add(label5);
             panel2.Controls.Add(label4);
             panel2.Controls.Add(AddAdminA);
-            panel2.Location = new Point(428, 440);
+            panel2.Location = new Point(40, 373);
             panel2.Name = "panel2";
             panel2.Size = new Size(854, 277);
             panel2.TabIndex = 73;
+            // 
+            // UpdateAdmin
+            // 
+            UpdateAdmin.Anchor = AnchorStyles.Top;
+            UpdateAdmin.BackColor = Color.Blue;
+            UpdateAdmin.ForeColor = Color.White;
+            UpdateAdmin.Location = new Point(668, 234);
+            UpdateAdmin.Name = "UpdateAdmin";
+            UpdateAdmin.Size = new Size(77, 29);
+            UpdateAdmin.TabIndex = 72;
+            UpdateAdmin.Text = "Update";
+            UpdateAdmin.UseVisualStyleBackColor = false;
+            UpdateAdmin.Click += UpdateAdmin_Click;
             // 
             // button9
             // 
@@ -481,32 +319,15 @@
             button9.ForeColor = Color.White;
             button9.Location = new Point(763, 234);
             button9.Name = "button9";
-            button9.Size = new Size(68, 29);
+            button9.Size = new Size(76, 29);
             button9.TabIndex = 68;
             button9.Text = "Delete";
             button9.UseVisualStyleBackColor = false;
             button9.Click += AddAdminBtn_Click;
             // 
-            // button8
+            // administratorsBindingSource
             // 
-            button8.Anchor = AnchorStyles.Top;
-            button8.BackColor = Color.Blue;
-            button8.ForeColor = Color.White;
-            button8.Location = new Point(673, 234);
-            button8.Name = "button8";
-            button8.Size = new Size(68, 29);
-            button8.TabIndex = 68;
-            button8.Text = "Update";
-            button8.UseVisualStyleBackColor = false;
-            button8.Click += AddAdminBtn_Click;
-            // 
-            // panel3
-            // 
-            panel3.Controls.Add(AdminData);
-            panel3.Location = new Point(367, 6);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(977, 428);
-            panel3.TabIndex = 74;
+            administratorsBindingSource.DataSource = typeof(Code_First.Models.Administrators);
             // 
             // AdminData
             // 
@@ -517,17 +338,13 @@
             AdminData.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             AdminData.Columns.AddRange(new DataGridViewColumn[] { idDataGridViewTextBoxColumn, salaryDataGridViewTextBoxColumn, departmentDataGridViewTextBoxColumn, postDataGridViewTextBoxColumn, nameDataGridViewTextBoxColumn, genderDataGridViewTextBoxColumn, dobDataGridViewTextBoxColumn, addressDataGridViewTextBoxColumn, emailDataGridViewTextBoxColumn, phoneDataGridViewTextBoxColumn, statusDataGridViewTextBoxColumn });
             AdminData.DataSource = administratorsBindingSource;
-            AdminData.Location = new Point(3, 1);
+            AdminData.Location = new Point(12, 12);
             AdminData.Name = "AdminData";
             AdminData.ReadOnly = true;
             AdminData.RowTemplate.Height = 25;
-            AdminData.Size = new Size(971, 424);
-            AdminData.TabIndex = 0;
+            AdminData.Size = new Size(925, 348);
+            AdminData.TabIndex = 72;
             AdminData.CellContentClick += AdminData_CellContentClick;
-            // 
-            // administratorsBindingSource
-            // 
-            administratorsBindingSource.DataSource = typeof(Code_First.Models.Administrators);
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -611,22 +428,17 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(1350, 729);
-            Controls.Add(panel3);
+            ClientSize = new Size(949, 662);
+            Controls.Add(AdminData);
             Controls.Add(panel2);
-            Controls.Add(panel1);
             Name = "Add_Administrator";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Administrators";
             Load += Add_Administrator_Load;
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
-            panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)AdminData).EndInit();
             ((System.ComponentModel.ISupportInitialize)administratorsBindingSource).EndInit();
+            ((System.ComponentModel.ISupportInitialize)AdminData).EndInit();
             ResumeLayout(false);
         }
 
@@ -653,22 +465,9 @@
         private TextBox AddAdminN;
         private DateTimePicker AddAdminDOB;
         private ComboBox AddAdminGender;
-        private Panel panel1;
-        private Label label2;
-        private Button Student;
-        private Button Office;
-        private Button Lecturer;
-        private Button Department;
-        private Button Course;
-        private Button Classroom;
-        private Button button1;
-        private Label label12;
-        private PictureBox pictureBox1;
-        private Label label13;
         private Panel panel2;
         private Button button9;
-        private Button button8;
-        private Panel panel3;
+        private BindingSource administratorsBindingSource;
         private DataGridView AdminData;
         private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn salaryDataGridViewTextBoxColumn;
@@ -681,6 +480,6 @@
         private DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn phoneDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
-        private BindingSource administratorsBindingSource;
+        private Button UpdateAdmin;
     }
 }
