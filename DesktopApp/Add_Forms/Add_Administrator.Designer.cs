@@ -52,7 +52,6 @@
             AddAdminGender = new ComboBox();
             panel2 = new Panel();
             UpdateAdmin = new Button();
-            button9 = new Button();
             administratorsBindingSource = new BindingSource(components);
             AdminData = new DataGridView();
             idDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
@@ -66,6 +65,8 @@
             emailDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             phoneDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             statusDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            AdminId = new TextBox();
+            Deletebtn = new Button();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)administratorsBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)AdminData).BeginInit();
@@ -271,8 +272,8 @@
             // 
             panel2.Anchor = AnchorStyles.Left;
             panel2.BackColor = SystemColors.Control;
+            panel2.Controls.Add(Deletebtn);
             panel2.Controls.Add(UpdateAdmin);
-            panel2.Controls.Add(button9);
             panel2.Controls.Add(AddAdminPhone);
             panel2.Controls.Add(label10);
             panel2.Controls.Add(AddAdminGender);
@@ -311,19 +312,6 @@
             UpdateAdmin.Text = "Update";
             UpdateAdmin.UseVisualStyleBackColor = false;
             UpdateAdmin.Click += UpdateAdmin_Click;
-            // 
-            // button9
-            // 
-            button9.Anchor = AnchorStyles.Top;
-            button9.BackColor = Color.Red;
-            button9.ForeColor = Color.White;
-            button9.Location = new Point(763, 234);
-            button9.Name = "button9";
-            button9.Size = new Size(76, 29);
-            button9.TabIndex = 68;
-            button9.Text = "Delete";
-            button9.UseVisualStyleBackColor = false;
-            button9.Click += AddAdminBtn_Click;
             // 
             // administratorsBindingSource
             // 
@@ -423,14 +411,35 @@
             statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
             statusDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // AdminId
+            // 
+            AdminId.Location = new Point(215, 286);
+            AdminId.Name = "AdminId";
+            AdminId.Size = new Size(100, 23);
+            AdminId.TabIndex = 74;
+            // 
+            // Deletebtn
+            // 
+            Deletebtn.Anchor = AnchorStyles.Top;
+            Deletebtn.BackColor = Color.Red;
+            Deletebtn.ForeColor = Color.White;
+            Deletebtn.Location = new Point(755, 234);
+            Deletebtn.Name = "Deletebtn";
+            Deletebtn.Size = new Size(76, 29);
+            Deletebtn.TabIndex = 73;
+            Deletebtn.Text = "Delete";
+            Deletebtn.UseVisualStyleBackColor = false;
+            Deletebtn.Click += Deletebtn_Click;
+            // 
             // Add_Administrator
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(949, 662);
-            Controls.Add(AdminData);
             Controls.Add(panel2);
+            Controls.Add(AdminData);
+            Controls.Add(AdminId);
             Name = "Add_Administrator";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Administrators";
@@ -440,6 +449,7 @@
             ((System.ComponentModel.ISupportInitialize)administratorsBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)AdminData).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -466,7 +476,6 @@
         private DateTimePicker AddAdminDOB;
         private ComboBox AddAdminGender;
         private Panel panel2;
-        private Button button9;
         private BindingSource administratorsBindingSource;
         private DataGridView AdminData;
         private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
@@ -481,5 +490,7 @@
         private DataGridViewTextBoxColumn phoneDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
         private Button UpdateAdmin;
+        private TextBox AdminId;
+        private Button Deletebtn;
     }
 }

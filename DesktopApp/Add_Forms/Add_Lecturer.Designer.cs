@@ -30,15 +30,16 @@
         {
             LecData = new DataGridView();
             panel2 = new Panel();
+            updatebtn = new Button();
             AddLecDOB = new DateTimePicker();
             AddLecGen = new ComboBox();
-            button3 = new Button();
-            button2 = new Button();
+            Deletebtn = new Button();
             AddLecBtn = new Button();
             AddLecCourse = new Label();
             AddLecStatus = new TextBox();
             AddLecEmail = new TextBox();
             AddLecSalary = new TextBox();
+            AddLecName = new TextBox();
             AddLecDep = new TextBox();
             label8 = new Label();
             label7 = new Label();
@@ -50,7 +51,7 @@
             label3 = new Label();
             label1 = new Label();
             AddLecAddr = new TextBox();
-            AddLecName = new TextBox();
+            LecID = new TextBox();
             ((System.ComponentModel.ISupportInitialize)LecData).BeginInit();
             panel2.SuspendLayout();
             SuspendLayout();
@@ -66,14 +67,15 @@
             LecData.RowTemplate.Height = 25;
             LecData.Size = new Size(936, 331);
             LecData.TabIndex = 93;
+            LecData.CellContentClick += LecData_CellContentClick;
             // 
             // panel2
             // 
             panel2.BackColor = SystemColors.Control;
+            panel2.Controls.Add(updatebtn);
             panel2.Controls.Add(AddLecDOB);
             panel2.Controls.Add(AddLecGen);
-            panel2.Controls.Add(button3);
-            panel2.Controls.Add(button2);
+            panel2.Controls.Add(Deletebtn);
             panel2.Controls.Add(AddLecBtn);
             panel2.Controls.Add(AddLecCourse);
             panel2.Controls.Add(AddLecStatus);
@@ -96,6 +98,18 @@
             panel2.Size = new Size(846, 258);
             panel2.TabIndex = 94;
             // 
+            // updatebtn
+            // 
+            updatebtn.Anchor = AnchorStyles.None;
+            updatebtn.BackColor = SystemColors.Highlight;
+            updatebtn.Location = new Point(362, 205);
+            updatebtn.Name = "updatebtn";
+            updatebtn.Size = new Size(100, 37);
+            updatebtn.TabIndex = 111;
+            updatebtn.Text = "Update";
+            updatebtn.UseVisualStyleBackColor = false;
+            updatebtn.Click += updatebtn_Click;
+            // 
             // AddLecDOB
             // 
             AddLecDOB.Format = DateTimePickerFormat.Short;
@@ -113,27 +127,17 @@
             AddLecGen.Size = new Size(198, 23);
             AddLecGen.TabIndex = 109;
             // 
-            // button3
+            // Deletebtn
             // 
-            button3.Anchor = AnchorStyles.None;
-            button3.BackColor = Color.Red;
-            button3.Location = new Point(531, 205);
-            button3.Name = "button3";
-            button3.Size = new Size(114, 37);
-            button3.TabIndex = 108;
-            button3.Text = "Delete";
-            button3.UseVisualStyleBackColor = false;
-            // 
-            // button2
-            // 
-            button2.Anchor = AnchorStyles.None;
-            button2.BackColor = SystemColors.Highlight;
-            button2.Location = new Point(352, 205);
-            button2.Name = "button2";
-            button2.Size = new Size(100, 37);
-            button2.TabIndex = 108;
-            button2.Text = "Update";
-            button2.UseVisualStyleBackColor = false;
+            Deletebtn.Anchor = AnchorStyles.None;
+            Deletebtn.BackColor = Color.Red;
+            Deletebtn.Location = new Point(531, 205);
+            Deletebtn.Name = "Deletebtn";
+            Deletebtn.Size = new Size(114, 37);
+            Deletebtn.TabIndex = 108;
+            Deletebtn.Text = "Delete";
+            Deletebtn.UseVisualStyleBackColor = false;
+            Deletebtn.Click += Deletebtn_Click;
             // 
             // AddLecBtn
             // 
@@ -179,6 +183,14 @@
             AddLecSalary.Name = "AddLecSalary";
             AddLecSalary.Size = new Size(220, 23);
             AddLecSalary.TabIndex = 94;
+            // 
+            // AddLecName
+            // 
+            AddLecName.Anchor = AnchorStyles.Left;
+            AddLecName.Location = new Point(33, 46);
+            AddLecName.Name = "AddLecName";
+            AddLecName.Size = new Size(204, 23);
+            AddLecName.TabIndex = 95;
             // 
             // AddLecDep
             // 
@@ -284,13 +296,13 @@
             AddLecAddr.Size = new Size(204, 23);
             AddLecAddr.TabIndex = 101;
             // 
-            // AddLecName
+            // LecID
             // 
-            AddLecName.Anchor = AnchorStyles.Left;
-            AddLecName.Location = new Point(33, 46);
-            AddLecName.Name = "AddLecName";
-            AddLecName.Size = new Size(204, 23);
-            AddLecName.TabIndex = 95;
+            LecID.Anchor = AnchorStyles.Left;
+            LecID.Location = new Point(258, 225);
+            LecID.Name = "LecID";
+            LecID.Size = new Size(204, 23);
+            LecID.TabIndex = 111;
             // 
             // Add_Lecturer
             // 
@@ -300,6 +312,7 @@
             ClientSize = new Size(959, 629);
             Controls.Add(panel2);
             Controls.Add(LecData);
+            Controls.Add(LecID);
             Name = "Add_Lecturer";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Lecturer";
@@ -308,6 +321,7 @@
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -331,8 +345,9 @@
         private Label label3;
         private Label label1;
         private TextBox AddLecAddr;
-        private Button button3;
-        private Button button2;
+        private Button Deletebtn;
         private TextBox AddLecName;
+        private TextBox LecID;
+        private Button updatebtn;
     }
 }

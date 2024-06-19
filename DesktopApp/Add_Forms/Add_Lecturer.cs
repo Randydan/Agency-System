@@ -41,7 +41,7 @@ namespace DesktopApp.Add_Forms
                     Course = AddLecDep.Text,
                     Name = AddLecName.Text,
                     Gender = AddLecGen.Text,
-                    Dob = AddLecDOB.Text,
+                    Dob = DateTime.Parse(AddLecDOB.Text),
                     Address = AddLecAddr.Text,
                     Email = AddLecEmail.Text,
                     Phone = Int32.Parse(AddLecPhone.Text),
@@ -55,49 +55,58 @@ namespace DesktopApp.Add_Forms
         }
 
 
-        private void Administrator_Click(object sender, EventArgs e)
-        {
-            Add_Administrator frm = new();
-            frm.Show();
-        }
-
-
-        private void Classroom_Click_1(object sender, EventArgs e)
-        {
-            Add_Classroom frm = new();
-            frm.Show();
-        }
-
-        private void Student_Click_1(object sender, EventArgs e)
-        {
-            Add_Student frm = new();
-            frm.Show();
-        }
-
-        private void Office_Click(object sender, EventArgs e)
-        {
-            Add_Office frm = new();
-            frm.Show();
-        }
-
-        private void Course_Click(object sender, EventArgs e)
-        {
-            Add_Course frm = new();
-            frm.Show();
-        }
-
-        private void Department_Click(object sender, EventArgs e)
-        {
-            Add_Department frm = new();
-            frm.Show();
-        }
-
-
         private async void Lecturer_Load(object sender, EventArgs e)
         {
             var data = await RestApiHelpers.GetALL<Lecturer>(new Lecturer(), "Lecturer");
 
             LecData.DataSource = data;
+        }
+
+        private void LecData_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridViewRow row = LecData.Rows[e.RowIndex];
+
+            LecID.Text = row.Cells[0].Value.ToString();
+            AddLecSalary.Text = row.Cells[1].Value.ToString();
+            AddLecDep.Text = row.Cells[2].Value.ToString();
+            AddLecName.Text = row.Cells[3].Value.ToString();
+            AddLecGen.Text = row.Cells[4].Value.ToString();
+            AddLecDOB.Text = row.Cells[5].Value.ToString();
+            AddLecAddr.Text = row.Cells[6].Value.ToString();
+            AddLecEmail.Text = row.Cells[7].Value.ToString();
+            AddLecPhone.Text = row.Cells[8].Value.ToString();
+            AddLecStatus.Text = row.Cells[9].Value.ToString();
+        }
+
+        private async void updatebtn_Click(object sender, EventArgs e)
+        {
+            var urlid = Int32.Parse(LecID.Text);
+
+            await RestApiHelpers.Update<Lecturer>(new Lecturer()
+            {
+                Id = Int32.Parse(LecID.Text),
+                Salary = Int32.Parse(AddLecSalary.Text),
+                Course = AddLecDep.Text,
+                Name = AddLecName.Text,
+                Gender = AddLecGen.Text,
+                Dob = DateTime.Parse(AddLecDOB.Text),
+                Address = AddLecAddr.Text,
+                Email = AddLecEmail.Text,
+                Phone = Int32.Parse(AddLecPhone.Text),
+                Status = AddLecStatus.Text
+
+            }, "Lecturer", urlid);
+
+            MessageBox.Show("Updated Successfully", "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+       public async void Deletebtn_Click(Object sender, EventArgs e)
+        {
+            var urlid = Int32.Parse(LecID.Text);
+
+            await RestApiHelpers.Delete<Lecturer>(new Lecturer(), "Lecturer", urlid);
+
+            MessageBox.Show("Deleted Successfully", "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

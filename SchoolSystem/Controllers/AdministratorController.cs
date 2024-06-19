@@ -67,11 +67,11 @@ namespace SchoolSystem.Controllers
         [ProducesResponseType(204)]
         [ProducesResponseType(404)]
 
-        public IActionResult UpdateAdministrator(int Id,[FromBody]Administrators updateAdministrators)
+        public IActionResult UpdateAdministrator(int Id, [FromBody]Administrators updateAdministrators)
         {
             if (updateAdministrators == null)
                 return BadRequest(ModelState);
-
+             
             if (Id != updateAdministrators.Id)
                 return BadRequest(ModelState);
 

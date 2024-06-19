@@ -37,8 +37,9 @@
             AddOfficeBtn = new Button();
             OffData = new DataGridView();
             panel2 = new Panel();
-            button2 = new Button();
-            button1 = new Button();
+            Updatebtn = new Button();
+            OffID = new TextBox();
+            Deletebtn = new Button();
             ((System.ComponentModel.ISupportInitialize)OffData).BeginInit();
             panel2.SuspendLayout();
             SuspendLayout();
@@ -113,15 +114,16 @@
             OffData.RowTemplate.Height = 25;
             OffData.Size = new Size(983, 453);
             OffData.TabIndex = 11;
+            OffData.CellContentClick += OffData_CellContentClick;
             // 
             // panel2
             // 
             panel2.BackColor = SystemColors.Control;
+            panel2.Controls.Add(Deletebtn);
+            panel2.Controls.Add(Updatebtn);
             panel2.Controls.Add(label1);
             panel2.Controls.Add(label2);
             panel2.Controls.Add(label3);
-            panel2.Controls.Add(button2);
-            panel2.Controls.Add(button1);
             panel2.Controls.Add(AddOfficeBtn);
             panel2.Controls.Add(AddOfficeAddr);
             panel2.Controls.Add(AddOfficeDep);
@@ -131,27 +133,34 @@
             panel2.Size = new Size(488, 207);
             panel2.TabIndex = 12;
             // 
-            // button2
+            // Updatebtn
             // 
-            button2.BackColor = Color.Red;
-            button2.Location = new Point(385, 123);
-            button2.Name = "button2";
-            button2.Size = new Size(89, 34);
-            button2.TabIndex = 3;
-            button2.Text = "Delete";
-            button2.UseVisualStyleBackColor = false;
-            button2.Click += AddOfficeBtn_Click;
+            Updatebtn.BackColor = SystemColors.MenuHighlight;
+            Updatebtn.Location = new Point(254, 123);
+            Updatebtn.Name = "Updatebtn";
+            Updatebtn.Size = new Size(89, 34);
+            Updatebtn.TabIndex = 10;
+            Updatebtn.Text = "Update";
+            Updatebtn.UseVisualStyleBackColor = false;
+            Updatebtn.Click += Updatebtn_Click;
             // 
-            // button1
+            // OffID
             // 
-            button1.BackColor = SystemColors.MenuHighlight;
-            button1.Location = new Point(263, 123);
-            button1.Name = "button1";
-            button1.Size = new Size(89, 34);
-            button1.TabIndex = 3;
-            button1.Text = "Update";
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += AddOfficeBtn_Click;
+            OffID.Location = new Point(372, 320);
+            OffID.Name = "OffID";
+            OffID.Size = new Size(188, 23);
+            OffID.TabIndex = 11;
+            // 
+            // Deletebtn
+            // 
+            Deletebtn.BackColor = Color.Red;
+            Deletebtn.Location = new Point(385, 123);
+            Deletebtn.Name = "Deletebtn";
+            Deletebtn.Size = new Size(89, 34);
+            Deletebtn.TabIndex = 11;
+            Deletebtn.Text = "Delete";
+            Deletebtn.UseVisualStyleBackColor = false;
+            Deletebtn.Click += Deletebtn_Click;
             // 
             // Add_Office
             // 
@@ -161,6 +170,7 @@
             ClientSize = new Size(1009, 702);
             Controls.Add(panel2);
             Controls.Add(OffData);
+            Controls.Add(OffID);
             Name = "Add_Office";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Office";
@@ -169,6 +179,7 @@
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -182,7 +193,8 @@
         private Button AddOfficeBtn;
         private DataGridView OffData;
         private Panel panel2;
-        private Button button1;
-        private Button button2;
+        private Button Updatebtn;
+        private TextBox OffID;
+        private Button Deletebtn;
     }
 }

@@ -40,9 +40,10 @@
             AddDepLecturers = new TextBox();
             label5 = new Label();
             panel2 = new Panel();
-            button2 = new Button();
-            button1 = new Button();
+            Updatebtn = new Button();
             DepData = new DataGridView();
+            DepID = new TextBox();
+            Deletebtn = new Button();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)DepData).BeginInit();
             SuspendLayout();
@@ -114,7 +115,7 @@
             // AddDepBtn
             // 
             AddDepBtn.BackColor = Color.MediumSeaGreen;
-            AddDepBtn.Location = new Point(298, 167);
+            AddDepBtn.Location = new Point(288, 167);
             AddDepBtn.Name = "AddDepBtn";
             AddDepBtn.Size = new Size(85, 33);
             AddDepBtn.TabIndex = 3;
@@ -141,10 +142,10 @@
             // panel2
             // 
             panel2.BackColor = SystemColors.Control;
+            panel2.Controls.Add(Deletebtn);
+            panel2.Controls.Add(Updatebtn);
             panel2.Controls.Add(label1);
             panel2.Controls.Add(AddDepName);
-            panel2.Controls.Add(button2);
-            panel2.Controls.Add(button1);
             panel2.Controls.Add(AddDepBtn);
             panel2.Controls.Add(label5);
             panel2.Controls.Add(AddDepDes);
@@ -159,27 +160,16 @@
             panel2.Size = new Size(584, 212);
             panel2.TabIndex = 13;
             // 
-            // button2
+            // Updatebtn
             // 
-            button2.BackColor = Color.Red;
-            button2.Location = new Point(496, 167);
-            button2.Name = "button2";
-            button2.Size = new Size(85, 33);
-            button2.TabIndex = 3;
-            button2.Text = "Delete";
-            button2.UseVisualStyleBackColor = false;
-            button2.Click += AddDepBtn_Click;
-            // 
-            // button1
-            // 
-            button1.BackColor = SystemColors.MenuHighlight;
-            button1.Location = new Point(398, 167);
-            button1.Name = "button1";
-            button1.Size = new Size(85, 33);
-            button1.TabIndex = 3;
-            button1.Text = "Update";
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += AddDepBtn_Click;
+            Updatebtn.BackColor = SystemColors.MenuHighlight;
+            Updatebtn.Location = new Point(394, 167);
+            Updatebtn.Name = "Updatebtn";
+            Updatebtn.Size = new Size(85, 33);
+            Updatebtn.TabIndex = 12;
+            Updatebtn.Text = "Update";
+            Updatebtn.UseVisualStyleBackColor = false;
+            Updatebtn.Click += Updatebtn_Click;
             // 
             // DepData
             // 
@@ -192,6 +182,25 @@
             DepData.RowTemplate.Height = 25;
             DepData.Size = new Size(981, 376);
             DepData.TabIndex = 14;
+            DepData.CellContentClick += DepData_CellContentClick;
+            // 
+            // DepID
+            // 
+            DepID.Location = new Point(273, 262);
+            DepID.Name = "DepID";
+            DepID.Size = new Size(224, 23);
+            DepID.TabIndex = 13;
+            // 
+            // Deletebtn
+            // 
+            Deletebtn.BackColor = Color.Red;
+            Deletebtn.Location = new Point(496, 167);
+            Deletebtn.Name = "Deletebtn";
+            Deletebtn.Size = new Size(85, 33);
+            Deletebtn.TabIndex = 13;
+            Deletebtn.Text = "Delete";
+            Deletebtn.UseVisualStyleBackColor = false;
+            Deletebtn.Click += Deletebtn_Click;
             // 
             // Add_Department
             // 
@@ -201,6 +210,7 @@
             ClientSize = new Size(1006, 630);
             Controls.Add(DepData);
             Controls.Add(panel2);
+            Controls.Add(DepID);
             Name = "Add_Department";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Department";
@@ -209,6 +219,7 @@
             panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)DepData).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -225,8 +236,9 @@
         private TextBox AddDepLecturers;
         private Label label5;
         private Panel panel2;
-        private Button button2;
-        private Button button1;
         private DataGridView DepData;
+        private Button Updatebtn;
+        private TextBox DepID;
+        private Button Deletebtn;
     }
 }

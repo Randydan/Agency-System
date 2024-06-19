@@ -14,14 +14,13 @@ namespace Code_First.Models
 
         }
 
-        public virtual DbSet<Administrators> Administrators { get; set; } = null!;
-        public virtual DbSet<Classroom> Classrooms { get; set; } = null!;
-        public virtual DbSet<Course> Courses { get; set; } = null!;
-        public virtual DbSet<Department> Departments { get; set; } = null!;
-        public virtual DbSet<Lecturer> Lecturers { get; set; } = null!;
-        public virtual DbSet<Office> Offices { get; set; } = null!;
-        public virtual DbSet<Student> Students { get; set; } = null!;
-
+        public virtual DbSet<Administrators> Administrators { get; set; }
+        public virtual DbSet<Classroom> Classrooms { get; set; }
+        public virtual DbSet<Course> Courses { get; set; }
+        public virtual DbSet<Department> Departments { get; set; } 
+        public virtual DbSet<Lecturer> Lecturers { get; set; } 
+        public virtual DbSet<Office> Offices { get; set; } 
+        public virtual DbSet<Student> Students { get; set; } 
        
     }
 }

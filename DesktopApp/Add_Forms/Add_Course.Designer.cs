@@ -38,9 +38,10 @@
             AddCourseDep = new TextBox();
             label4 = new Label();
             panel2 = new Panel();
-            Delete = new Button();
-            button1 = new Button();
+            Updatebtn = new Button();
             CourseData = new DataGridView();
+            CourseID = new TextBox();
+            Deletebtn = new Button();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)CourseData).BeginInit();
             SuspendLayout();
@@ -123,10 +124,10 @@
             // panel2
             // 
             panel2.BackColor = SystemColors.Control;
+            panel2.Controls.Add(Deletebtn);
+            panel2.Controls.Add(Updatebtn);
             panel2.Controls.Add(label1);
             panel2.Controls.Add(AddCourseName);
-            panel2.Controls.Add(Delete);
-            panel2.Controls.Add(button1);
             panel2.Controls.Add(AddCourseBtn);
             panel2.Controls.Add(label4);
             panel2.Controls.Add(AddCourseDes);
@@ -139,27 +140,16 @@
             panel2.Size = new Size(521, 192);
             panel2.TabIndex = 4;
             // 
-            // Delete
+            // Updatebtn
             // 
-            Delete.BackColor = Color.Red;
-            Delete.Location = new Point(332, 151);
-            Delete.Name = "Delete";
-            Delete.Size = new Size(92, 32);
-            Delete.TabIndex = 0;
-            Delete.Text = "Delete";
-            Delete.UseVisualStyleBackColor = false;
-            Delete.Click += AddCourseBtn_Click;
-            // 
-            // button1
-            // 
-            button1.BackColor = SystemColors.MenuHighlight;
-            button1.Location = new Point(214, 151);
-            button1.Name = "button1";
-            button1.Size = new Size(92, 32);
-            button1.TabIndex = 0;
-            button1.Text = "Update";
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += AddCourseBtn_Click;
+            Updatebtn.BackColor = SystemColors.MenuHighlight;
+            Updatebtn.Location = new Point(214, 151);
+            Updatebtn.Name = "Updatebtn";
+            Updatebtn.Size = new Size(92, 32);
+            Updatebtn.TabIndex = 3;
+            Updatebtn.Text = "Update";
+            Updatebtn.UseVisualStyleBackColor = false;
+            Updatebtn.Click += Updatebtn_Click;
             // 
             // CourseData
             // 
@@ -172,6 +162,25 @@
             CourseData.RowTemplate.Height = 25;
             CourseData.Size = new Size(983, 478);
             CourseData.TabIndex = 5;
+            CourseData.CellContentClick += CourseData_CellContentClick;
+            // 
+            // CourseID
+            // 
+            CourseID.Location = new Point(356, 331);
+            CourseID.Name = "CourseID";
+            CourseID.Size = new Size(224, 23);
+            CourseID.TabIndex = 4;
+            // 
+            // Deletebtn
+            // 
+            Deletebtn.BackColor = Color.Red;
+            Deletebtn.Location = new Point(326, 151);
+            Deletebtn.Name = "Deletebtn";
+            Deletebtn.Size = new Size(92, 32);
+            Deletebtn.TabIndex = 4;
+            Deletebtn.Text = "Delete";
+            Deletebtn.UseVisualStyleBackColor = false;
+            Deletebtn.Click += Deletebtn_Click;
             // 
             // Add_Course
             // 
@@ -181,6 +190,7 @@
             ClientSize = new Size(1007, 711);
             Controls.Add(CourseData);
             Controls.Add(panel2);
+            Controls.Add(CourseID);
             Name = "Add_Course";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Course";
@@ -189,6 +199,7 @@
             panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)CourseData).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -203,8 +214,9 @@
         private TextBox AddCourseDep;
         private Label label4;
         private Panel panel2;
-        private Button Delete;
-        private Button button1;
         private DataGridView CourseData;
+        private Button Updatebtn;
+        private TextBox CourseID;
+        private Button Deletebtn;
     }
 }

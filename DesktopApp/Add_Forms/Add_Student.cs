@@ -11,6 +11,9 @@ using System.Data.SqlClient;
 using System.Data.Common;
 using System.CodeDom;
 using Code_First.Models;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System.Net;
 
 namespace DesktopApp.Add_Forms
 {
@@ -46,7 +49,7 @@ namespace DesktopApp.Add_Forms
                     Nationality = AddStudentNat.Text,
                     Name = AddStudentName.Text,
                     Gender = AddStudentGen.Text,
-                    DOB = AddDob.Text,
+                    DOB = DateTime.Parse(AddDob.Text),
                     Address = AddStudentAddr.Text,
                     Email = AddStudentEmail.Text,
                     Phone = Int32.Parse(AddStudentPhone.Text),
@@ -66,6 +69,55 @@ namespace DesktopApp.Add_Forms
             var data = await RestApiHelpers.GetALL<Student>(new Student(), "Student");
 
             StudData.DataSource = data;
+        }
+
+        private async void Updatebtn_Click(object sender, EventArgs e)
+        {
+            var urlid = Int32.Parse(StudId.Text);
+
+            await RestApiHelpers.Update<Student>(new Student()
+            {
+                ID = Int32.Parse(StudId.Text),
+                Matricle = AddStudentMat.Text,
+                Department = AddStudentDep.Text,
+                Nationality = AddStudentNat.Text,
+                Name = AddStudentName.Text,
+                Gender = AddStudentGen.Text,
+                DOB = DateTime.Parse(AddDob.Text),
+                Address = AddStudentAddr.Text,
+                Email = AddStudentEmail.Text,
+                Phone = Int32.Parse(AddStudentPhone.Text),
+                Status = AddStudentStat.Text
+
+            }, "Student", urlid);
+
+            MessageBox.Show("Updated Successfully", "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void StudData_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridViewRow row = StudData.Rows[e.RowIndex];
+
+            StudId.Text = row.Cells[0].Value.ToString();
+            AddStudentMat.Text = row.Cells[1].ToString();
+            AddStudentDep.Text = row.Cells[2].Value.ToString();
+            AddStudentNat.Text = row.Cells[3].Value.ToString();
+            AddStudentName.Text = row.Cells[4].Value.ToString();
+            AddStudentGen.Text = row.Cells[5].Value.ToString();
+            AddDob.Text = row.Cells[6].Value.ToString();
+            AddStudentAddr.Text = row.Cells[7].Value.ToString();
+            AddStudentEmail.Text = row.Cells[8].Value.ToString();
+            AddStudentPhone.Text = row.Cells[9].Value.ToString();
+            AddStudentStat.Text = row.Cells[10].Value.ToString();
+        }
+
+        private async void Deletebtn_Click(object sender, EventArgs e)
+        {
+            var urlid = Int32.Parse(StudId.Text);
+
+            await RestApiHelpers.Delete<Student>(new Student(), "Student", urlid);
+
+            MessageBox.Show("Deleted Successfully", "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

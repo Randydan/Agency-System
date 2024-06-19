@@ -46,47 +46,52 @@ namespace DesktopApp.Add_Forms
             }
         }
 
-        private void Administrator_Click(object sender, EventArgs e)
-        {
-            Add_Administrator frm = new();
-            frm.Show();
-        }
-
-        private void Classroom_Click(object sender, EventArgs e)
-        {
-            Add_Classroom frm = new();
-            frm.Show();
-        }
-
-        private void Student_Click(object sender, EventArgs e)
-        {
-            Add_Student frm = new();
-            frm.Show();
-        }
-
-        private void Course_Click(object sender, EventArgs e)
-        {
-            Add_Course frm = new();
-            frm.Show();
-        }
-
-        private void Lecturer_Click(object sender, EventArgs e)
-        {
-            Add_Lecturer frm = new();
-            frm.Show();
-        }
-
-        private void Office_Click(object sender, EventArgs e)
-        {
-            Add_Office frm = new();
-            frm.Show();
-        }
 
         private async void Add_Department_Load(object sender, EventArgs e)
         {
             var data = await RestApiHelpers.GetALL<Department>(new Department(), "Department");
 
             DepData.DataSource = data;
+        }
+
+        private async void Updatebtn_Click(object sender, EventArgs e)
+        {
+            var urlid = Int32.Parse(DepID.Text);
+
+            await RestApiHelpers.Update<Department>(new Department()
+            {
+                ID = Int32.Parse(DepID.Text),
+                Name = AddDepName.Text,
+                Description = AddDepDes.Text,
+                Lecturers = AddDepLecturers.Text,
+                Students = AddDepStudents.Text,
+                Courses = AddDepCourses.Text
+
+            }, "Department", urlid);
+
+            MessageBox.Show("Updated Successfully", "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+        }
+
+        private void DepData_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridViewRow row = DepData.Rows[e.RowIndex];
+
+            DepID.Text = row.Cells[0].Value.ToString();
+            AddDepName.Text = row.Cells[1].Value.ToString();
+            AddDepDes.Text = row.Cells[2].Value.ToString();
+            AddDepLecturers.Text = row.Cells[3].Value.ToString();
+            AddDepStudents.Text = row.Cells[4].Value.ToString();
+            AddDepCourses.Text = row.Cells[5].Value.ToString();
+        }
+
+        private async void Deletebtn_Click(object sender, EventArgs e)
+        {
+            var urlid = Int32.Parse(DepID.Text);
+
+            await RestApiHelpers.Delete<Department>(new Department(), "Department", urlid);
+
+            MessageBox.Show("Deleted Successfully", "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

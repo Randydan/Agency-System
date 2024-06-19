@@ -14,7 +14,6 @@ using System;
 
 public static class RestApiHelpers
 {
-    //private static readonly string baseurl = "https://localhost:7270/api/Administrator";
 
     public static async Task<IList<T>> GetALL<T>(T b, string url) where T : class
     {
@@ -38,7 +37,6 @@ public static class RestApiHelpers
     }
 
     public static async Task<string> Post<T>(T data, string url) where T : class
-
     {
 
         var baseAddress = new Uri($"https://localhost:7270/api/{url}");
@@ -51,6 +49,7 @@ public static class RestApiHelpers
                 ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
                 var jsonContent = new StringContent(JsonConvert.SerializeObject(data), Encoding.UTF8, "application/json");
                 HttpResponseMessage response = await httpClient.PostAsync(baseAddress, jsonContent);
+                Console.WriteLine(response);
 
                 // Ensure we get a successful response.
                 response.EnsureSuccessStatusCode();
@@ -67,11 +66,9 @@ public static class RestApiHelpers
         return string.Empty;
     }
 
-    public static async Task<string> Update<T>(T data, string url, string Id) where T : class
-
+    public static async Task<string> Update<T>(T data, string url, int id) where T : class
     {
-
-        var baseAddress = new Uri($"https://localhost:7270/api/{url}?={Id}");
+        var baseAddress = new Uri($"https://localhost:7270/api/{url}?Id={id}");
 
         using (var httpClient = new HttpClient { })
         {
@@ -80,15 +77,35 @@ public static class RestApiHelpers
             {
                 ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
                 var jsonContent = new StringContent(JsonConvert.SerializeObject(data), Encoding.UTF8, "application/json");
-                HttpResponseMessage response = await httpClient.PostAsync(baseAddress, jsonContent);
 
-                // Ensure we get a successful response.
-                response.EnsureSuccessStatusCode();
+                var result = await httpClient.PutAsync(baseAddress, jsonContent);
+                result.EnsureSuccessStatusCode();
+                string response = await result.Content.ReadAsStringAsync();
 
-                // Read the response as a string.
-                string result = await response.Content.ReadAsStringAsync();
+                result.EnsureSuccessStatusCode();
+                Console.WriteLine(response);
+            }
+            catch (HttpRequestException e)
+            {
+                Console.WriteLine("Error: " + e.Message);
+            }
+        }
+        return string.Empty;
+    }
+
+    public static async Task<string> Delete<T>(T d, string url, int Id) where T : class
+    {
+        var baseAddress = new Uri($"https://localhost:7270/api/{url}?Id={Id}");
+
+        using (var httpClient = new HttpClient { })
+        {
+            try 
+            { 
+                var result = await httpClient.DeleteAsync(baseAddress);
+                result.EnsureSuccessStatusCode();
                 Console.WriteLine(result);
             }
+
             catch (HttpRequestException e)
             {
                 Console.WriteLine("Error: " + e.Message);

@@ -47,48 +47,47 @@ namespace DesktopApp
         }
 
 
-
-        private void Administrator_Click_1(object sender, EventArgs e)
-        {
-            Add_Administrator frm = new();
-            frm.Show();
-        }
-
-        private void Student_Click(object sender, EventArgs e)
-        {
-            Add_Student frm = new();
-            frm.Show();
-        }
-
-        private void Department_Click(object sender, EventArgs e)
-        {
-            Add_Department frm = new();
-            frm.Show();
-        }
-
-        private void Course_Click(object sender, EventArgs e)
-        {
-            Add_Course frm = new();
-            frm.Show();
-        }
-
-        private void Lecturer_Click(object sender, EventArgs e)
-        {
-            Add_Lecturer frm = new();
-            frm.Show();
-        }
-
-        private void Office_Click(object sender, EventArgs e)
-        {
-            Add_Office frm = new();
-            frm.Show();
-        }
-
         private async void Add_Classroom_Load(object sender, EventArgs e)
         {
             var data = await RestApiHelpers.GetALL<Classroom>(new Classroom(), "Classroom");
 
             ClassData.DataSource = data;
+        }
+
+        private async void Deletebtn_Click(object sender, EventArgs e)
+        {
+            var Id = Int32.Parse(ClassId.Text);
+
+            await RestApiHelpers.Delete<Classroom>(new Classroom(), "Classroom", Id);
+
+            MessageBox.Show("Deleted Successfully", "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private async void Updatebtn_Click(object sender, EventArgs e)
+        {
+            var Id = Int32.Parse(ClassId.Text);
+
+            await RestApiHelpers.Update<Classroom>(new Classroom()
+            {
+                ID = Int32.Parse(ClassId.Text),
+                Name = AddClassName.Text,
+                Description = AddClassDes.Text,
+                Location = AddClassLoc.Text
+
+            }, "Classroom", Id);
+
+
+            MessageBox.Show("Updated Successfully", "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void ClassData_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridViewRow row = ClassData.Rows[e.RowIndex];
+
+            ClassId.Text = row.Cells[0].Value.ToString();
+            AddClassName.Text = row.Cells[1].Value.ToString();
+            AddClassDes.Text = row.Cells[2].Value.ToString();
+            AddClassLoc.Text = row.Cells[3].Value.ToString();
         }
     }
 }
