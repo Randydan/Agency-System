@@ -30,11 +30,6 @@ C:\Users\randy\source\repos\Randydan\School_Management\DesktopApp\bin\Debug\net6
 C:\Users\randy\source\repos\Randydan\School_Management\DesktopApp\bin\Debug\net6.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\randy\source\repos\Randydan\School_Management\DesktopApp\obj\Debug\net6.0-windows\DesktopApp.csproj.CopyComplete
 C:\Users\randy\source\repos\Randydan\School_Management\DesktopApp\obj\Debug\net6.0-windows\DesktopApp.Loading_Screen.resources
-C:\Users\randy\source\repos\Randydan\School_Management\DesktopApp\bin\Debug\net6.0-windows\API Controllers.deps.json
-C:\Users\randy\source\repos\Randydan\School_Management\DesktopApp\bin\Debug\net6.0-windows\API Controllers.runtimeconfig.json
-C:\Users\randy\source\repos\Randydan\School_Management\DesktopApp\bin\Debug\net6.0-windows\appsettings.Development.json
-C:\Users\randy\source\repos\Randydan\School_Management\DesktopApp\bin\Debug\net6.0-windows\appsettings.json
-C:\Users\randy\source\repos\Randydan\School_Management\DesktopApp\bin\Debug\net6.0-windows\API Controllers.exe
 C:\Users\randy\source\repos\Randydan\School_Management\DesktopApp\bin\Debug\net6.0-windows\Microsoft.Data.SqlClient.dll
 C:\Users\randy\source\repos\Randydan\School_Management\DesktopApp\bin\Debug\net6.0-windows\Microsoft.EntityFrameworkCore.dll
 C:\Users\randy\source\repos\Randydan\School_Management\DesktopApp\bin\Debug\net6.0-windows\Microsoft.EntityFrameworkCore.Abstractions.dll
@@ -46,10 +41,6 @@ C:\Users\randy\source\repos\Randydan\School_Management\DesktopApp\bin\Debug\net6
 C:\Users\randy\source\repos\Randydan\School_Management\DesktopApp\bin\Debug\net6.0-windows\Microsoft.IdentityModel.Protocols.dll
 C:\Users\randy\source\repos\Randydan\School_Management\DesktopApp\bin\Debug\net6.0-windows\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\Users\randy\source\repos\Randydan\School_Management\DesktopApp\bin\Debug\net6.0-windows\Microsoft.IdentityModel.Tokens.dll
-C:\Users\randy\source\repos\Randydan\School_Management\DesktopApp\bin\Debug\net6.0-windows\Microsoft.OpenApi.dll
-C:\Users\randy\source\repos\Randydan\School_Management\DesktopApp\bin\Debug\net6.0-windows\Swashbuckle.AspNetCore.Swagger.dll
-C:\Users\randy\source\repos\Randydan\School_Management\DesktopApp\bin\Debug\net6.0-windows\Swashbuckle.AspNetCore.SwaggerGen.dll
-C:\Users\randy\source\repos\Randydan\School_Management\DesktopApp\bin\Debug\net6.0-windows\Swashbuckle.AspNetCore.SwaggerUI.dll
 C:\Users\randy\source\repos\Randydan\School_Management\DesktopApp\bin\Debug\net6.0-windows\System.IdentityModel.Tokens.Jwt.dll
 C:\Users\randy\source\repos\Randydan\School_Management\DesktopApp\bin\Debug\net6.0-windows\System.Net.Http.Extensions.dll
 C:\Users\randy\source\repos\Randydan\School_Management\DesktopApp\bin\Debug\net6.0-windows\System.Net.Http.Formatting.dll
@@ -62,9 +53,20 @@ C:\Users\randy\source\repos\Randydan\School_Management\DesktopApp\bin\Debug\net6
 C:\Users\randy\source\repos\Randydan\School_Management\DesktopApp\bin\Debug\net6.0-windows\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
 C:\Users\randy\source\repos\Randydan\School_Management\DesktopApp\bin\Debug\net6.0-windows\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
 C:\Users\randy\source\repos\Randydan\School_Management\DesktopApp\bin\Debug\net6.0-windows\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
-C:\Users\randy\source\repos\Randydan\School_Management\DesktopApp\bin\Debug\net6.0-windows\API Controllers.dll
 C:\Users\randy\source\repos\Randydan\School_Management\DesktopApp\bin\Debug\net6.0-windows\Code_First.dll
 C:\Users\randy\source\repos\Randydan\School_Management\DesktopApp\bin\Debug\net6.0-windows\Code_First.pdb
-C:\Users\randy\source\repos\Randydan\School_Management\DesktopApp\bin\Debug\net6.0-windows\API Controllers.pdb
 C:\Users\randy\source\repos\Randydan\School_Management\DesktopApp\obj\Debug\net6.0-windows\DesktopApp.Add_Forms.Add_Lecturer.resources
 C:\Users\randy\source\repos\Randydan\School_Management\DesktopApp\bin\Debug\net6.0-windows\Newtonsoft.Json.dll
+C:\Users\randy\source\repos\Randydan\School_Management\DesktopApp\bin\Debug\net6.0-windows\Humanizer.dll
+C:\Users\randy\source\repos\Randydan\School_Management\DesktopApp\bin\Debug\net6.0-windows\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\randy\source\repos\Randydan\School_Management\DesktopApp\bin\Debug\net6.0-windows\API Controllers.deps.json
+C:\Users\randy\source\repos\Randydan\School_Management\DesktopApp\bin\Debug\net6.0-windows\API Controllers.runtimeconfig.json
+C:\Users\randy\source\repos\Randydan\School_Management\DesktopApp\bin\Debug\net6.0-windows\appsettings.Development.json
+C:\Users\randy\source\repos\Randydan\School_Management\DesktopApp\bin\Debug\net6.0-windows\appsettings.json
+C:\Users\randy\source\repos\Randydan\School_Management\DesktopApp\bin\Debug\net6.0-windows\API Controllers.exe
+C:\Users\randy\source\repos\Randydan\School_Management\DesktopApp\bin\Debug\net6.0-windows\Microsoft.OpenApi.dll
+C:\Users\randy\source\repos\Randydan\School_Management\DesktopApp\bin\Debug\net6.0-windows\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\randy\source\repos\Randydan\School_Management\DesktopApp\bin\Debug\net6.0-windows\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\randy\source\repos\Randydan\School_Management\DesktopApp\bin\Debug\net6.0-windows\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\randy\source\repos\Randydan\School_Management\DesktopApp\bin\Debug\net6.0-windows\API Controllers.dll
+C:\Users\randy\source\repos\Randydan\School_Management\DesktopApp\bin\Debug\net6.0-windows\API Controllers.pdb

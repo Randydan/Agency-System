@@ -42,6 +42,8 @@ namespace DesktopApp.Add_Forms
 
                 }, "Course");
 
+                var data = await RestApiHelpers.GetALL<Course>(new Course(), "Course");
+                CourseData.DataSource = data;
 
                 MessageBox.Show("Registered Successfully", "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -69,6 +71,9 @@ namespace DesktopApp.Add_Forms
 
             }, "Course", urlid);
 
+            var data = await RestApiHelpers.GetALL<Course>(new Course(), "Course");
+            CourseData.DataSource = data;
+
             MessageBox.Show("Updated Successfully", "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
@@ -89,6 +94,9 @@ namespace DesktopApp.Add_Forms
             var urlid = Int32.Parse(CourseID.Text);
 
             await RestApiHelpers.Delete<Course>(new Course(), "Course", urlid);
+
+            var data = await RestApiHelpers.GetALL<Course>(new Course(), "Course");
+            CourseData.DataSource = data;
 
             MessageBox.Show("Deleted Successfully", "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }

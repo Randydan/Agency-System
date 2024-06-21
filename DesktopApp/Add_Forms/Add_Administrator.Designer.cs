@@ -51,22 +51,22 @@
             AddAdminDOB = new DateTimePicker();
             AddAdminGender = new ComboBox();
             panel2 = new Panel();
+            Deletebtn = new Button();
             UpdateAdmin = new Button();
             administratorsBindingSource = new BindingSource(components);
             AdminData = new DataGridView();
+            AdminId = new TextBox();
             idDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            nameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             salaryDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             departmentDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             postDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            nameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             genderDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             dobDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             addressDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             emailDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             phoneDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             statusDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            AdminId = new TextBox();
-            Deletebtn = new Button();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)administratorsBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)AdminData).BeginInit();
@@ -300,6 +300,19 @@
             panel2.Size = new Size(854, 277);
             panel2.TabIndex = 73;
             // 
+            // Deletebtn
+            // 
+            Deletebtn.Anchor = AnchorStyles.Top;
+            Deletebtn.BackColor = Color.Red;
+            Deletebtn.ForeColor = Color.White;
+            Deletebtn.Location = new Point(755, 234);
+            Deletebtn.Name = "Deletebtn";
+            Deletebtn.Size = new Size(76, 29);
+            Deletebtn.TabIndex = 73;
+            Deletebtn.Text = "Delete";
+            Deletebtn.UseVisualStyleBackColor = false;
+            Deletebtn.Click += Deletebtn_Click;
+            // 
             // UpdateAdmin
             // 
             UpdateAdmin.Anchor = AnchorStyles.Top;
@@ -324,7 +337,7 @@
             AdminData.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             AdminData.AutoGenerateColumns = false;
             AdminData.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            AdminData.Columns.AddRange(new DataGridViewColumn[] { idDataGridViewTextBoxColumn, salaryDataGridViewTextBoxColumn, departmentDataGridViewTextBoxColumn, postDataGridViewTextBoxColumn, nameDataGridViewTextBoxColumn, genderDataGridViewTextBoxColumn, dobDataGridViewTextBoxColumn, addressDataGridViewTextBoxColumn, emailDataGridViewTextBoxColumn, phoneDataGridViewTextBoxColumn, statusDataGridViewTextBoxColumn });
+            AdminData.Columns.AddRange(new DataGridViewColumn[] { idDataGridViewTextBoxColumn, nameDataGridViewTextBoxColumn, salaryDataGridViewTextBoxColumn, departmentDataGridViewTextBoxColumn, postDataGridViewTextBoxColumn, genderDataGridViewTextBoxColumn, dobDataGridViewTextBoxColumn, addressDataGridViewTextBoxColumn, emailDataGridViewTextBoxColumn, phoneDataGridViewTextBoxColumn, statusDataGridViewTextBoxColumn });
             AdminData.DataSource = administratorsBindingSource;
             AdminData.Location = new Point(12, 12);
             AdminData.Name = "AdminData";
@@ -334,12 +347,26 @@
             AdminData.TabIndex = 72;
             AdminData.CellContentClick += AdminData_CellContentClick;
             // 
+            // AdminId
+            // 
+            AdminId.Location = new Point(215, 286);
+            AdminId.Name = "AdminId";
+            AdminId.Size = new Size(100, 23);
+            AdminId.TabIndex = 74;
+            // 
             // idDataGridViewTextBoxColumn
             // 
             idDataGridViewTextBoxColumn.DataPropertyName = "Id";
             idDataGridViewTextBoxColumn.HeaderText = "Id";
             idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
             idDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            nameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // salaryDataGridViewTextBoxColumn
             // 
@@ -361,13 +388,6 @@
             postDataGridViewTextBoxColumn.HeaderText = "Post";
             postDataGridViewTextBoxColumn.Name = "postDataGridViewTextBoxColumn";
             postDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            nameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // genderDataGridViewTextBoxColumn
             // 
@@ -410,26 +430,6 @@
             statusDataGridViewTextBoxColumn.HeaderText = "Status";
             statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
             statusDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // AdminId
-            // 
-            AdminId.Location = new Point(215, 286);
-            AdminId.Name = "AdminId";
-            AdminId.Size = new Size(100, 23);
-            AdminId.TabIndex = 74;
-            // 
-            // Deletebtn
-            // 
-            Deletebtn.Anchor = AnchorStyles.Top;
-            Deletebtn.BackColor = Color.Red;
-            Deletebtn.ForeColor = Color.White;
-            Deletebtn.Location = new Point(755, 234);
-            Deletebtn.Name = "Deletebtn";
-            Deletebtn.Size = new Size(76, 29);
-            Deletebtn.TabIndex = 73;
-            Deletebtn.Text = "Delete";
-            Deletebtn.UseVisualStyleBackColor = false;
-            Deletebtn.Click += Deletebtn_Click;
             // 
             // Add_Administrator
             // 
@@ -478,19 +478,19 @@
         private Panel panel2;
         private BindingSource administratorsBindingSource;
         private DataGridView AdminData;
+        private Button UpdateAdmin;
+        private TextBox AdminId;
+        private Button Deletebtn;
         private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn salaryDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn departmentDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn postDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn genderDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn dobDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn addressDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn phoneDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
-        private Button UpdateAdmin;
-        private TextBox AdminId;
-        private Button Deletebtn;
     }
 }

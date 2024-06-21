@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             AddClassBtn = new Button();
             label1 = new Label();
             AddClassName = new TextBox();
@@ -39,15 +40,21 @@
             Updatebtn = new Button();
             Deletebtn = new Button();
             ClassData = new DataGridView();
+            iDDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            nameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            descriptionDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            locationDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            classroomBindingSource = new BindingSource(components);
             ClassId = new TextBox();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)ClassData).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)classroomBindingSource).BeginInit();
             SuspendLayout();
             // 
             // AddClassBtn
             // 
             AddClassBtn.BackColor = Color.MediumSeaGreen;
-            AddClassBtn.Location = new Point(300, 58);
+            AddClassBtn.Location = new Point(286, 58);
             AddClassBtn.Name = "AddClassBtn";
             AddClassBtn.Size = new Size(80, 34);
             AddClassBtn.TabIndex = 0;
@@ -115,15 +122,15 @@
             panel2.Controls.Add(label3);
             panel2.Controls.Add(AddClassDes);
             panel2.Controls.Add(AddClassName);
-            panel2.Location = new Point(87, 326);
+            panel2.Location = new Point(12, 326);
             panel2.Name = "panel2";
-            panel2.Size = new Size(452, 215);
+            panel2.Size = new Size(444, 201);
             panel2.TabIndex = 4;
             // 
             // Updatebtn
             // 
             Updatebtn.BackColor = SystemColors.MenuHighlight;
-            Updatebtn.Location = new Point(248, 127);
+            Updatebtn.Location = new Point(239, 127);
             Updatebtn.Name = "Updatebtn";
             Updatebtn.Size = new Size(75, 32);
             Updatebtn.TabIndex = 4;
@@ -134,7 +141,7 @@
             // Deletebtn
             // 
             Deletebtn.BackColor = Color.Red;
-            Deletebtn.Location = new Point(358, 127);
+            Deletebtn.Location = new Point(344, 127);
             Deletebtn.Name = "Deletebtn";
             Deletebtn.Size = new Size(75, 32);
             Deletebtn.TabIndex = 3;
@@ -146,14 +153,49 @@
             // 
             ClassData.AllowUserToAddRows = false;
             ClassData.AllowUserToDeleteRows = false;
+            ClassData.AutoGenerateColumns = false;
             ClassData.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            ClassData.Columns.AddRange(new DataGridViewColumn[] { iDDataGridViewTextBoxColumn, nameDataGridViewTextBoxColumn, descriptionDataGridViewTextBoxColumn, locationDataGridViewTextBoxColumn });
+            ClassData.DataSource = classroomBindingSource;
             ClassData.Location = new Point(12, 12);
             ClassData.Name = "ClassData";
             ClassData.ReadOnly = true;
             ClassData.RowTemplate.Height = 25;
-            ClassData.Size = new Size(616, 296);
+            ClassData.Size = new Size(444, 296);
             ClassData.TabIndex = 5;
             ClassData.CellContentClick += ClassData_CellContentClick;
+            // 
+            // iDDataGridViewTextBoxColumn
+            // 
+            iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
+            iDDataGridViewTextBoxColumn.HeaderText = "ID";
+            iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
+            iDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            nameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // descriptionDataGridViewTextBoxColumn
+            // 
+            descriptionDataGridViewTextBoxColumn.DataPropertyName = "Description";
+            descriptionDataGridViewTextBoxColumn.HeaderText = "Description";
+            descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
+            descriptionDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // locationDataGridViewTextBoxColumn
+            // 
+            locationDataGridViewTextBoxColumn.DataPropertyName = "Location";
+            locationDataGridViewTextBoxColumn.HeaderText = "Location";
+            locationDataGridViewTextBoxColumn.Name = "locationDataGridViewTextBoxColumn";
+            locationDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // classroomBindingSource
+            // 
+            classroomBindingSource.DataSource = typeof(Code_First.Models.Classroom);
             // 
             // ClassId
             // 
@@ -167,7 +209,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(638, 553);
+            ClientSize = new Size(469, 540);
             Controls.Add(ClassData);
             Controls.Add(panel2);
             Controls.Add(ClassId);
@@ -178,6 +220,7 @@
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)ClassData).EndInit();
+            ((System.ComponentModel.ISupportInitialize)classroomBindingSource).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -196,5 +239,10 @@
         private Button Deletebtn;
         private TextBox ClassId;
         private Button Updatebtn;
+        private BindingSource classroomBindingSource;
+        private DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn locationDataGridViewTextBoxColumn;
     }
 }

@@ -38,6 +38,9 @@ namespace DesktopApp.Add_Forms
 
                 }, "Office");
 
+                var data = await RestApiHelpers.GetALL<Office>(new Office(), "Office");
+                OffData.DataSource = data;
+
 
                 MessageBox.Show("Registered Successfully", "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -63,6 +66,9 @@ namespace DesktopApp.Add_Forms
 
             }, "Office", urlid);
 
+            var data = await RestApiHelpers.GetALL<Office>(new Office(), "Office");
+            OffData.DataSource = data;
+
             MessageBox.Show("Updated Successfully", "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
@@ -81,6 +87,9 @@ namespace DesktopApp.Add_Forms
             var urlid = Int32.Parse(OffID.Text);
 
             await RestApiHelpers.Delete<Office>(new Office(), "Office", urlid);
+
+            var data = await RestApiHelpers.GetALL<Office>(new Office(), "Office");
+            OffData.DataSource = data;
 
             MessageBox.Show("Deleted Successfully", "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }

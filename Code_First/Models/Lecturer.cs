@@ -8,7 +8,7 @@ namespace Code_First.Models
         public int Id { get; set; }
         public string Name { get; set; } = null!;
         public string Gender { get; set; } = null!;
-        public DateTime Dob { get; set; } = DateTime.Now;
+        public DateTime Dob { get; set; } 
         public string Address { get; set; } = null!;
         public string Email { get; set; } = null!;
         public int Phone { get; set; }

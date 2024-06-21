@@ -41,6 +41,8 @@ namespace DesktopApp
 
                 }, "Classroom");
 
+                var data = await RestApiHelpers.GetALL<Classroom>(new Classroom(), "Classroom");
+                ClassData.DataSource = data;
 
                 MessageBox.Show("Registered Successfully", "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -60,6 +62,9 @@ namespace DesktopApp
 
             await RestApiHelpers.Delete<Classroom>(new Classroom(), "Classroom", Id);
 
+            var data = await RestApiHelpers.GetALL<Classroom>(new Classroom(), "Classroom");
+            ClassData.DataSource = data;
+
             MessageBox.Show("Deleted Successfully", "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
@@ -75,6 +80,9 @@ namespace DesktopApp
                 Location = AddClassLoc.Text
 
             }, "Classroom", Id);
+
+            var data = await RestApiHelpers.GetALL<Classroom>(new Classroom(), "Classroom");
+            ClassData.DataSource = data;
 
 
             MessageBox.Show("Updated Successfully", "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information);

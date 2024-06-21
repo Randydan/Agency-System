@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace Code_First.Models
 {
-    public class CodeFirstContext :DbContext
+    public class CodeFirstContext : DbContext
     {
-        public CodeFirstContext(DbContextOptions options) : base(options)
+        public CodeFirstContext(DbContextOptions<CodeFirstContext> options) : base(options)
         {
 
         }
@@ -20,7 +21,7 @@ namespace Code_First.Models
         public virtual DbSet<Department> Departments { get; set; } 
         public virtual DbSet<Lecturer> Lecturers { get; set; } 
         public virtual DbSet<Office> Offices { get; set; } 
-        public virtual DbSet<Student> Students { get; set; } 
-       
+        public virtual DbSet<Student> Students { get; set; }
+
     }
 }

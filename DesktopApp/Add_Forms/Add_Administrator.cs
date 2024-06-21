@@ -12,7 +12,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Net.Http;
 using Code_First.Models;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System.Security.Cryptography.X509Certificates;
 using System.Security.Policy;
@@ -43,7 +42,7 @@ namespace DesktopApp
             {
                 MessageBox.Show("Please fill all fields", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else
+            
             {
                 await RestApiHelpers.Post<Administrators>(new Administrators()
                 {
@@ -60,6 +59,8 @@ namespace DesktopApp
 
                 }, "Administrator");
 
+                var data = await RestApiHelpers.GetALL<Administrators>(new Administrators(), "Administrator");
+                AdminData.DataSource = data;
 
                 MessageBox.Show("Registered Successfully", "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -113,6 +114,8 @@ namespace DesktopApp
 
             }, "Administrator", urlId);
 
+            var data = await RestApiHelpers.GetALL<Administrators>(new Administrators(), "Administrator");
+            AdminData.DataSource = data;
 
             MessageBox.Show("Updated Successfully", "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
@@ -121,7 +124,10 @@ namespace DesktopApp
         {
             var Id = Int32.Parse(AdminId.Text);
 
-              await RestApiHelpers.Delete<Administrators>(new Administrators(), "Administrator", Id);
+            await RestApiHelpers.Delete<Administrators>(new Administrators(), "Administrator", Id);
+
+            var data = await RestApiHelpers.GetALL<Administrators>(new Administrators(), "Administrator");
+            AdminData.DataSource = data;
 
             MessageBox.Show("Deleted Successfully", "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }

@@ -49,6 +49,8 @@ namespace DesktopApp.Add_Forms
 
                 }, "Lecturer");
 
+                var data = await RestApiHelpers.GetALL<Lecturer>(new Lecturer(), "Lecturer");
+                LecData.DataSource = data;
 
                 MessageBox.Show("Registered Successfully", "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -97,14 +99,20 @@ namespace DesktopApp.Add_Forms
 
             }, "Lecturer", urlid);
 
+            var data = await RestApiHelpers.GetALL<Lecturer>(new Lecturer(), "Lecturer");
+            LecData.DataSource = data;
+
             MessageBox.Show("Updated Successfully", "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-       public async void Deletebtn_Click(Object sender, EventArgs e)
+        public async void Deletebtn_Click(Object sender, EventArgs e)
         {
             var urlid = Int32.Parse(LecID.Text);
 
             await RestApiHelpers.Delete<Lecturer>(new Lecturer(), "Lecturer", urlid);
+
+            var data = await RestApiHelpers.GetALL<Lecturer>(new Lecturer(), "Lecturer");
+            LecData.DataSource = data;
 
             MessageBox.Show("Deleted Successfully", "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }

@@ -1,5 +1,4 @@
 ﻿using Code_First.Models;
-using Microsoft.Extensions.Hosting;
 using System.Drawing.Text;
 using System.Net;
 using System.Net.Http;

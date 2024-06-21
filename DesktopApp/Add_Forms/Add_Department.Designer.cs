@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             label4 = new Label();
             AddDepStudents = new TextBox();
             label3 = new Label();
@@ -40,12 +41,20 @@
             AddDepLecturers = new TextBox();
             label5 = new Label();
             panel2 = new Panel();
+            Deletebtn = new Button();
             Updatebtn = new Button();
             DepData = new DataGridView();
             DepID = new TextBox();
-            Deletebtn = new Button();
+            departmentBindingSource = new BindingSource(components);
+            nameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            iDDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            descriptionDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            coursesDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            studentsDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            lecturersDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)DepData).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)departmentBindingSource).BeginInit();
             SuspendLayout();
             // 
             // label4
@@ -155,10 +164,21 @@
             panel2.Controls.Add(AddDepStudents);
             panel2.Controls.Add(AddDepCourses);
             panel2.Controls.Add(label3);
-            panel2.Location = new Point(206, 405);
+            panel2.Location = new Point(37, 406);
             panel2.Name = "panel2";
             panel2.Size = new Size(584, 212);
             panel2.TabIndex = 13;
+            // 
+            // Deletebtn
+            // 
+            Deletebtn.BackColor = Color.Red;
+            Deletebtn.Location = new Point(496, 167);
+            Deletebtn.Name = "Deletebtn";
+            Deletebtn.Size = new Size(85, 33);
+            Deletebtn.TabIndex = 13;
+            Deletebtn.Text = "Delete";
+            Deletebtn.UseVisualStyleBackColor = false;
+            Deletebtn.Click += Deletebtn_Click;
             // 
             // Updatebtn
             // 
@@ -175,12 +195,15 @@
             // 
             DepData.AllowUserToAddRows = false;
             DepData.AllowUserToDeleteRows = false;
+            DepData.AutoGenerateColumns = false;
             DepData.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            DepData.Columns.AddRange(new DataGridViewColumn[] { nameDataGridViewTextBoxColumn, iDDataGridViewTextBoxColumn, descriptionDataGridViewTextBoxColumn, coursesDataGridViewTextBoxColumn, studentsDataGridViewTextBoxColumn, lecturersDataGridViewTextBoxColumn });
+            DepData.DataSource = departmentBindingSource;
             DepData.Location = new Point(12, 12);
             DepData.Name = "DepData";
             DepData.ReadOnly = true;
             DepData.RowTemplate.Height = 25;
-            DepData.Size = new Size(981, 376);
+            DepData.Size = new Size(644, 376);
             DepData.TabIndex = 14;
             DepData.CellContentClick += DepData_CellContentClick;
             // 
@@ -191,23 +214,58 @@
             DepID.Size = new Size(224, 23);
             DepID.TabIndex = 13;
             // 
-            // Deletebtn
+            // departmentBindingSource
             // 
-            Deletebtn.BackColor = Color.Red;
-            Deletebtn.Location = new Point(496, 167);
-            Deletebtn.Name = "Deletebtn";
-            Deletebtn.Size = new Size(85, 33);
-            Deletebtn.TabIndex = 13;
-            Deletebtn.Text = "Delete";
-            Deletebtn.UseVisualStyleBackColor = false;
-            Deletebtn.Click += Deletebtn_Click;
+            departmentBindingSource.DataSource = typeof(Code_First.Models.Department);
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            nameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // iDDataGridViewTextBoxColumn
+            // 
+            iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
+            iDDataGridViewTextBoxColumn.HeaderText = "ID";
+            iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
+            iDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // descriptionDataGridViewTextBoxColumn
+            // 
+            descriptionDataGridViewTextBoxColumn.DataPropertyName = "Description";
+            descriptionDataGridViewTextBoxColumn.HeaderText = "Description";
+            descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
+            descriptionDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // coursesDataGridViewTextBoxColumn
+            // 
+            coursesDataGridViewTextBoxColumn.DataPropertyName = "Courses";
+            coursesDataGridViewTextBoxColumn.HeaderText = "Courses";
+            coursesDataGridViewTextBoxColumn.Name = "coursesDataGridViewTextBoxColumn";
+            coursesDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // studentsDataGridViewTextBoxColumn
+            // 
+            studentsDataGridViewTextBoxColumn.DataPropertyName = "Students";
+            studentsDataGridViewTextBoxColumn.HeaderText = "Students";
+            studentsDataGridViewTextBoxColumn.Name = "studentsDataGridViewTextBoxColumn";
+            studentsDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // lecturersDataGridViewTextBoxColumn
+            // 
+            lecturersDataGridViewTextBoxColumn.DataPropertyName = "Lecturers";
+            lecturersDataGridViewTextBoxColumn.HeaderText = "Lecturers";
+            lecturersDataGridViewTextBoxColumn.Name = "lecturersDataGridViewTextBoxColumn";
+            lecturersDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // Add_Department
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(1006, 630);
+            ClientSize = new Size(668, 630);
             Controls.Add(DepData);
             Controls.Add(panel2);
             Controls.Add(DepID);
@@ -218,6 +276,7 @@
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)DepData).EndInit();
+            ((System.ComponentModel.ISupportInitialize)departmentBindingSource).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -240,5 +299,12 @@
         private Button Updatebtn;
         private TextBox DepID;
         private Button Deletebtn;
+        private DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn coursesDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn studentsDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn lecturersDataGridViewTextBoxColumn;
+        private BindingSource departmentBindingSource;
     }
 }

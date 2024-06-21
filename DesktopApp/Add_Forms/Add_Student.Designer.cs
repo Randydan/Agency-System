@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             AddStudentBtn = new Button();
             label9 = new Label();
             AddStudentNat = new TextBox();
@@ -50,12 +51,25 @@
             AddStudentName = new TextBox();
             AddStudentGen = new ComboBox();
             panel2 = new Panel();
+            Deletebtn = new Button();
             Updatebtn = new Button();
             StudData = new DataGridView();
             StudId = new TextBox();
-            Deletebtn = new Button();
+            studentBindingSource = new BindingSource(components);
+            iDDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            nameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            genderDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            dOBDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            addressDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            emailDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            phoneDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            statusDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            nationalityDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            departmentDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            matricleDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)StudData).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)studentBindingSource).BeginInit();
             SuspendLayout();
             // 
             // AddStudentBtn
@@ -257,10 +271,21 @@
             panel2.Controls.Add(AddStudentAddr);
             panel2.Controls.Add(label11);
             panel2.Controls.Add(label5);
-            panel2.Location = new Point(43, 362);
+            panel2.Location = new Point(28, 360);
             panel2.Name = "panel2";
             panel2.Size = new Size(901, 264);
             panel2.TabIndex = 93;
+            // 
+            // Deletebtn
+            // 
+            Deletebtn.BackColor = Color.Red;
+            Deletebtn.Location = new Point(783, 205);
+            Deletebtn.Name = "Deletebtn";
+            Deletebtn.Size = new Size(89, 34);
+            Deletebtn.TabIndex = 93;
+            Deletebtn.Text = "Delete";
+            Deletebtn.UseVisualStyleBackColor = false;
+            Deletebtn.Click += Deletebtn_Click;
             // 
             // Updatebtn
             // 
@@ -277,11 +302,14 @@
             // 
             StudData.AllowUserToAddRows = false;
             StudData.AllowUserToDeleteRows = false;
+            StudData.AutoGenerateColumns = false;
             StudData.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            StudData.Columns.AddRange(new DataGridViewColumn[] { iDDataGridViewTextBoxColumn, nameDataGridViewTextBoxColumn, genderDataGridViewTextBoxColumn, dOBDataGridViewTextBoxColumn, addressDataGridViewTextBoxColumn, emailDataGridViewTextBoxColumn, phoneDataGridViewTextBoxColumn, statusDataGridViewTextBoxColumn, nationalityDataGridViewTextBoxColumn, departmentDataGridViewTextBoxColumn, matricleDataGridViewTextBoxColumn });
+            StudData.DataSource = studentBindingSource;
             StudData.Location = new Point(12, 2);
             StudData.Name = "StudData";
             StudData.ReadOnly = true;
-            StudData.Size = new Size(984, 345);
+            StudData.Size = new Size(944, 345);
             StudData.TabIndex = 94;
             StudData.CellContentClick += StudData_CellContentClick;
             // 
@@ -292,23 +320,93 @@
             StudId.Size = new Size(225, 23);
             StudId.TabIndex = 92;
             // 
-            // Deletebtn
+            // studentBindingSource
             // 
-            Deletebtn.BackColor = Color.Red;
-            Deletebtn.Location = new Point(783, 205);
-            Deletebtn.Name = "Deletebtn";
-            Deletebtn.Size = new Size(89, 34);
-            Deletebtn.TabIndex = 93;
-            Deletebtn.Text = "Delete";
-            Deletebtn.UseVisualStyleBackColor = false;
-            Deletebtn.Click += Deletebtn_Click;
+            studentBindingSource.DataSource = typeof(Code_First.Models.Student);
+            // 
+            // iDDataGridViewTextBoxColumn
+            // 
+            iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
+            iDDataGridViewTextBoxColumn.HeaderText = "ID";
+            iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
+            iDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            nameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // genderDataGridViewTextBoxColumn
+            // 
+            genderDataGridViewTextBoxColumn.DataPropertyName = "Gender";
+            genderDataGridViewTextBoxColumn.HeaderText = "Gender";
+            genderDataGridViewTextBoxColumn.Name = "genderDataGridViewTextBoxColumn";
+            genderDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // dOBDataGridViewTextBoxColumn
+            // 
+            dOBDataGridViewTextBoxColumn.DataPropertyName = "DOB";
+            dOBDataGridViewTextBoxColumn.HeaderText = "DOB";
+            dOBDataGridViewTextBoxColumn.Name = "dOBDataGridViewTextBoxColumn";
+            dOBDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // addressDataGridViewTextBoxColumn
+            // 
+            addressDataGridViewTextBoxColumn.DataPropertyName = "Address";
+            addressDataGridViewTextBoxColumn.HeaderText = "Address";
+            addressDataGridViewTextBoxColumn.Name = "addressDataGridViewTextBoxColumn";
+            addressDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // emailDataGridViewTextBoxColumn
+            // 
+            emailDataGridViewTextBoxColumn.DataPropertyName = "Email";
+            emailDataGridViewTextBoxColumn.HeaderText = "Email";
+            emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
+            emailDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // phoneDataGridViewTextBoxColumn
+            // 
+            phoneDataGridViewTextBoxColumn.DataPropertyName = "Phone";
+            phoneDataGridViewTextBoxColumn.HeaderText = "Phone";
+            phoneDataGridViewTextBoxColumn.Name = "phoneDataGridViewTextBoxColumn";
+            phoneDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // statusDataGridViewTextBoxColumn
+            // 
+            statusDataGridViewTextBoxColumn.DataPropertyName = "Status";
+            statusDataGridViewTextBoxColumn.HeaderText = "Status";
+            statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
+            statusDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nationalityDataGridViewTextBoxColumn
+            // 
+            nationalityDataGridViewTextBoxColumn.DataPropertyName = "Nationality";
+            nationalityDataGridViewTextBoxColumn.HeaderText = "Nationality";
+            nationalityDataGridViewTextBoxColumn.Name = "nationalityDataGridViewTextBoxColumn";
+            nationalityDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // departmentDataGridViewTextBoxColumn
+            // 
+            departmentDataGridViewTextBoxColumn.DataPropertyName = "Department";
+            departmentDataGridViewTextBoxColumn.HeaderText = "Department";
+            departmentDataGridViewTextBoxColumn.Name = "departmentDataGridViewTextBoxColumn";
+            departmentDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // matricleDataGridViewTextBoxColumn
+            // 
+            matricleDataGridViewTextBoxColumn.DataPropertyName = "Matricle";
+            matricleDataGridViewTextBoxColumn.HeaderText = "Matricle";
+            matricleDataGridViewTextBoxColumn.Name = "matricleDataGridViewTextBoxColumn";
+            matricleDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // Add_Student
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(1008, 636);
+            ClientSize = new Size(970, 636);
             Controls.Add(StudData);
             Controls.Add(panel2);
             Controls.Add(StudId);
@@ -319,6 +417,7 @@
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)StudData).EndInit();
+            ((System.ComponentModel.ISupportInitialize)studentBindingSource).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -351,5 +450,17 @@
         private TextBox StudId;
         private Button Updatebtn;
         private Button Deletebtn;
+        private DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn genderDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn dOBDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn addressDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn phoneDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn nationalityDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn departmentDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn matricleDataGridViewTextBoxColumn;
+        private BindingSource studentBindingSource;
     }
 }

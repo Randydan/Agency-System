@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             AddCourseBtn = new Button();
             AddCourseName = new TextBox();
             label1 = new Label();
@@ -38,12 +39,19 @@
             AddCourseDep = new TextBox();
             label4 = new Label();
             panel2 = new Panel();
+            Deletebtn = new Button();
             Updatebtn = new Button();
             CourseData = new DataGridView();
             CourseID = new TextBox();
-            Deletebtn = new Button();
+            courseBindingSource = new BindingSource(components);
+            iDDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            nameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            descriptionDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            codeDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            departmentDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)CourseData).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)courseBindingSource).BeginInit();
             SuspendLayout();
             // 
             // AddCourseBtn
@@ -135,10 +143,21 @@
             panel2.Controls.Add(label2);
             panel2.Controls.Add(label3);
             panel2.Controls.Add(AddCourseCode);
-            panel2.Location = new Point(225, 507);
+            panel2.Location = new Point(23, 451);
             panel2.Name = "panel2";
             panel2.Size = new Size(521, 192);
             panel2.TabIndex = 4;
+            // 
+            // Deletebtn
+            // 
+            Deletebtn.BackColor = Color.Red;
+            Deletebtn.Location = new Point(326, 151);
+            Deletebtn.Name = "Deletebtn";
+            Deletebtn.Size = new Size(92, 32);
+            Deletebtn.TabIndex = 4;
+            Deletebtn.Text = "Delete";
+            Deletebtn.UseVisualStyleBackColor = false;
+            Deletebtn.Click += Deletebtn_Click;
             // 
             // Updatebtn
             // 
@@ -155,39 +174,70 @@
             // 
             CourseData.AllowUserToAddRows = false;
             CourseData.AllowUserToDeleteRows = false;
+            CourseData.AutoGenerateColumns = false;
             CourseData.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            CourseData.Columns.AddRange(new DataGridViewColumn[] { iDDataGridViewTextBoxColumn, nameDataGridViewTextBoxColumn, descriptionDataGridViewTextBoxColumn, codeDataGridViewTextBoxColumn, departmentDataGridViewTextBoxColumn });
+            CourseData.DataSource = courseBindingSource;
             CourseData.Location = new Point(12, 12);
             CourseData.Name = "CourseData";
             CourseData.ReadOnly = true;
             CourseData.RowTemplate.Height = 25;
-            CourseData.Size = new Size(983, 478);
+            CourseData.Size = new Size(544, 407);
             CourseData.TabIndex = 5;
             CourseData.CellContentClick += CourseData_CellContentClick;
             // 
             // CourseID
             // 
-            CourseID.Location = new Point(356, 331);
+            CourseID.Location = new Point(156, 306);
             CourseID.Name = "CourseID";
             CourseID.Size = new Size(224, 23);
             CourseID.TabIndex = 4;
             // 
-            // Deletebtn
+            // courseBindingSource
             // 
-            Deletebtn.BackColor = Color.Red;
-            Deletebtn.Location = new Point(326, 151);
-            Deletebtn.Name = "Deletebtn";
-            Deletebtn.Size = new Size(92, 32);
-            Deletebtn.TabIndex = 4;
-            Deletebtn.Text = "Delete";
-            Deletebtn.UseVisualStyleBackColor = false;
-            Deletebtn.Click += Deletebtn_Click;
+            courseBindingSource.DataSource = typeof(Code_First.Models.Course);
+            // 
+            // iDDataGridViewTextBoxColumn
+            // 
+            iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
+            iDDataGridViewTextBoxColumn.HeaderText = "ID";
+            iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
+            iDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            nameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // descriptionDataGridViewTextBoxColumn
+            // 
+            descriptionDataGridViewTextBoxColumn.DataPropertyName = "Description";
+            descriptionDataGridViewTextBoxColumn.HeaderText = "Description";
+            descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
+            descriptionDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // codeDataGridViewTextBoxColumn
+            // 
+            codeDataGridViewTextBoxColumn.DataPropertyName = "Code";
+            codeDataGridViewTextBoxColumn.HeaderText = "Code";
+            codeDataGridViewTextBoxColumn.Name = "codeDataGridViewTextBoxColumn";
+            codeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // departmentDataGridViewTextBoxColumn
+            // 
+            departmentDataGridViewTextBoxColumn.DataPropertyName = "Department";
+            departmentDataGridViewTextBoxColumn.HeaderText = "Department";
+            departmentDataGridViewTextBoxColumn.Name = "departmentDataGridViewTextBoxColumn";
+            departmentDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // Add_Course
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(1007, 711);
+            ClientSize = new Size(569, 658);
             Controls.Add(CourseData);
             Controls.Add(panel2);
             Controls.Add(CourseID);
@@ -198,6 +248,7 @@
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)CourseData).EndInit();
+            ((System.ComponentModel.ISupportInitialize)courseBindingSource).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -218,5 +269,11 @@
         private Button Updatebtn;
         private TextBox CourseID;
         private Button Deletebtn;
+        private DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn codeDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn departmentDataGridViewTextBoxColumn;
+        private BindingSource courseBindingSource;
     }
 }

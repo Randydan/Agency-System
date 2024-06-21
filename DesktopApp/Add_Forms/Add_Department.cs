@@ -41,6 +41,8 @@ namespace DesktopApp.Add_Forms
 
                 }, "Department");
 
+                var data = await RestApiHelpers.GetALL<Department>(new Department(), "Department");
+                DepData.DataSource = data;
 
                 MessageBox.Show("Registered Successfully", "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -69,6 +71,9 @@ namespace DesktopApp.Add_Forms
 
             }, "Department", urlid);
 
+            var data = await RestApiHelpers.GetALL<Department>(new Department(), "Department");
+            DepData.DataSource = data;
+
             MessageBox.Show("Updated Successfully", "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
         }
@@ -90,6 +95,9 @@ namespace DesktopApp.Add_Forms
             var urlid = Int32.Parse(DepID.Text);
 
             await RestApiHelpers.Delete<Department>(new Department(), "Department", urlid);
+
+            var data = await RestApiHelpers.GetALL<Department>(new Department(), "Department");
+            DepData.DataSource = data;
 
             MessageBox.Show("Deleted Successfully", "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }

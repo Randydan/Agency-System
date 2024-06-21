@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             LecData = new DataGridView();
             panel2 = new Panel();
             updatebtn = new Button();
@@ -52,15 +53,30 @@
             label1 = new Label();
             AddLecAddr = new TextBox();
             LecID = new TextBox();
+            lecturerBindingSource = new BindingSource(components);
+            idDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            nameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            genderDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            dobDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            addressDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            emailDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            phoneDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            statusDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            courseDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            salaryDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)LecData).BeginInit();
             panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)lecturerBindingSource).BeginInit();
             SuspendLayout();
             // 
             // LecData
             // 
             LecData.AllowUserToAddRows = false;
             LecData.AllowUserToDeleteRows = false;
+            LecData.AutoGenerateColumns = false;
             LecData.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            LecData.Columns.AddRange(new DataGridViewColumn[] { idDataGridViewTextBoxColumn, nameDataGridViewTextBoxColumn, genderDataGridViewTextBoxColumn, dobDataGridViewTextBoxColumn, addressDataGridViewTextBoxColumn, emailDataGridViewTextBoxColumn, phoneDataGridViewTextBoxColumn, statusDataGridViewTextBoxColumn, courseDataGridViewTextBoxColumn, salaryDataGridViewTextBoxColumn });
+            LecData.DataSource = lecturerBindingSource;
             LecData.Location = new Point(12, 12);
             LecData.Name = "LecData";
             LecData.ReadOnly = true;
@@ -304,6 +320,80 @@
             LecID.Size = new Size(204, 23);
             LecID.TabIndex = 111;
             // 
+            // lecturerBindingSource
+            // 
+            lecturerBindingSource.DataSource = typeof(Code_First.Models.Lecturer);
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            idDataGridViewTextBoxColumn.HeaderText = "Id";
+            idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            idDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            nameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // genderDataGridViewTextBoxColumn
+            // 
+            genderDataGridViewTextBoxColumn.DataPropertyName = "Gender";
+            genderDataGridViewTextBoxColumn.HeaderText = "Gender";
+            genderDataGridViewTextBoxColumn.Name = "genderDataGridViewTextBoxColumn";
+            genderDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // dobDataGridViewTextBoxColumn
+            // 
+            dobDataGridViewTextBoxColumn.DataPropertyName = "Dob";
+            dobDataGridViewTextBoxColumn.HeaderText = "Dob";
+            dobDataGridViewTextBoxColumn.Name = "dobDataGridViewTextBoxColumn";
+            dobDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // addressDataGridViewTextBoxColumn
+            // 
+            addressDataGridViewTextBoxColumn.DataPropertyName = "Address";
+            addressDataGridViewTextBoxColumn.HeaderText = "Address";
+            addressDataGridViewTextBoxColumn.Name = "addressDataGridViewTextBoxColumn";
+            addressDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // emailDataGridViewTextBoxColumn
+            // 
+            emailDataGridViewTextBoxColumn.DataPropertyName = "Email";
+            emailDataGridViewTextBoxColumn.HeaderText = "Email";
+            emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
+            emailDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // phoneDataGridViewTextBoxColumn
+            // 
+            phoneDataGridViewTextBoxColumn.DataPropertyName = "Phone";
+            phoneDataGridViewTextBoxColumn.HeaderText = "Phone";
+            phoneDataGridViewTextBoxColumn.Name = "phoneDataGridViewTextBoxColumn";
+            phoneDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // statusDataGridViewTextBoxColumn
+            // 
+            statusDataGridViewTextBoxColumn.DataPropertyName = "Status";
+            statusDataGridViewTextBoxColumn.HeaderText = "Status";
+            statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
+            statusDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // courseDataGridViewTextBoxColumn
+            // 
+            courseDataGridViewTextBoxColumn.DataPropertyName = "Course";
+            courseDataGridViewTextBoxColumn.HeaderText = "Course";
+            courseDataGridViewTextBoxColumn.Name = "courseDataGridViewTextBoxColumn";
+            courseDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // salaryDataGridViewTextBoxColumn
+            // 
+            salaryDataGridViewTextBoxColumn.DataPropertyName = "Salary";
+            salaryDataGridViewTextBoxColumn.HeaderText = "Salary";
+            salaryDataGridViewTextBoxColumn.Name = "salaryDataGridViewTextBoxColumn";
+            salaryDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
             // Add_Lecturer
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -320,6 +410,7 @@
             ((System.ComponentModel.ISupportInitialize)LecData).EndInit();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)lecturerBindingSource).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -349,5 +440,16 @@
         private TextBox AddLecName;
         private TextBox LecID;
         private Button updatebtn;
+        private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn genderDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn dobDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn addressDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn phoneDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn courseDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn salaryDataGridViewTextBoxColumn;
+        private BindingSource lecturerBindingSource;
     }
 }
