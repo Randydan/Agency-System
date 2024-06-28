@@ -36,19 +36,19 @@
             label2 = new Label();
             AddCourseCode = new TextBox();
             label3 = new Label();
-            AddCourseDep = new TextBox();
             label4 = new Label();
             panel2 = new Panel();
             Deletebtn = new Button();
             Updatebtn = new Button();
             CourseData = new DataGridView();
-            CourseID = new TextBox();
-            courseBindingSource = new BindingSource(components);
             iDDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             nameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             descriptionDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             codeDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             departmentDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            courseBindingSource = new BindingSource(components);
+            CourseID = new TextBox();
+            AddCourseDep = new ComboBox();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)CourseData).BeginInit();
             ((System.ComponentModel.ISupportInitialize)courseBindingSource).BeginInit();
@@ -61,7 +61,7 @@
             AddCourseBtn.Name = "AddCourseBtn";
             AddCourseBtn.Size = new Size(92, 32);
             AddCourseBtn.TabIndex = 0;
-            AddCourseBtn.Text = "Add";
+            AddCourseBtn.Text = "Add New";
             AddCourseBtn.UseVisualStyleBackColor = false;
             AddCourseBtn.Click += AddCourseBtn_Click;
             // 
@@ -113,13 +113,6 @@
             label3.TabIndex = 2;
             label3.Text = "Code:";
             // 
-            // AddCourseDep
-            // 
-            AddCourseDep.Location = new Point(279, 102);
-            AddCourseDep.Name = "AddCourseDep";
-            AddCourseDep.Size = new Size(224, 23);
-            AddCourseDep.TabIndex = 1;
-            // 
             // label4
             // 
             label4.AutoSize = true;
@@ -132,6 +125,7 @@
             // panel2
             // 
             panel2.BackColor = SystemColors.Control;
+            panel2.Controls.Add(AddCourseDep);
             panel2.Controls.Add(Deletebtn);
             panel2.Controls.Add(Updatebtn);
             panel2.Controls.Add(label1);
@@ -139,7 +133,6 @@
             panel2.Controls.Add(AddCourseBtn);
             panel2.Controls.Add(label4);
             panel2.Controls.Add(AddCourseDes);
-            panel2.Controls.Add(AddCourseDep);
             panel2.Controls.Add(label2);
             panel2.Controls.Add(label3);
             panel2.Controls.Add(AddCourseCode);
@@ -166,7 +159,7 @@
             Updatebtn.Name = "Updatebtn";
             Updatebtn.Size = new Size(92, 32);
             Updatebtn.TabIndex = 3;
-            Updatebtn.Text = "Update";
+            Updatebtn.Text = "Edit";
             Updatebtn.UseVisualStyleBackColor = false;
             Updatebtn.Click += Updatebtn_Click;
             // 
@@ -185,17 +178,6 @@
             CourseData.Size = new Size(544, 407);
             CourseData.TabIndex = 5;
             CourseData.CellContentClick += CourseData_CellContentClick;
-            // 
-            // CourseID
-            // 
-            CourseID.Location = new Point(156, 306);
-            CourseID.Name = "CourseID";
-            CourseID.Size = new Size(224, 23);
-            CourseID.TabIndex = 4;
-            // 
-            // courseBindingSource
-            // 
-            courseBindingSource.DataSource = typeof(Code_First.Models.Course);
             // 
             // iDDataGridViewTextBoxColumn
             // 
@@ -232,6 +214,26 @@
             departmentDataGridViewTextBoxColumn.Name = "departmentDataGridViewTextBoxColumn";
             departmentDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // courseBindingSource
+            // 
+            courseBindingSource.DataSource = typeof(Code_First.Models.Course);
+            // 
+            // CourseID
+            // 
+            CourseID.Location = new Point(156, 306);
+            CourseID.Name = "CourseID";
+            CourseID.Size = new Size(224, 23);
+            CourseID.TabIndex = 4;
+            // 
+            // AddCourseDep
+            // 
+            AddCourseDep.FormattingEnabled = true;
+            AddCourseDep.Items.AddRange(new object[] { "Civil Engineering", "Computer Engineering", "Accounting", "Marketing", "Management", "Electrical Engineering", "Transport and Logistics", "Banking and Finance" });
+            AddCourseDep.Location = new Point(279, 102);
+            AddCourseDep.Name = "AddCourseDep";
+            AddCourseDep.Size = new Size(224, 23);
+            AddCourseDep.TabIndex = 5;
+            // 
             // Add_Course
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -262,7 +264,6 @@
         private Label label2;
         private TextBox AddCourseCode;
         private Label label3;
-        private TextBox AddCourseDep;
         private Label label4;
         private Panel panel2;
         private DataGridView CourseData;
@@ -275,5 +276,6 @@
         private DataGridViewTextBoxColumn codeDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn departmentDataGridViewTextBoxColumn;
         private BindingSource courseBindingSource;
+        private ComboBox AddCourseDep;
     }
 }

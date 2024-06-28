@@ -33,7 +33,7 @@ namespace SchoolSystem.Repository
             return _context.Administrators.OrderBy(p=>p.Id).ToList();
         }
 
-        public Administrators GetAdministrators(string name)
+        public Administrators GetAdministrator(string name)
         {
             return _context.Administrators.Where(p=>p.Name == name).FirstOrDefault();
         }
@@ -53,6 +53,11 @@ namespace SchoolSystem.Repository
         {
             _context.Update(administrator);
             return Save();
+        }
+
+        public bool AdministratorExist(string name)
+        {
+            return _context.Administrators.Any(p => p.Name == name);
         }
     }
 }

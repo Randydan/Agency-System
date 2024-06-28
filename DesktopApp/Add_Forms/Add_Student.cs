@@ -49,7 +49,7 @@ namespace DesktopApp.Add_Forms
                     Nationality = AddStudentNat.Text,
                     Name = AddStudentName.Text,
                     Gender = AddStudentGen.Text,
-                    DOB = DateTime.Parse(AddDob.Text),
+                    DoB = DateTime.Parse(AddDob.Text),
                     Address = AddStudentAddr.Text,
                     Email = AddStudentEmail.Text,
                     Phone = Int32.Parse(AddStudentPhone.Text),
@@ -85,7 +85,7 @@ namespace DesktopApp.Add_Forms
                 Nationality = AddStudentNat.Text,
                 Name = AddStudentName.Text,
                 Gender = AddStudentGen.Text,
-                DOB = DateTime.Parse(AddDob.Text),
+                DoB = DateTime.Parse(AddDob.Text),
                 Address = AddStudentAddr.Text,
                 Email = AddStudentEmail.Text,
                 Phone = Int32.Parse(AddStudentPhone.Text),
@@ -124,6 +124,17 @@ namespace DesktopApp.Add_Forms
 
             var data = await RestApiHelpers.GetALL<Student>(new Student(), "Student");
             StudData.DataSource = data;
+
+            AddStudentMat.Text = "";
+            AddStudentDep.Text = "";
+            AddStudentNat.Text = "";
+            AddStudentName.Text = "";
+            AddStudentGen.Text = "";
+            AddDob.Text = "";
+            AddStudentAddr.Text = "";
+            AddStudentEmail.Text = "";
+            AddStudentPhone.Text = "";
+            AddStudentStat.Text = "";
 
             MessageBox.Show("Deleted Successfully", "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }

@@ -31,24 +31,24 @@
             components = new System.ComponentModel.Container();
             AddOfficeAddr = new TextBox();
             AddOfficeDes = new TextBox();
-            AddOfficeDep = new TextBox();
             label3 = new Label();
             label2 = new Label();
             label1 = new Label();
             AddOfficeBtn = new Button();
             OffData = new DataGridView();
-            panel2 = new Panel();
-            Deletebtn = new Button();
-            Updatebtn = new Button();
-            OffID = new TextBox();
-            officeBindingSource = new BindingSource(components);
             iDDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             departmentDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             descriptionDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             addressDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            officeBindingSource = new BindingSource(components);
+            panel2 = new Panel();
+            Deletebtn = new Button();
+            Updatebtn = new Button();
+            OffID = new TextBox();
+            AddOfficeDep = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)OffData).BeginInit();
-            panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)officeBindingSource).BeginInit();
+            panel2.SuspendLayout();
             SuspendLayout();
             // 
             // AddOfficeAddr
@@ -64,13 +64,6 @@
             AddOfficeDes.Name = "AddOfficeDes";
             AddOfficeDes.Size = new Size(188, 23);
             AddOfficeDes.TabIndex = 8;
-            // 
-            // AddOfficeDep
-            // 
-            AddOfficeDep.Location = new Point(34, 44);
-            AddOfficeDep.Name = "AddOfficeDep";
-            AddOfficeDep.Size = new Size(188, 23);
-            AddOfficeDep.TabIndex = 9;
             // 
             // label3
             // 
@@ -106,7 +99,7 @@
             AddOfficeBtn.Name = "AddOfficeBtn";
             AddOfficeBtn.Size = new Size(89, 34);
             AddOfficeBtn.TabIndex = 3;
-            AddOfficeBtn.Text = "Add";
+            AddOfficeBtn.Text = "Add New";
             AddOfficeBtn.UseVisualStyleBackColor = false;
             AddOfficeBtn.Click += AddOfficeBtn_Click;
             // 
@@ -125,56 +118,6 @@
             OffData.Size = new Size(444, 357);
             OffData.TabIndex = 11;
             OffData.CellContentClick += OffData_CellContentClick;
-            // 
-            // panel2
-            // 
-            panel2.BackColor = SystemColors.Control;
-            panel2.Controls.Add(Deletebtn);
-            panel2.Controls.Add(Updatebtn);
-            panel2.Controls.Add(label1);
-            panel2.Controls.Add(label2);
-            panel2.Controls.Add(label3);
-            panel2.Controls.Add(AddOfficeBtn);
-            panel2.Controls.Add(AddOfficeAddr);
-            panel2.Controls.Add(AddOfficeDep);
-            panel2.Controls.Add(AddOfficeDes);
-            panel2.Location = new Point(12, 391);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(488, 207);
-            panel2.TabIndex = 12;
-            // 
-            // Deletebtn
-            // 
-            Deletebtn.BackColor = Color.Red;
-            Deletebtn.Location = new Point(385, 123);
-            Deletebtn.Name = "Deletebtn";
-            Deletebtn.Size = new Size(89, 34);
-            Deletebtn.TabIndex = 11;
-            Deletebtn.Text = "Delete";
-            Deletebtn.UseVisualStyleBackColor = false;
-            Deletebtn.Click += Deletebtn_Click;
-            // 
-            // Updatebtn
-            // 
-            Updatebtn.BackColor = SystemColors.MenuHighlight;
-            Updatebtn.Location = new Point(254, 123);
-            Updatebtn.Name = "Updatebtn";
-            Updatebtn.Size = new Size(89, 34);
-            Updatebtn.TabIndex = 10;
-            Updatebtn.Text = "Update";
-            Updatebtn.UseVisualStyleBackColor = false;
-            Updatebtn.Click += Updatebtn_Click;
-            // 
-            // OffID
-            // 
-            OffID.Location = new Point(116, 289);
-            OffID.Name = "OffID";
-            OffID.Size = new Size(188, 23);
-            OffID.TabIndex = 11;
-            // 
-            // officeBindingSource
-            // 
-            officeBindingSource.DataSource = typeof(Code_First.Models.Office);
             // 
             // iDDataGridViewTextBoxColumn
             // 
@@ -204,6 +147,65 @@
             addressDataGridViewTextBoxColumn.Name = "addressDataGridViewTextBoxColumn";
             addressDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // officeBindingSource
+            // 
+            officeBindingSource.DataSource = typeof(Code_First.Models.Office);
+            // 
+            // panel2
+            // 
+            panel2.BackColor = SystemColors.Control;
+            panel2.Controls.Add(AddOfficeDep);
+            panel2.Controls.Add(Deletebtn);
+            panel2.Controls.Add(Updatebtn);
+            panel2.Controls.Add(label1);
+            panel2.Controls.Add(label2);
+            panel2.Controls.Add(label3);
+            panel2.Controls.Add(AddOfficeBtn);
+            panel2.Controls.Add(AddOfficeAddr);
+            panel2.Controls.Add(AddOfficeDes);
+            panel2.Location = new Point(12, 391);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(488, 207);
+            panel2.TabIndex = 12;
+            // 
+            // Deletebtn
+            // 
+            Deletebtn.BackColor = Color.Red;
+            Deletebtn.Location = new Point(385, 123);
+            Deletebtn.Name = "Deletebtn";
+            Deletebtn.Size = new Size(89, 34);
+            Deletebtn.TabIndex = 11;
+            Deletebtn.Text = "Delete";
+            Deletebtn.UseVisualStyleBackColor = false;
+            Deletebtn.Click += Deletebtn_Click;
+            // 
+            // Updatebtn
+            // 
+            Updatebtn.BackColor = SystemColors.MenuHighlight;
+            Updatebtn.Location = new Point(254, 123);
+            Updatebtn.Name = "Updatebtn";
+            Updatebtn.Size = new Size(89, 34);
+            Updatebtn.TabIndex = 10;
+            Updatebtn.Text = "Edit";
+            Updatebtn.UseVisualStyleBackColor = false;
+            Updatebtn.Click += Updatebtn_Click;
+            // 
+            // OffID
+            // 
+            OffID.Location = new Point(116, 289);
+            OffID.Name = "OffID";
+            OffID.Size = new Size(188, 23);
+            OffID.TabIndex = 11;
+            // 
+            // AddOfficeDep
+            // 
+            AddOfficeDep.FormattingEnabled = true;
+            AddOfficeDep.Items.AddRange(new object[] { "Civil Engineering", "Computer Engineering", "Accounting", "Marketing", "Management", "Electrical Engineering", "Transport and Logistics", "Banking and Finance" });
+            AddOfficeDep.Location = new Point(34, 51);
+            AddOfficeDep.Name = "AddOfficeDep";
+            AddOfficeDep.Size = new Size(188, 23);
+            AddOfficeDep.TabIndex = 12;
+            // 
             // Add_Office
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -218,9 +220,9 @@
             Text = "Office";
             Load += Add_Office_Load;
             ((System.ComponentModel.ISupportInitialize)OffData).EndInit();
+            ((System.ComponentModel.ISupportInitialize)officeBindingSource).EndInit();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)officeBindingSource).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -229,7 +231,6 @@
 
         private TextBox AddOfficeAddr;
         private TextBox AddOfficeDes;
-        private TextBox AddOfficeDep;
         private Label label3;
         private Label label2;
         private Label label1;
@@ -244,5 +245,6 @@
         private DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn addressDataGridViewTextBoxColumn;
         private BindingSource officeBindingSource;
+        private ComboBox AddOfficeDep;
     }
 }

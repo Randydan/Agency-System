@@ -107,7 +107,22 @@ namespace SchoolSystem.Controllers
             return Ok(admin);
         }
 
+        [HttpGet("Name")]
+        [ProducesResponseType(200, Type = typeof(IEnumerable<Administrators>))]
 
+        public IActionResult GetAdministrator(string name)
+        {
+            if (!_administratorInterface.AdministratorExist(name))
+                return NotFound();
+
+            var admin = _administratorInterface.GetAdministrator(name);
+
+            if (!ModelState.IsValid)
+
+            return BadRequest(ModelState);
+
+           return Ok(admin);
+        }
 
         [HttpDelete]
         [ProducesResponseType(400)]

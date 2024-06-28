@@ -30,19 +30,18 @@
         {
             components = new System.ComponentModel.Container();
             LecData = new DataGridView();
+            lecturerBindingSource = new BindingSource(components);
             panel2 = new Panel();
             updatebtn = new Button();
             AddLecDOB = new DateTimePicker();
+            AddLecDep = new ComboBox();
+            AddLecStatus = new ComboBox();
             AddLecGen = new ComboBox();
             Deletebtn = new Button();
             AddLecBtn = new Button();
             AddLecCourse = new Label();
-            AddLecStatus = new TextBox();
             AddLecEmail = new TextBox();
-            AddLecSalary = new TextBox();
             AddLecName = new TextBox();
-            AddLecDep = new TextBox();
-            label8 = new Label();
             label7 = new Label();
             label6 = new Label();
             AddLecPhone = new TextBox();
@@ -53,20 +52,18 @@
             label1 = new Label();
             AddLecAddr = new TextBox();
             LecID = new TextBox();
-            lecturerBindingSource = new BindingSource(components);
             idDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             nameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             genderDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            dobDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             addressDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            DoB = new DataGridViewTextBoxColumn();
             emailDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             phoneDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             statusDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             courseDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            salaryDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)LecData).BeginInit();
-            panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)lecturerBindingSource).BeginInit();
+            panel2.SuspendLayout();
             SuspendLayout();
             // 
             // LecData
@@ -75,31 +72,33 @@
             LecData.AllowUserToDeleteRows = false;
             LecData.AutoGenerateColumns = false;
             LecData.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            LecData.Columns.AddRange(new DataGridViewColumn[] { idDataGridViewTextBoxColumn, nameDataGridViewTextBoxColumn, genderDataGridViewTextBoxColumn, dobDataGridViewTextBoxColumn, addressDataGridViewTextBoxColumn, emailDataGridViewTextBoxColumn, phoneDataGridViewTextBoxColumn, statusDataGridViewTextBoxColumn, courseDataGridViewTextBoxColumn, salaryDataGridViewTextBoxColumn });
+            LecData.Columns.AddRange(new DataGridViewColumn[] { idDataGridViewTextBoxColumn, nameDataGridViewTextBoxColumn, genderDataGridViewTextBoxColumn, addressDataGridViewTextBoxColumn, DoB, emailDataGridViewTextBoxColumn, phoneDataGridViewTextBoxColumn, statusDataGridViewTextBoxColumn, courseDataGridViewTextBoxColumn });
             LecData.DataSource = lecturerBindingSource;
             LecData.Location = new Point(12, 12);
             LecData.Name = "LecData";
             LecData.ReadOnly = true;
             LecData.RowTemplate.Height = 25;
-            LecData.Size = new Size(936, 331);
+            LecData.Size = new Size(842, 331);
             LecData.TabIndex = 93;
             LecData.CellContentClick += LecData_CellContentClick;
+            // 
+            // lecturerBindingSource
+            // 
+            lecturerBindingSource.DataSource = typeof(Code_First.Models.Lecturer);
             // 
             // panel2
             // 
             panel2.BackColor = SystemColors.Control;
             panel2.Controls.Add(updatebtn);
             panel2.Controls.Add(AddLecDOB);
+            panel2.Controls.Add(AddLecDep);
+            panel2.Controls.Add(AddLecStatus);
             panel2.Controls.Add(AddLecGen);
             panel2.Controls.Add(Deletebtn);
             panel2.Controls.Add(AddLecBtn);
             panel2.Controls.Add(AddLecCourse);
-            panel2.Controls.Add(AddLecStatus);
             panel2.Controls.Add(AddLecEmail);
-            panel2.Controls.Add(AddLecSalary);
             panel2.Controls.Add(AddLecName);
-            panel2.Controls.Add(AddLecDep);
-            panel2.Controls.Add(label8);
             panel2.Controls.Add(label7);
             panel2.Controls.Add(label6);
             panel2.Controls.Add(AddLecPhone);
@@ -109,7 +108,7 @@
             panel2.Controls.Add(label3);
             panel2.Controls.Add(label1);
             panel2.Controls.Add(AddLecAddr);
-            panel2.Location = new Point(45, 361);
+            panel2.Location = new Point(12, 359);
             panel2.Name = "panel2";
             panel2.Size = new Size(846, 258);
             panel2.TabIndex = 94;
@@ -122,7 +121,7 @@
             updatebtn.Name = "updatebtn";
             updatebtn.Size = new Size(100, 37);
             updatebtn.TabIndex = 111;
-            updatebtn.Text = "Update";
+            updatebtn.Text = "Edit";
             updatebtn.UseVisualStyleBackColor = false;
             updatebtn.Click += updatebtn_Click;
             // 
@@ -134,13 +133,31 @@
             AddLecDOB.Size = new Size(204, 23);
             AddLecDOB.TabIndex = 110;
             // 
+            // AddLecDep
+            // 
+            AddLecDep.FormattingEnabled = true;
+            AddLecDep.Items.AddRange(new object[] { "English", "French", "Maths", "Physics", "Accounting", "Marketing", "Data Literacy", "Programming" });
+            AddLecDep.Location = new Point(317, 46);
+            AddLecDep.Name = "AddLecDep";
+            AddLecDep.Size = new Size(220, 23);
+            AddLecDep.TabIndex = 109;
+            // 
+            // AddLecStatus
+            // 
+            AddLecStatus.FormattingEnabled = true;
+            AddLecStatus.Items.AddRange(new object[] { "Married", "Single" });
+            AddLecStatus.Location = new Point(317, 164);
+            AddLecStatus.Name = "AddLecStatus";
+            AddLecStatus.Size = new Size(220, 23);
+            AddLecStatus.TabIndex = 109;
+            // 
             // AddLecGen
             // 
             AddLecGen.FormattingEnabled = true;
             AddLecGen.Items.AddRange(new object[] { "Male", "Female" });
-            AddLecGen.Location = new Point(611, 164);
+            AddLecGen.Location = new Point(317, 106);
             AddLecGen.Name = "AddLecGen";
-            AddLecGen.Size = new Size(198, 23);
+            AddLecGen.Size = new Size(220, 23);
             AddLecGen.TabIndex = 109;
             // 
             // Deletebtn
@@ -163,7 +180,7 @@
             AddLecBtn.Name = "AddLecBtn";
             AddLecBtn.Size = new Size(105, 37);
             AddLecBtn.TabIndex = 108;
-            AddLecBtn.Text = "Add";
+            AddLecBtn.Text = "Add New";
             AddLecBtn.UseVisualStyleBackColor = false;
             // 
             // AddLecCourse
@@ -176,14 +193,6 @@
             AddLecCourse.TabIndex = 107;
             AddLecCourse.Text = "Course Taught:";
             // 
-            // AddLecStatus
-            // 
-            AddLecStatus.Anchor = AnchorStyles.Left;
-            AddLecStatus.Location = new Point(317, 164);
-            AddLecStatus.Name = "AddLecStatus";
-            AddLecStatus.Size = new Size(220, 23);
-            AddLecStatus.TabIndex = 92;
-            // 
             // AddLecEmail
             // 
             AddLecEmail.Anchor = AnchorStyles.Left;
@@ -192,14 +201,6 @@
             AddLecEmail.Size = new Size(198, 23);
             AddLecEmail.TabIndex = 93;
             // 
-            // AddLecSalary
-            // 
-            AddLecSalary.Anchor = AnchorStyles.Left;
-            AddLecSalary.Location = new Point(317, 106);
-            AddLecSalary.Name = "AddLecSalary";
-            AddLecSalary.Size = new Size(220, 23);
-            AddLecSalary.TabIndex = 94;
-            // 
             // AddLecName
             // 
             AddLecName.Anchor = AnchorStyles.Left;
@@ -207,24 +208,6 @@
             AddLecName.Name = "AddLecName";
             AddLecName.Size = new Size(204, 23);
             AddLecName.TabIndex = 95;
-            // 
-            // AddLecDep
-            // 
-            AddLecDep.Anchor = AnchorStyles.Left;
-            AddLecDep.Location = new Point(317, 46);
-            AddLecDep.Name = "AddLecDep";
-            AddLecDep.Size = new Size(220, 23);
-            AddLecDep.TabIndex = 95;
-            // 
-            // label8
-            // 
-            label8.Anchor = AnchorStyles.Left;
-            label8.AutoSize = true;
-            label8.Location = new Point(299, 84);
-            label8.Name = "label8";
-            label8.Size = new Size(41, 15);
-            label8.TabIndex = 106;
-            label8.Text = "Salary:";
             // 
             // label7
             // 
@@ -250,6 +233,7 @@
             // 
             AddLecPhone.Anchor = AnchorStyles.Left;
             AddLecPhone.Location = new Point(39, 164);
+            AddLecPhone.MaxLength = 10;
             AddLecPhone.Name = "AddLecPhone";
             AddLecPhone.Size = new Size(198, 23);
             AddLecPhone.TabIndex = 102;
@@ -288,7 +272,7 @@
             // 
             label3.Anchor = AnchorStyles.Left;
             label3.AutoSize = true;
-            label3.Location = new Point(593, 146);
+            label3.Location = new Point(299, 84);
             label3.Name = "label3";
             label3.Size = new Size(48, 15);
             label3.TabIndex = 97;
@@ -320,10 +304,6 @@
             LecID.Size = new Size(204, 23);
             LecID.TabIndex = 111;
             // 
-            // lecturerBindingSource
-            // 
-            lecturerBindingSource.DataSource = typeof(Code_First.Models.Lecturer);
-            // 
             // idDataGridViewTextBoxColumn
             // 
             idDataGridViewTextBoxColumn.DataPropertyName = "Id";
@@ -345,19 +325,19 @@
             genderDataGridViewTextBoxColumn.Name = "genderDataGridViewTextBoxColumn";
             genderDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // dobDataGridViewTextBoxColumn
-            // 
-            dobDataGridViewTextBoxColumn.DataPropertyName = "Dob";
-            dobDataGridViewTextBoxColumn.HeaderText = "Dob";
-            dobDataGridViewTextBoxColumn.Name = "dobDataGridViewTextBoxColumn";
-            dobDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
             // addressDataGridViewTextBoxColumn
             // 
             addressDataGridViewTextBoxColumn.DataPropertyName = "Address";
             addressDataGridViewTextBoxColumn.HeaderText = "Address";
             addressDataGridViewTextBoxColumn.Name = "addressDataGridViewTextBoxColumn";
             addressDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // DoB
+            // 
+            DoB.DataPropertyName = "DoB";
+            DoB.HeaderText = "DoB";
+            DoB.Name = "DoB";
+            DoB.ReadOnly = true;
             // 
             // emailDataGridViewTextBoxColumn
             // 
@@ -387,19 +367,12 @@
             courseDataGridViewTextBoxColumn.Name = "courseDataGridViewTextBoxColumn";
             courseDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // salaryDataGridViewTextBoxColumn
-            // 
-            salaryDataGridViewTextBoxColumn.DataPropertyName = "Salary";
-            salaryDataGridViewTextBoxColumn.HeaderText = "Salary";
-            salaryDataGridViewTextBoxColumn.Name = "salaryDataGridViewTextBoxColumn";
-            salaryDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
             // Add_Lecturer
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(959, 629);
+            ClientSize = new Size(869, 629);
             Controls.Add(panel2);
             Controls.Add(LecData);
             Controls.Add(LecID);
@@ -408,9 +381,9 @@
             Text = "Lecturer";
             Load += Lecturer_Load;
             ((System.ComponentModel.ISupportInitialize)LecData).EndInit();
+            ((System.ComponentModel.ISupportInitialize)lecturerBindingSource).EndInit();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)lecturerBindingSource).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -422,11 +395,7 @@
         private ComboBox AddLecGen;
         private Button AddLecBtn;
         private Label AddLecCourse;
-        private TextBox AddLecStatus;
         private TextBox AddLecEmail;
-        private TextBox AddLecSalary;
-        private TextBox AddLecDep;
-        private Label label8;
         private Label label7;
         private Label label6;
         private TextBox AddLecPhone;
@@ -440,16 +409,18 @@
         private TextBox AddLecName;
         private TextBox LecID;
         private Button updatebtn;
+        private DataGridViewTextBoxColumn dobDataGridViewTextBoxColumn;
+        private BindingSource lecturerBindingSource;
+        private ComboBox AddLecDep;
+        private ComboBox AddLecStatus;
         private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn genderDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn dobDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn addressDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn DoB;
         private DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn phoneDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn courseDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn salaryDataGridViewTextBoxColumn;
-        private BindingSource lecturerBindingSource;
     }
 }

@@ -44,14 +44,14 @@
             Deletebtn = new Button();
             Updatebtn = new Button();
             DepData = new DataGridView();
-            DepID = new TextBox();
-            departmentBindingSource = new BindingSource(components);
             nameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             iDDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             descriptionDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             coursesDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             studentsDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             lecturersDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            departmentBindingSource = new BindingSource(components);
+            DepID = new TextBox();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)DepData).BeginInit();
             ((System.ComponentModel.ISupportInitialize)departmentBindingSource).BeginInit();
@@ -128,7 +128,7 @@
             AddDepBtn.Name = "AddDepBtn";
             AddDepBtn.Size = new Size(85, 33);
             AddDepBtn.TabIndex = 3;
-            AddDepBtn.Text = "Add";
+            AddDepBtn.Text = "Add New";
             AddDepBtn.UseVisualStyleBackColor = false;
             AddDepBtn.Click += AddDepBtn_Click;
             // 
@@ -187,7 +187,7 @@
             Updatebtn.Name = "Updatebtn";
             Updatebtn.Size = new Size(85, 33);
             Updatebtn.TabIndex = 12;
-            Updatebtn.Text = "Update";
+            Updatebtn.Text = "Edit";
             Updatebtn.UseVisualStyleBackColor = false;
             Updatebtn.Click += Updatebtn_Click;
             // 
@@ -206,17 +206,6 @@
             DepData.Size = new Size(644, 376);
             DepData.TabIndex = 14;
             DepData.CellContentClick += DepData_CellContentClick;
-            // 
-            // DepID
-            // 
-            DepID.Location = new Point(273, 262);
-            DepID.Name = "DepID";
-            DepID.Size = new Size(224, 23);
-            DepID.TabIndex = 13;
-            // 
-            // departmentBindingSource
-            // 
-            departmentBindingSource.DataSource = typeof(Code_First.Models.Department);
             // 
             // nameDataGridViewTextBoxColumn
             // 
@@ -259,6 +248,17 @@
             lecturersDataGridViewTextBoxColumn.HeaderText = "Lecturers";
             lecturersDataGridViewTextBoxColumn.Name = "lecturersDataGridViewTextBoxColumn";
             lecturersDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // departmentBindingSource
+            // 
+            departmentBindingSource.DataSource = typeof(Code_First.Models.Department);
+            // 
+            // DepID
+            // 
+            DepID.Location = new Point(273, 262);
+            DepID.Name = "DepID";
+            DepID.Size = new Size(224, 23);
+            DepID.TabIndex = 13;
             // 
             // Add_Department
             // 

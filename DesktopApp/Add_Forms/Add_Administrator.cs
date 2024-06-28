@@ -29,8 +29,8 @@ namespace DesktopApp
 
         private async void AddAdminBtn_Click(object sender, EventArgs e)
         {
-            if (AddAdminSalary.Text == "" ||
-            AddAdminDepartment.Text == "" ||
+            if (
+            AddAdminDep.Text == "" ||
             AddAdminPost.Text == "" ||
             AddAdminN.Text == "" ||
             AddAdminGender.Text == "" ||
@@ -42,16 +42,25 @@ namespace DesktopApp
             {
                 MessageBox.Show("Please fill all fields", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            
+
+            /* var name = AddAdminN.Text;
+
+             var record = await RestApiHelpers.GetByName<Administrators>(new Administrators(), "Administrator", name);
+
+             if (record != null)
+             {
+                 MessageBox.Show("Administrator already exist", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+             }*/
+
+            else
             {
                 await RestApiHelpers.Post<Administrators>(new Administrators()
                 {
-                    Salary = Int32.Parse(AddAdminSalary.Text),
-                    Department = AddAdminDepartment.Text,
+                    Department = AddAdminDep.Text,
                     Post = AddAdminPost.Text,
                     Name = AddAdminN.Text,
                     Gender = AddAdminGender.Text,
-                    Dob = DateTime.Parse(AddAdminDOB.Text),
+                    DoB = DateTime.Parse(AddAdminDOB.Text),
                     Address = AddAdminA.Text,
                     Email = AddAdminEmail.Text,
                     Phone = Int32.Parse(AddAdminPhone.Text),
@@ -81,55 +90,104 @@ namespace DesktopApp
             DataGridViewRow row = AdminData.Rows[e.RowIndex];
 
             AdminId.Text = row.Cells[0].Value.ToString();
-            AddAdminSalary.Text = row.Cells[1].Value.ToString();
-            AddAdminDepartment.Text = row.Cells[2].Value.ToString();
-            AddAdminPost.Text = row.Cells[3].Value.ToString();
-            AddAdminN.Text = row.Cells[4].Value.ToString();
+            AddAdminDep.Text = row.Cells[3].Value.ToString();
+            AddAdminPost.Text = row.Cells[4].Value.ToString();
+            AddAdminN.Text = row.Cells[1].Value.ToString();
             AddAdminGender.Text = row.Cells[5].Value.ToString();
-            AddAdminDOB.Text = row.Cells[6].Value.ToString();
-            AddAdminA.Text = row.Cells[7].Value.ToString();
-            AddAdminEmail.Text = row.Cells[8].Value.ToString();
-            AddAdminPhone.Text = row.Cells[9].Value.ToString();
-            AddAdminStatus.Text = row.Cells[10].Value.ToString();
-
+            AddAdminDOB.Text = row.Cells[2].Value.ToString();
+            AddAdminA.Text = row.Cells[6].Value.ToString();
+            AddAdminEmail.Text = row.Cells[7].Value.ToString();
+            AddAdminPhone.Text = row.Cells[8].Value.ToString();
+            AddAdminStatus.Text = row.Cells[9].Value.ToString();
         }
 
         private async void UpdateAdmin_Click(object sender, EventArgs e)
         {
-            var urlId = Int32.Parse(AdminId.Text);
-
-            await RestApiHelpers.Update<Administrators>(new Administrators()
+            if (
+            AddAdminDep.Text == "" ||
+            AddAdminPost.Text == "" ||
+            AddAdminN.Text == "" ||
+            AddAdminGender.Text == "" ||
+            AddAdminDOB.Text == "" ||
+            AddAdminA.Text == "" ||
+            AddAdminEmail.Text == "" ||
+            AddAdminPhone.Text == "" ||
+            AddAdminStatus.Text == "")
             {
-                Id = Int32.Parse(AdminId.Text),
-                Salary = Int32.Parse(AddAdminSalary.Text),
-                Department = AddAdminDepartment.Text,
-                Post = AddAdminPost.Text,
-                Name = AddAdminN.Text,
-                Gender = AddAdminGender.Text,
-                Dob = DateTime.Parse(AddAdminDOB.Text),
-                Address = AddAdminA.Text,
-                Email = AddAdminEmail.Text,
-                Phone = Int32.Parse(AddAdminPhone.Text),
-                Status = AddAdminStatus.Text
+                MessageBox.Show("Nothing to update here", "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                var urlId = Int32.Parse(AdminId.Text);
 
-            }, "Administrator", urlId);
+                await RestApiHelpers.Update<Administrators>(new Administrators()
+                {
+                    Id = Int32.Parse(AdminId.Text),
+                    Department = AddAdminDep.Text,
+                    Post = AddAdminPost.Text,
+                    Name = AddAdminN.Text,
+                    Gender = AddAdminGender.Text,
+                    DoB = DateTime.Parse(AddAdminDOB.Text),
+                    Address = AddAdminA.Text,
+                    Email = AddAdminEmail.Text,
+                    Phone = Int32.Parse(AddAdminPhone.Text),
+                    Status = AddAdminStatus.Text
 
-            var data = await RestApiHelpers.GetALL<Administrators>(new Administrators(), "Administrator");
-            AdminData.DataSource = data;
+                }, "Administrator", urlId);
 
-            MessageBox.Show("Updated Successfully", "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                var data = await RestApiHelpers.GetALL<Administrators>(new Administrators(), "Administrator");
+                AdminData.DataSource = data;
+
+                MessageBox.Show("Updated Successfully", "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
+
 
         private async void Deletebtn_Click(object sender, EventArgs e)
         {
-            var Id = Int32.Parse(AdminId.Text);
 
-            await RestApiHelpers.Delete<Administrators>(new Administrators(), "Administrator", Id);
+            if (AdminId.Text == "")
+            {
+                MessageBox.Show("Please click on a field you like to delete", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-            var data = await RestApiHelpers.GetALL<Administrators>(new Administrators(), "Administrator");
-            AdminData.DataSource = data;
+                var confirmResult = MessageBox.Show("Are you sure you want to delete!!", "Confrim Delete", MessageBoxButtons.YesNo);
 
-            MessageBox.Show("Deleted Successfully", "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (confirmResult == DialogResult.Yes)
+                {
+                    var Id = Int32.Parse(AdminId.Text);
+
+                    await RestApiHelpers.Delete<Administrators>(new Administrators(), "Administrator", Id);
+
+                    var data = await RestApiHelpers.GetALL<Administrators>(new Administrators(), "Administrator");
+                    AdminData.DataSource = data;
+
+                    AddAdminDep.Text = "";
+                    AddAdminPost.Text = "";
+                    AddAdminN.Text = "";
+                    AddAdminGender.Text = "";
+                    AddAdminDOB.Text = "";
+                    AddAdminA.Text = "";
+                    AddAdminEmail.Text = "";
+                    AddAdminPhone.Text = "";
+                    AddAdminStatus.Text = "";
+
+                    MessageBox.Show("Deleted Successfully", "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            else
+            {
+                var data = await RestApiHelpers.GetALL<Administrators>(new Administrators(), "Administrator");
+                AdminData.DataSource = data;
+            }
+        }
+
+        private async void Searchbtn_Click(object sender, EventArgs e)
+        {
+            var name = SearchBox.Text;
+
+            var results = await RestApiHelpers.GetByName<Administrators>(new Administrators(), "Administrator", name);
+
+            AdminData.DataSource = results;
         }
     }
 }

@@ -21,7 +21,7 @@ namespace DesktopApp.Add_Forms
 
         private async void AddLecBtn_Click(object sender, EventArgs e)
         {
-            if (AddLecSalary.Text == "" ||
+            if (
            AddLecDep.Text == "" ||
            AddLecName.Text == "" ||
            AddLecGen.Text == "" ||
@@ -37,11 +37,10 @@ namespace DesktopApp.Add_Forms
             {
                 await RestApiHelpers.Post<Lecturer>(new Lecturer()
                 {
-                    Salary = Int32.Parse(AddLecSalary.Text),
                     Course = AddLecDep.Text,
                     Name = AddLecName.Text,
                     Gender = AddLecGen.Text,
-                    Dob = DateTime.Parse(AddLecDOB.Text),
+                    DoB = DateTime.Parse(AddLecDOB.Text),
                     Address = AddLecAddr.Text,
                     Email = AddLecEmail.Text,
                     Phone = Int32.Parse(AddLecPhone.Text),
@@ -69,15 +68,14 @@ namespace DesktopApp.Add_Forms
             DataGridViewRow row = LecData.Rows[e.RowIndex];
 
             LecID.Text = row.Cells[0].Value.ToString();
-            AddLecSalary.Text = row.Cells[1].Value.ToString();
-            AddLecDep.Text = row.Cells[2].Value.ToString();
-            AddLecName.Text = row.Cells[3].Value.ToString();
-            AddLecGen.Text = row.Cells[4].Value.ToString();
-            AddLecDOB.Text = row.Cells[5].Value.ToString();
-            AddLecAddr.Text = row.Cells[6].Value.ToString();
-            AddLecEmail.Text = row.Cells[7].Value.ToString();
-            AddLecPhone.Text = row.Cells[8].Value.ToString();
-            AddLecStatus.Text = row.Cells[9].Value.ToString();
+            AddLecDep.Text = row.Cells[1].Value.ToString();
+            AddLecName.Text = row.Cells[2].Value.ToString();
+            AddLecGen.Text = row.Cells[3].Value.ToString();
+            AddLecDOB.Text = row.Cells[4].Value.ToString();
+            AddLecAddr.Text = row.Cells[5].Value.ToString();
+            AddLecEmail.Text = row.Cells[6].Value.ToString();
+            AddLecPhone.Text = row.Cells[7].Value.ToString();
+            AddLecStatus.Text = row.Cells[8].Value.ToString();
         }
 
         private async void updatebtn_Click(object sender, EventArgs e)
@@ -87,11 +85,10 @@ namespace DesktopApp.Add_Forms
             await RestApiHelpers.Update<Lecturer>(new Lecturer()
             {
                 Id = Int32.Parse(LecID.Text),
-                Salary = Int32.Parse(AddLecSalary.Text),
                 Course = AddLecDep.Text,
                 Name = AddLecName.Text,
                 Gender = AddLecGen.Text,
-                Dob = DateTime.Parse(AddLecDOB.Text),
+                DoB = DateTime.Parse(AddLecDOB.Text),
                 Address = AddLecAddr.Text,
                 Email = AddLecEmail.Text,
                 Phone = Int32.Parse(AddLecPhone.Text),

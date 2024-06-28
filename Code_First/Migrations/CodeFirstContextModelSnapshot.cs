@@ -38,7 +38,7 @@ namespace Code_First.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("Dob")
+                    b.Property<DateTime>("DoB")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Email")
@@ -58,9 +58,6 @@ namespace Code_First.Migrations
 
                     b.Property<string>("Post")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Salary")
-                        .HasColumnType("int");
 
                     b.Property<string>("Status")
                         .IsRequired()
@@ -174,7 +171,7 @@ namespace Code_First.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("Dob")
+                    b.Property<DateTime>("DoB")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Email")
@@ -190,9 +187,6 @@ namespace Code_First.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Phone")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Salary")
                         .HasColumnType("int");
 
                     b.Property<string>("Status")
@@ -241,12 +235,12 @@ namespace Code_First.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("DOB")
-                        .HasColumnType("datetime2");
-
                     b.Property<string>("Department")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("DoB")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Email")
                         .IsRequired()

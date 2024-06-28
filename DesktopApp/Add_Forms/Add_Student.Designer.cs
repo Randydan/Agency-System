@@ -34,13 +34,11 @@
             AddStudentNat = new TextBox();
             AddStudentEmail = new TextBox();
             AddStudentMat = new TextBox();
-            AddStudentDep = new TextBox();
             label8 = new Label();
             label7 = new Label();
             label6 = new Label();
             AddStudentPhone = new TextBox();
             AddDob = new TextBox();
-            AddStudentStat = new TextBox();
             label11 = new Label();
             label10 = new Label();
             label5 = new Label();
@@ -53,16 +51,19 @@
             panel2 = new Panel();
             Deletebtn = new Button();
             Updatebtn = new Button();
+            AddStudentDep = new ComboBox();
+            AddStudentStat = new ComboBox();
             StudData = new DataGridView();
-            StudId = new TextBox();
             studentBindingSource = new BindingSource(components);
+            StudId = new TextBox();
+            studentBindingSource1 = new BindingSource(components);
             iDDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             nameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             genderDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            dOBDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             addressDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             emailDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             phoneDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            DoB = new DataGridViewTextBoxColumn();
             statusDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             nationalityDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             departmentDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
@@ -70,6 +71,7 @@
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)StudData).BeginInit();
             ((System.ComponentModel.ISupportInitialize)studentBindingSource).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)studentBindingSource1).BeginInit();
             SuspendLayout();
             // 
             // AddStudentBtn
@@ -79,7 +81,7 @@
             AddStudentBtn.Name = "AddStudentBtn";
             AddStudentBtn.Size = new Size(89, 34);
             AddStudentBtn.TabIndex = 89;
-            AddStudentBtn.Text = "Add";
+            AddStudentBtn.Text = "Add New";
             AddStudentBtn.UseVisualStyleBackColor = false;
             AddStudentBtn.Click += AddStudentBtn_Click;
             // 
@@ -113,13 +115,6 @@
             AddStudentMat.Size = new Size(225, 23);
             AddStudentMat.TabIndex = 71;
             // 
-            // AddStudentDep
-            // 
-            AddStudentDep.Location = new Point(303, 39);
-            AddStudentDep.Name = "AddStudentDep";
-            AddStudentDep.Size = new Size(225, 23);
-            AddStudentDep.TabIndex = 72;
-            // 
             // label8
             // 
             label8.AutoSize = true;
@@ -150,6 +145,7 @@
             // AddStudentPhone
             // 
             AddStudentPhone.Location = new Point(591, 95);
+            AddStudentPhone.MaxLength = 10;
             AddStudentPhone.Name = "AddStudentPhone";
             AddStudentPhone.Size = new Size(225, 23);
             AddStudentPhone.TabIndex = 82;
@@ -160,13 +156,6 @@
             AddDob.Name = "AddDob";
             AddDob.Size = new Size(209, 23);
             AddDob.TabIndex = 81;
-            // 
-            // AddStudentStat
-            // 
-            AddStudentStat.Location = new Point(20, 205);
-            AddStudentStat.Name = "AddStudentStat";
-            AddStudentStat.Size = new Size(209, 23);
-            AddStudentStat.TabIndex = 80;
             // 
             // label11
             // 
@@ -253,6 +242,8 @@
             panel2.Controls.Add(AddStudentMat);
             panel2.Controls.Add(AddStudentName);
             panel2.Controls.Add(AddStudentBtn);
+            panel2.Controls.Add(AddStudentDep);
+            panel2.Controls.Add(AddStudentStat);
             panel2.Controls.Add(AddStudentGen);
             panel2.Controls.Add(AddStudentPhone);
             panel2.Controls.Add(label10);
@@ -266,8 +257,6 @@
             panel2.Controls.Add(label7);
             panel2.Controls.Add(label6);
             panel2.Controls.Add(label8);
-            panel2.Controls.Add(AddStudentDep);
-            panel2.Controls.Add(AddStudentStat);
             panel2.Controls.Add(AddStudentAddr);
             panel2.Controls.Add(label11);
             panel2.Controls.Add(label5);
@@ -294,9 +283,27 @@
             Updatebtn.Name = "Updatebtn";
             Updatebtn.Size = new Size(89, 34);
             Updatebtn.TabIndex = 92;
-            Updatebtn.Text = "Update";
+            Updatebtn.Text = "Edit";
             Updatebtn.UseVisualStyleBackColor = false;
             Updatebtn.Click += Updatebtn_Click;
+            // 
+            // AddStudentDep
+            // 
+            AddStudentDep.FormattingEnabled = true;
+            AddStudentDep.Items.AddRange(new object[] { "Civil Engineering", "Computer Engineering", "Accounting", "Marketing", "Management", "Electrical Engineering", "Transport and Logistics", "Banking and Finance" });
+            AddStudentDep.Location = new Point(303, 39);
+            AddStudentDep.Name = "AddStudentDep";
+            AddStudentDep.Size = new Size(225, 23);
+            AddStudentDep.TabIndex = 91;
+            // 
+            // AddStudentStat
+            // 
+            AddStudentStat.FormattingEnabled = true;
+            AddStudentStat.Items.AddRange(new object[] { "Married", "Single" });
+            AddStudentStat.Location = new Point(18, 205);
+            AddStudentStat.Name = "AddStudentStat";
+            AddStudentStat.Size = new Size(210, 23);
+            AddStudentStat.TabIndex = 91;
             // 
             // StudData
             // 
@@ -304,14 +311,18 @@
             StudData.AllowUserToDeleteRows = false;
             StudData.AutoGenerateColumns = false;
             StudData.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            StudData.Columns.AddRange(new DataGridViewColumn[] { iDDataGridViewTextBoxColumn, nameDataGridViewTextBoxColumn, genderDataGridViewTextBoxColumn, dOBDataGridViewTextBoxColumn, addressDataGridViewTextBoxColumn, emailDataGridViewTextBoxColumn, phoneDataGridViewTextBoxColumn, statusDataGridViewTextBoxColumn, nationalityDataGridViewTextBoxColumn, departmentDataGridViewTextBoxColumn, matricleDataGridViewTextBoxColumn });
-            StudData.DataSource = studentBindingSource;
+            StudData.Columns.AddRange(new DataGridViewColumn[] { iDDataGridViewTextBoxColumn, nameDataGridViewTextBoxColumn, genderDataGridViewTextBoxColumn, addressDataGridViewTextBoxColumn, emailDataGridViewTextBoxColumn, phoneDataGridViewTextBoxColumn, DoB, statusDataGridViewTextBoxColumn, nationalityDataGridViewTextBoxColumn, departmentDataGridViewTextBoxColumn, matricleDataGridViewTextBoxColumn });
+            StudData.DataSource = studentBindingSource1;
             StudData.Location = new Point(12, 2);
             StudData.Name = "StudData";
             StudData.ReadOnly = true;
             StudData.Size = new Size(944, 345);
             StudData.TabIndex = 94;
             StudData.CellContentClick += StudData_CellContentClick;
+            // 
+            // studentBindingSource
+            // 
+            studentBindingSource.DataSource = typeof(Code_First.Models.Student);
             // 
             // StudId
             // 
@@ -320,9 +331,9 @@
             StudId.Size = new Size(225, 23);
             StudId.TabIndex = 92;
             // 
-            // studentBindingSource
+            // studentBindingSource1
             // 
-            studentBindingSource.DataSource = typeof(Code_First.Models.Student);
+            studentBindingSource1.DataSource = typeof(Code_First.Models.Student);
             // 
             // iDDataGridViewTextBoxColumn
             // 
@@ -345,13 +356,6 @@
             genderDataGridViewTextBoxColumn.Name = "genderDataGridViewTextBoxColumn";
             genderDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // dOBDataGridViewTextBoxColumn
-            // 
-            dOBDataGridViewTextBoxColumn.DataPropertyName = "DOB";
-            dOBDataGridViewTextBoxColumn.HeaderText = "DOB";
-            dOBDataGridViewTextBoxColumn.Name = "dOBDataGridViewTextBoxColumn";
-            dOBDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
             // addressDataGridViewTextBoxColumn
             // 
             addressDataGridViewTextBoxColumn.DataPropertyName = "Address";
@@ -372,6 +376,13 @@
             phoneDataGridViewTextBoxColumn.HeaderText = "Phone";
             phoneDataGridViewTextBoxColumn.Name = "phoneDataGridViewTextBoxColumn";
             phoneDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // DoB
+            // 
+            DoB.DataPropertyName = "DoB";
+            DoB.HeaderText = "DoB";
+            DoB.Name = "DoB";
+            DoB.ReadOnly = true;
             // 
             // statusDataGridViewTextBoxColumn
             // 
@@ -418,6 +429,7 @@
             panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)StudData).EndInit();
             ((System.ComponentModel.ISupportInitialize)studentBindingSource).EndInit();
+            ((System.ComponentModel.ISupportInitialize)studentBindingSource1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -429,13 +441,11 @@
         private TextBox AddStudentNat;
         private TextBox AddStudentEmail;
         private TextBox AddStudentMat;
-        private TextBox AddStudentDep;
         private Label label8;
         private Label label7;
         private Label label6;
         private TextBox AddStudentPhone;
         private TextBox AddDob;
-        private TextBox AddStudentStat;
         private Label label11;
         private Label label10;
         private Label label5;
@@ -450,17 +460,21 @@
         private TextBox StudId;
         private Button Updatebtn;
         private Button Deletebtn;
+        private DataGridViewTextBoxColumn dOBDataGridViewTextBoxColumn;
+        private BindingSource studentBindingSource;
+        private ComboBox AddStudentStat;
+        private ComboBox AddStudentDep;
+        private BindingSource studentBindingSource1;
         private DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn genderDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn dOBDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn addressDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn phoneDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn DoB;
         private DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn nationalityDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn departmentDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn matricleDataGridViewTextBoxColumn;
-        private BindingSource studentBindingSource;
     }
 }

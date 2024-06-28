@@ -58,7 +58,7 @@
             AddClassBtn.Name = "AddClassBtn";
             AddClassBtn.Size = new Size(80, 34);
             AddClassBtn.TabIndex = 0;
-            AddClassBtn.Text = "Add";
+            AddClassBtn.Text = "Add New";
             AddClassBtn.UseVisualStyleBackColor = false;
             AddClassBtn.Click += AddClassBtn_Click;
             // 
@@ -134,7 +134,7 @@
             Updatebtn.Name = "Updatebtn";
             Updatebtn.Size = new Size(75, 32);
             Updatebtn.TabIndex = 4;
-            Updatebtn.Text = "Update";
+            Updatebtn.Text = "Edit";
             Updatebtn.UseVisualStyleBackColor = false;
             Updatebtn.Click += Updatebtn_Click;
             // 

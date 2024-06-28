@@ -10,6 +10,7 @@ using System.Text;
 using System.Security.Policy;
 using System.Net.Http.Headers;
 using System;
+using Microsoft.AspNetCore.Mvc;
 
 public static class RestApiHelpers
 {
@@ -28,6 +29,30 @@ public static class RestApiHelpers
                     if (data != null)
                     {
                         return data;
+                    }
+                }
+            }
+        }
+        return new List<T>();
+    }
+
+    public static async Task<IList<T>> GetByName<T>(T b, string url, string name) where T : class
+    {
+        var baseurl = new Uri($"https://localhost:7270/api/{url}/Name?name={name}");
+
+        using (HttpClient client = new HttpClient())
+        {
+            using (HttpResponseMessage res = await client.GetAsync(baseurl))
+            {
+                using (HttpContent content = res.Content)
+                {
+                    var jsondata = await content.ReadAsStringAsync();
+
+                    IList<T> records = JsonConvert.DeserializeObject<IList<T>>(jsondata);
+
+                    if (records != null)
+                    {
+                        return (IList<T>)records;
                     }
                 }
             }
@@ -112,4 +137,5 @@ public static class RestApiHelpers
         }
         return string.Empty;
     }
+
 }
